@@ -1,0 +1,9 @@
+(defun eshell/emacs (&rest args)
+  (if (string= (car args) "-nw")
+      (pop args))
+  (find-file (if args (car args) (read-file-name "File name:")))) > /dev/null
+(defun eshell/vi (file)
+  (find-file file)
+  (vi-mode)) > /dev/null
+(load (expand-file-name "/home/kim/.cim/init.esh")) > /dev/null
+(load (expand-file-name "/home/kim/tmp/cim/init.esh")) > /dev/null

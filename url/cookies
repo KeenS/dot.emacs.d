@@ -1,0 +1,24 @@
+;; Emacs-W3 HTTP cookies file
+;; Automatically generated file!!! DO NOT EDIT!!!
+
+(setq url-cookie-storage
+ '((".nytimes.com"
+  [url-cookie "RMID" "007f01005a0752aeed51004d" "Tue, 16 Dec 2014 12:08:49 GMT" "/" ".nytimes.com" nil])
+ (".ycombinator.com"
+  [url-cookie "__cfduid" "d16f19cc3d8fae93a3dff757103f791fb1403568690047" "23-Dec-2019 23:50:00.00 GMT" "/" ".ycombinator.com" nil]
+  [url-cookie "HttpOnly" nil "23-Dec-2019 23:50:00.00 GMT" "/" ".ycombinator.com" nil])
+ (".reddit.com"
+  [url-cookie "__cfduid" "d49c55e84d4e2a84e747c0f8968331a041408903458959" "23-Dec-2019 23:50:00.00 GMT" "/" ".reddit.com" nil]
+  [url-cookie "HttpOnly" nil "23-Dec-2019 23:50:00.00 GMT" "/" ".reddit.com" nil])
+ (".google.co.jp"
+  [url-cookie "HttpOnly" nil "18-Jan-2015 07:11:26.00 GMT" "/" ".google.co.jp" nil]
+  [url-cookie "NID" "67=ITzsgxMRhHD7YGPzELuUzD1uClpvFyeAbnVSrt1U3TT7ctAS9VoW_IydeRNDWx2cVKD-4E9oJubUNudI5jVpA6WkixGApO_rcD6tXDNl9zIpNVem7Bh5K2jcPqt3i5mt" "18-Jan-2015 07:11:26.00 GMT" "/" ".google.co.jp" nil]
+  [url-cookie "PREF" "ID=144b698c8362d0a0:U=1fdff6c1ecbada5f:FF=0:TM=1386927702:LM=1405753899:S=ifZLxKBnjDdG5_V0" "18-Jul-2016 07:11:39.00 GMT" "/" ".google.co.jp" nil]))
+)
+(setq url-cookie-secure-storage
+ 'nil)
+
+;; Local Variables:
+;; version-control: never
+;; no-byte-compile: t
+;; End:

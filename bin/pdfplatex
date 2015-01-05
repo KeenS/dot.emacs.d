@@ -1,0 +1,3 @@
+#!/bin/sh
+platex -synctex=1 "$1"
+dvipdfmx "`basename "$1" .tex`"
