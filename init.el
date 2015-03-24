@@ -39,6 +39,10 @@
 (setenv "XDG_CONFIG_DIRS" (expand-file-name "~/.config"))
 (setenv "XDG_DATA_DIRS" "/usr/local/share/:/usr/share/")
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; #compat
+(fset 'parse-integer 'cl-parse-integer)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
