@@ -116,11 +116,10 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #misc
-;; wombatをテーマに使う
-(load-theme 'wombat)
+;; テーマを設定
+(load-theme 'alect-dark t)
 ;; .elと.elcの新しい方をロードする
 (setq load-prefer-newer t)
-
 ;; メニューバーを消す
 (menu-bar-mode -1)
 ;; ツールバーを消す
