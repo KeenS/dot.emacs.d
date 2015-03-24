@@ -675,12 +675,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(safe-local-variable-values
+ '(package-selected-packages
    (quote
-    ((Package . CL-USER)
-     (Base . 10)
-     (Package . CL-PPCRE-TEST)
-     (Syntax . COMMON-LISP)))))
+    (ensime sbt-mode scala-mode slime-company emmet-mode company-coq yasnippet yascroll yaml-mode web-mode utop twittering-mode tuareg sml-mode shelldoc rust-mode ruby-electric robe px popup-complete pg paredit nginx-mode markdown-mode lex gitlab git-gutter-fringe gist ghci-completion flymake-yaml flymake-tuareg flymake-shell flymake-ruby flymake-racket flymake-haskell-multi flycheck-tcl flycheck-ocaml flycheck-haskell flycheck-ghcmod f emacs-eclim eldoc-extension eldoc-eval dtrace-script-mode csv-mode css-eldoc company-ghc company-cmake company-c-headers cmake-mode cljdoc c-eldoc auctex alect-themes adoc-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
