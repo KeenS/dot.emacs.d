@@ -664,6 +664,12 @@
 (add-to-list 'auto-mode-alist '("\\.pgg$" . sml-mode))
 (add-to-list 'auto-mode-alist '("\\.smi$" . sml-mode))
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; #scala
+(require 'ensime)
+(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
