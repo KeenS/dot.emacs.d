@@ -629,7 +629,7 @@
 ;;; #C
 (add-hook 'c-mode-hook (lambda ()
                          (add-to-list (make-local-variable 'company-backends) '(company-c-headers :with company-yasnippet))
-                         (add-to-list (make-local-variable 'company-backends) '(company-clang :with company-yasnippet))
+                         (add-to-list (make-local-variable 'company-backends) 'company-clang)
                          (c-turn-on-eldoc-mode)
                          (setq-default c-basic-offset 2)))
 
