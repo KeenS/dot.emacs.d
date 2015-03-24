@@ -553,8 +553,8 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #OCaml #Caml #ML
-;; (dolist (cons (car (read-from-string (shell-command-to-string "opam config env --sexp"))))
-;;   (setenv (car cons) (cadr cons)))
+(dolist (cons (car (read-from-string (shell-command-to-string "opam config env --sexp"))))
+  (setenv (car cons) (cadr cons)))
 
 ;; Update the emacs path
 (setq exec-path (split-string (getenv "PATH") path-separator))
@@ -562,7 +562,7 @@
 ;; Update the emacs load path
 (add-to-list 'load-path (concat (getenv "OCAML_TOPLEVEL_PATH") "/../../share/emacs/site-lisp"))
 (add-to-list 'load-path (concat (getenv "OCAML_TOPLEVEL_PATH") "/../../build/ocaml/emacs"))
-
+(autoload #'enable-company-ocp-index "ocp-index" "" t)
 ;; Automatically load utop.el
 (autoload #'utop "utop" "Toplevel for OCaml" t)
 (autoload #'utop-setup-ocaml-buffer "utop" "Toplevel for OCaml" t)
@@ -592,8 +592,7 @@
                                 (flymake-tuareg-load)
                                 (flymake-mode-on)
                                 (eldoc-mode)
-                                (set (make-local-variable 'eldoc-documentation-function
-                                                          )
+                                (set (make-local-variable 'eldoc-documentation-function)
                                      #'ocp-index-show-type-at-point)))
 
 
