@@ -168,6 +168,8 @@
 (setq-default vc-follow-symlinks t)
 ;; minibufferからminibufferを使うコマンドを許す
 (setq-default enable-recursive-minibuffers t)
+;; 余分な空白をハイライト
+(setq show-trailing-whitespace t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #dired
