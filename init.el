@@ -36,6 +36,9 @@
         (path-concat
          (getenv "CLASSPATH")
          "/home/kim/android-sdk-linux/platforms/android-11/android.jar"))
+(setenv "XDG_CONFIG_DIRS" (expand-file-name "~/.config"))
+(setenv "XDG_DATA_DIRS" "/usr/local/share/:/usr/share/")
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
