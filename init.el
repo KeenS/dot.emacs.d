@@ -275,6 +275,7 @@
                                (yas/expand))
                     ad-do-it)))))
      (yas/advise-indent-function #'indent-for-tab-command)))
+(yas-minor-mode)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
