@@ -451,25 +451,26 @@
                 clojure-mode-hook
                 scheme-mode-hook
                 inferior-scheme-mode-hook))
-  (add-hook hook #'enable-paredit-mode)
+  (add-hook hook #'paredit-mode)
   (add-hook hook #'eldoc-mode)
   (add-hook hook #'prettify-symbols-mode))
 
 ;;; #Common Lisp #slime
-(slime-setup '(slime-fancy))
-(setq-default slime-autodoc-delay 0.1)
 ;; M-- M-x slime で起動する処理系を選択できる
 (setq-default slime-lisp-implementations
               '((sbcl ("~/.cim/bin/sbcl"))
                 (clisp ("~/.cim/bin/clisp"))
                 (ccl ("~/.cim/bin/ccl"))
                 (ecl ("~/.cim/bin/ecl"))))
+
+(slime-setup '(slime-company slime-fancy))
 ;;; #Clojure
-(add-hook 'clojure-mode-hook (lambda ()
-                               (durendal-enable-auto-compile)
-                               (add-to-list (make-local-variable 'company-backends) '(company-cider :with company-yasnippet))))
-(add-hook 'sldb-mode-hook #'durendal-dim-sldb-font-lock)
-(add-hook 'slime-compilation-finished-hook #'durendal-hide-successful-compile)
+
+;; (add-hook 'clojure-mode-hook (lambda ()
+;;                                (durendal-enable-auto-compile)
+;;                                (add-to-list (make-local-variable 'company-backends) '(company-cider :with company-yasnippet))))
+;(add-hook 'sldb-mode-hook #'durendal-dim-sldb-font-lock)
+;(add-hook 'slime-compilation-finished-hook #'durendal-hide-successful-compile)
 
 ;;; #Scheme #Gauche
 (setq-default scheme-program-name "gosh -i")
