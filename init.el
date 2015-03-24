@@ -410,7 +410,8 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #markdown
-(add-hook 'markdown-mode-hook (lambda () (electric-indent-mode -1)))
+(add-hook 'markdown-mode-hook (lambda ()
+                                (setq (make-local-variable 'electric-indent-mode) -1)))
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . gfm-mode))
 
