@@ -657,6 +657,13 @@
 (load "~/.emacs.d/lisp/racer/editors/racer.el" t t)
 (setq racer-cmd "/home/kim/.emacs.d/lisp/racer/bin/racer")
 (setq rust-srcpath "/home/kim/compile/rust/src")
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; #sml
+(add-to-list 'auto-mode-alist '("\\.pgg$" . sml-mode))
+(add-to-list 'auto-mode-alist '("\\.smi$" . sml-mode))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
