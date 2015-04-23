@@ -275,7 +275,7 @@
                                (yas/expand))
                     ad-do-it)))))
      (yas/advise-indent-function #'indent-for-tab-command)))
-(yas-minor-mode)
+(yas-global-mode)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -663,6 +663,36 @@
 ;;; #sml
 (add-to-list 'auto-mode-alist '("\\.pgg$" . sml-mode))
 (add-to-list 'auto-mode-alist '("\\.smi$" . sml-mode))
+
+
+(require 'flymake)
+
+;; (defun flymake-sml-lint-init ()
+;;   (flymake-simple-make-init-impl
+;;    'flymake-create-temp-inplace nil nil
+;;    buffer-file-name
+;;    'flymake-get-sml-lint-cmdline))
+
+;; (defun flymake-get-sml-lint-cmdline (source base-dir)
+;;   `("~/Sml/SML-Lint/lint" (,source)))
+
+
+
+
+;; (push '(".+\\.sml$" flymake-sml-lint-init) flymake-allowed-file-name-masks)
+(eval-after-load 'flymake
+  '(progn 
+    (add-to-list 'flymake-allowed-file-name-masks '(".+\\.sml$"
+                                                    (lambda ()
+                                                      (list "/usr/local/bin/smlsharp" (list "-ftypecheck-only" (buffer-file-name))))
+                                                    (lambda () nil)))
+    (add-to-list 'flymake-err-line-patterns '("^\\([^: ]*\\):\\([0-9]+\\)\\.\\([0-9]+\\)-[0-9]+\\.[0-9]+ \\(Error\\|Warning\\):"
+                                              1 2 3 4))))
+(add-hook 'sml-mode-hook #'flymake-mode)
+
+;; (push '("\\([^,]*\\), line \\([0-9]+\\), column \\([0-9]+\\): \\(.*\\)"
+;;         1 2 3 4)
+;;       flymake-err-line-patterns)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
