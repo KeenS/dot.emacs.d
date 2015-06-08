@@ -688,7 +688,9 @@
                                                     (lambda () nil)))
     (add-to-list 'flymake-err-line-patterns '("^\\([^: ]*\\):\\([0-9]+\\)\\.\\([0-9]+\\)-[0-9]+\\.[0-9]+ \\(Error\\|Warning\\):"
                                               1 2 3 4))))
-(add-hook 'sml-mode-hook #'flymake-mode)
+(add-hook 'sml-mode-hook (lambda ()
+                           (flymake-mode)
+                           (prettify-symbols-mode)))
 
 ;; (push '("\\([^,]*\\), line \\([0-9]+\\), column \\([0-9]+\\): \\(.*\\)"
 ;;         1 2 3 4)
@@ -707,7 +709,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (ensime sbt-mode scala-mode slime-company emmet-mode company-coq yasnippet yascroll yaml-mode web-mode utop twittering-mode tuareg sml-mode shelldoc rust-mode ruby-electric robe px popup-complete pg paredit nginx-mode markdown-mode lex gitlab git-gutter-fringe gist ghci-completion flymake-yaml flymake-tuareg flymake-shell flymake-ruby flymake-racket flymake-haskell-multi flycheck-tcl flycheck-ocaml flycheck-haskell flycheck-ghcmod f emacs-eclim eldoc-extension eldoc-eval dtrace-script-mode csv-mode css-eldoc company-ghc company-cmake company-c-headers cmake-mode cljdoc c-eldoc auctex alect-themes adoc-mode))))
+    (cider clojure-mode ensime sbt-mode scala-mode slime-company emmet-mode company-coq yasnippet yascroll yaml-mode utop twittering-mode tuareg sml-mode rust-mode ruby-electric robe px popup-complete paredit nginx-mode lex git-gutter-fringe gist ghci-completion flymake-yaml flymake-tuareg flymake-shell flymake-ruby flymake-racket flymake-haskell-multi flycheck-tcl flycheck-ocaml flycheck-haskell flycheck-ghcmod f emacs-eclim eldoc-extension eldoc-eval csv-mode css-eldoc company-ghc company-cmake company-c-headers cmake-mode cljdoc c-eldoc auctex alect-themes adoc-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
