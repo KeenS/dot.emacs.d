@@ -1,7 +1,13 @@
 ((yasnippet
   [cl-struct-package-desc yasnippet
-			  (20150320 334)
-			  "Yet another snippet extension for Emacs." nil nil nil "/home/kim/.emacs.d/elpa/yasnippet-20150320.334"
+			  (20150415 244)
+			  "Yet another snippet extension for Emacs." nil nil nil "/home/kim/.emacs.d/elpa/yasnippet-20150415.244"
+			  ((:keywords "convenience" "emulation")
+			   (:url . "http://github.com/capitaomorte/yasnippet"))
+			  nil]
+  [cl-struct-package-desc yasnippet
+			  (20150323 311)
+			  "Yet another snippet extension for Emacs." nil nil nil "/home/kim/.emacs.d/elpa/yasnippet-20150323.311"
 			  ((:keywords "convenience" "emulation")
 			   (:url . "http://github.com/capitaomorte/yasnippet"))
 			  nil])
@@ -22,8 +28,8 @@
 			  nil])
  (web-mode
   [cl-struct-package-desc web-mode
-			  (20150321 1140)
-			  "major mode for editing web templates" nil nil nil "/home/kim/.emacs.d/elpa/web-mode-20150321.1140"
+			  (20150528 55)
+			  "major mode for editing web templates" nil nil nil "/home/kim/.emacs.d/elpa/web-mode-20150528.55"
 			  ((:keywords "languages")
 			   (:url . "http://web-mode.org"))
 			  nil])
@@ -74,25 +80,22 @@
 			  nil])
  (slime
   [cl-struct-package-desc slime
-			  (20150304 1145)
+			  (20150601 1411)
 			  "Superior Lisp Interaction Mode for Emacs"
 			  ((cl-lib
 			    (0 5)))
-			  nil nil "/home/kim/.emacs.d/elpa/slime-20150304.1145"
+			  nil nil "/home/kim/.emacs.d/elpa/slime-20150601.1411"
 			  ((:keywords "languages" "lisp" "slime")
 			   (:url . "https://github.com/slime/slime"))
-			  nil])
- (shelldoc
-  [cl-struct-package-desc shelldoc
-			  (20141230 534)
-			  "shell command editing support with man page."
+			  nil]
+  [cl-struct-package-desc slime
+			  (20150520 501)
+			  "Superior Lisp Interaction Mode for Emacs"
 			  ((cl-lib
-			    (0 3))
-			   (s
-			    (1 9 0)))
-			  nil nil "/home/kim/.emacs.d/elpa/shelldoc-20141230.534"
-			  ((:keywords "applications")
-			   (:url . "http://github.com/mhayashi1120/Emacs-shelldoc/raw/master/shelldoc.el"))
+			    (0 5)))
+			  nil nil "/home/kim/.emacs.d/elpa/slime-20150520.501"
+			  ((:keywords "languages" "lisp" "slime")
+			   (:url . "https://github.com/slime/slime"))
 			  nil])
  (scala-mode2
   [cl-struct-package-desc scala-mode2
@@ -113,32 +116,41 @@
 			  nil])
  (rust-mode
   [cl-struct-package-desc rust-mode
-			  (20150308 1815)
-			  "A major emacs mode for editing Rust source code" nil nil nil "/home/kim/.emacs.d/elpa/rust-mode-20150308.1815"
+			  (20150522 738)
+			  "A major emacs mode for editing Rust source code" nil nil nil "/home/kim/.emacs.d/elpa/rust-mode-20150522.738"
 			  ((:keywords "languages")
-			   (:url . "https://github.com/rust-lang/rust"))
+			   (:url . "https://github.com/rust-lang/rust-mode"))
+			  nil]
+  [cl-struct-package-desc rust-mode
+			  (20150518 537)
+			  "A major emacs mode for editing Rust source code" nil nil nil "/home/kim/.emacs.d/elpa/rust-mode-20150518.537"
+			  ((:keywords "languages")
+			   (:url . "https://github.com/rust-lang/rust-mode"))
 			  nil])
  (ruby-electric
   [cl-struct-package-desc ruby-electric
-			  (20150126 106)
-			  "Minor mode for electrically editing ruby code" nil nil nil "/home/kim/.emacs.d/elpa/ruby-electric-20150126.106"
+			  (20150424 752)
+			  "Minor mode for electrically editing ruby code" nil nil nil "/home/kim/.emacs.d/elpa/ruby-electric-20150424.752"
 			  ((:keywords "languages" "ruby")
 			   (:url . "https://github.com/knu/ruby-electric.el"))
 			  nil])
  (robe
   [cl-struct-package-desc robe
-			  (20150222 1644)
+			  (20150430 1724)
 			  "Code navigation, documentation lookup and completion for Ruby"
 			  ((inf-ruby
 			    (2 3 0)))
-			  nil nil "/home/kim/.emacs.d/elpa/robe-20150222.1644"
+			  nil nil "/home/kim/.emacs.d/elpa/robe-20150430.1724"
 			  ((:keywords "ruby" "convenience" "rails")
 			   (:url . "https://github.com/dgutov/robe"))
 			  nil])
- (request
-  [cl-struct-package-desc request
-			  (20140316 417)
-			  "Compatible layer for URL request in Emacs" nil nil nil "/home/kim/.emacs.d/elpa/request-20140316.417" nil nil])
+ (queue
+  [cl-struct-package-desc queue
+			  (0 1 1)
+			  "Queue data structure" nil nil nil "/home/kim/.emacs.d/elpa/queue-0.1.1"
+			  ((:keywords "extensions" "data structures" "queue")
+			   (:url . "http://www.dr-qubit.org/emacs.php"))
+			  t])
  (px
   [cl-struct-package-desc px
 			  (20141006 548)
@@ -165,19 +177,13 @@
 			  nil])
  (pkg-info
   [cl-struct-package-desc pkg-info
-			  (20140610 630)
+			  (20150517 443)
 			  "Information about packages"
 			  ((epl
-			    (0 4)))
-			  nil nil "/home/kim/.emacs.d/elpa/pkg-info-20140610.630"
+			    (0 8)))
+			  nil nil "/home/kim/.emacs.d/elpa/pkg-info-20150517.443"
 			  ((:keywords "convenience")
 			   (:url . "https://github.com/lunaryorn/pkg-info.el"))
-			  nil])
- (pg
-  [cl-struct-package-desc pg
-			  (20130731 1442)
-			  "Emacs Lisp interface to the PostgreSQL RDBMS" nil nil nil "/home/kim/.emacs.d/elpa/pg-20130731.1442"
-			  ((:keywords "data" "comm" "database" "postgresql"))
 			  nil])
  (pcache
   [cl-struct-package-desc pcache
@@ -200,8 +206,14 @@
 			  nil])
  (merlin
   [cl-struct-package-desc merlin
-			  (20150311 802)
-			  "Mode for Merlin, an assistant for OCaml." nil nil nil "/home/kim/.emacs.d/elpa/merlin-20150311.802"
+			  (20150606 518)
+			  "Mode for Merlin, an assistant for OCaml." nil nil nil "/home/kim/.emacs.d/elpa/merlin-20150606.518"
+			  ((:keywords "ocaml" "languages")
+			   (:url . "http://github.com/the-lambda-church/merlin"))
+			  nil]
+  [cl-struct-package-desc merlin
+			  (20150528 759)
+			  "Mode for Merlin, an assistant for OCaml." nil nil nil "/home/kim/.emacs.d/elpa/merlin-20150528.759"
 			  ((:keywords "ocaml" "languages")
 			   (:url . "http://github.com/the-lambda-church/merlin"))
 			  nil])
@@ -221,8 +233,8 @@
 			  nil])
  (markdown-mode
   [cl-struct-package-desc markdown-mode
-			  (20150121 1229)
-			  "Emacs Major mode for Markdown-formatted text files" nil nil nil "/home/kim/.emacs.d/elpa/markdown-mode-20150121.1229"
+			  (20150528 1552)
+			  "Emacs Major mode for Markdown-formatted text files" nil nil nil "/home/kim/.emacs.d/elpa/markdown-mode-20150528.1552"
 			  ((:keywords "markdown" "github flavored markdown" "itex")
 			   (:url . "http://jblevins.org/projects/markdown-mode/"))
 			  nil])
@@ -243,69 +255,65 @@
 			  nil])
  (inf-ruby
   [cl-struct-package-desc inf-ruby
-			  (20150222 1742)
-			  "Run a Ruby process in a buffer" nil nil nil "/home/kim/.emacs.d/elpa/inf-ruby-20150222.1742"
+			  (20150602 1153)
+			  "Run a Ruby process in a buffer" nil nil nil "/home/kim/.emacs.d/elpa/inf-ruby-20150602.1153"
+			  ((:keywords "languages" "ruby")
+			   (:url . "http://github.com/nonsequitur/inf-ruby"))
+			  nil]
+  [cl-struct-package-desc inf-ruby
+			  (20150403 946)
+			  "Run a Ruby process in a buffer" nil nil nil "/home/kim/.emacs.d/elpa/inf-ruby-20150403.946"
 			  ((:keywords "languages" "ruby")
 			   (:url . "http://github.com/nonsequitur/inf-ruby"))
 			  nil])
  (haskell-mode
   [cl-struct-package-desc haskell-mode
-			  (20150321 21)
+			  (20150606 108)
 			  "A Haskell editing mode"
 			  ((cl-lib
 			    (0 5)))
-			  nil nil "/home/kim/.emacs.d/elpa/haskell-mode-20150321.21" nil nil])
- (gitlab
-  [cl-struct-package-desc gitlab
-			  (20141222 208)
-			  "Emacs client for Gitlab"
-			  ((s
-			    (1 9 0))
-			   (dash
-			    (2 9 0))
-			   (pkg-info
-			    (0 5 0))
-			   (request
-			    (0 1 0)))
-			  nil nil "/home/kim/.emacs.d/elpa/gitlab-20141222.208"
-			  ((:keywords "gitlab")
-			   (:url . "https://github.com/nlamirault/emacs-gitlab"))
-			  nil])
+			  nil nil "/home/kim/.emacs.d/elpa/haskell-mode-20150606.108" nil nil]
+  [cl-struct-package-desc haskell-mode
+			  (20150601 1237)
+			  "A Haskell editing mode"
+			  ((cl-lib
+			    (0 5)))
+			  nil nil "/home/kim/.emacs.d/elpa/haskell-mode-20150601.1237" nil nil])
  (git-gutter-fringe
   [cl-struct-package-desc git-gutter-fringe
-			  (20140826 2321)
+			  (20150331 2139)
 			  "Fringe version of git-gutter.el"
 			  ((git-gutter
-			    (0 73))
+			    (0 82))
 			   (fringe-helper
 			    (0 1 1))
 			   (cl-lib
 			    (0 5))
 			   (emacs
 			    (24)))
-			  nil nil "/home/kim/.emacs.d/elpa/git-gutter-fringe-20140826.2321"
+			  nil nil "/home/kim/.emacs.d/elpa/git-gutter-fringe-20150331.2139"
 			  ((:url . "https://github.com/syohex/emacs-git-gutter-fringe"))
 			  nil])
  (git-gutter
   [cl-struct-package-desc git-gutter
-			  (20150321 2337)
+			  (20150501 756)
 			  "Port of Sublime Text plugin GitGutter"
 			  ((cl-lib
 			    (0 5))
 			   (emacs
 			    (24)))
-			  nil nil "/home/kim/.emacs.d/elpa/git-gutter-20150321.2337"
+			  nil nil "/home/kim/.emacs.d/elpa/git-gutter-20150501.756"
 			  ((:url . "https://github.com/syohex/emacs-git-gutter"))
 			  nil])
  (gist
   [cl-struct-package-desc gist
-			  (20150308 435)
+			  (20150505 1341)
 			  "Emacs integration for gist.github.com"
 			  ((emacs
 			    (24 1))
 			   (gh
 			    (0 8 1)))
-			  nil nil "/home/kim/.emacs.d/elpa/gist-20150308.435"
+			  nil nil "/home/kim/.emacs.d/elpa/gist-20150505.1341"
 			  ((:keywords "gist" "git" "github" "paste" "pastie" "pastebin"))
 			  nil])
  (ghci-completion
@@ -319,8 +327,14 @@
 			  nil])
  (ghc
   [cl-struct-package-desc ghc
-			  (20141130 1848)
-			  "Sub mode for Haskell mode" nil nil nil "/home/kim/.emacs.d/elpa/ghc-20141130.1848" nil nil])
+			  (20150524 1610)
+			  "Sub mode for Haskell mode"
+			  ((haskell-mode
+			    (13 0)))
+			  nil nil "/home/kim/.emacs.d/elpa/ghc-20150524.1610" nil nil]
+  [cl-struct-package-desc ghc
+			  (20150519 1100)
+			  "Sub mode for Haskell mode" nil nil nil "/home/kim/.emacs.d/elpa/ghc-20150519.1100" nil nil])
  (gh
   [cl-struct-package-desc gh
 			  (20150126 1125)
@@ -403,63 +417,65 @@
 			  nil nil "/home/kim/.emacs.d/elpa/flycheck-tcl-0.4" nil nil])
  (flycheck-ocaml
   [cl-struct-package-desc flycheck-ocaml
-			  (20150102 412)
+			  (20150603 758)
 			  "Flycheck: OCaml support"
 			  ((emacs
 			    (24 1))
 			   (flycheck
-			    (0 22 -3 1))
+			    (0 22))
 			   (merlin
 			    (2 0))
 			   (let-alist
 			       (1 0 3)))
-			  nil nil "/home/kim/.emacs.d/elpa/flycheck-ocaml-20150102.412"
+			  nil nil "/home/kim/.emacs.d/elpa/flycheck-ocaml-20150603.758"
 			  ((:keywords "convenience" "tools" "languages")
 			   (:url . "https://github.com/flycheck/flycheck-ocaml"))
 			  nil]
   [cl-struct-package-desc flycheck-ocaml
-			  (20141216 622)
+			  (20150414 814)
 			  "Flycheck: OCaml support"
 			  ((emacs
 			    (24 1))
 			   (flycheck
-			    (0 22 -3 1))
+			    (0 22))
 			   (merlin
 			    (2 0))
 			   (let-alist
-			       (1 0 1)))
-			  nil nil "/home/kim/.emacs.d/elpa/flycheck-ocaml-20141216.622"
+			       (1 0 3)))
+			  nil nil "/home/kim/.emacs.d/elpa/flycheck-ocaml-20150414.814"
 			  ((:keywords "convenience" "tools" "languages")
 			   (:url . "https://github.com/flycheck/flycheck-ocaml"))
 			  nil])
  (flycheck-haskell
   [cl-struct-package-desc flycheck-haskell
-			  (20150112 125)
+			  (20150602 28)
 			  "Flycheck: Cabal projects and sandboxes"
-			  ((flycheck
-			    (0 19 -3))
+			  ((emacs
+			    (24 1))
+			   (flycheck
+			    (0 22))
 			   (haskell-mode
 			    (13 7))
 			   (dash
 			    (2 4 0))
 			   (let-alist
 			       (1 0 1)))
-			  nil nil "/home/kim/.emacs.d/elpa/flycheck-haskell-20150112.125"
+			  nil nil "/home/kim/.emacs.d/elpa/flycheck-haskell-20150602.28"
 			  ((:keywords "tools" "convenience")
 			   (:url . "https://github.com/flycheck/flycheck-haskell"))
 			  nil]
   [cl-struct-package-desc flycheck-haskell
-			  (20141217 549)
+			  (20150406 327)
 			  "Flycheck: Cabal projects and sandboxes"
 			  ((flycheck
-			    (0 19 -3))
+			    (0 22))
 			   (haskell-mode
 			    (13 7))
 			   (dash
 			    (2 4 0))
 			   (let-alist
 			       (1 0 1)))
-			  nil nil "/home/kim/.emacs.d/elpa/flycheck-haskell-20141217.549"
+			  nil nil "/home/kim/.emacs.d/elpa/flycheck-haskell-20150406.327"
 			  ((:keywords "tools" "convenience")
 			   (:url . "https://github.com/flycheck/flycheck-haskell"))
 			  nil])
@@ -477,8 +493,8 @@
 			  nil])
  (flycheck
   [cl-struct-package-desc flycheck
-			  (20150207 329)
-			  "Modern on-the-fly syntax checking for GNU Emacs"
+			  (20150606 322)
+			  "Modern on-the-fly syntax checking"
 			  ((dash
 			    (2 4 0))
 			   (pkg-info
@@ -489,13 +505,13 @@
 			    (0 3))
 			   (emacs
 			    (24 1)))
-			  nil nil "/home/kim/.emacs.d/elpa/flycheck-20150207.329"
+			  nil nil "/home/kim/.emacs.d/elpa/flycheck-20150606.322"
 			  ((:keywords "convenience" "languages" "tools")
 			   (:url . "https://www.flycheck.org"))
 			  nil]
   [cl-struct-package-desc flycheck
-			  (20141220 145)
-			  "Modern on-the-fly syntax checking for GNU Emacs"
+			  (20150524 144)
+			  "Modern on-the-fly syntax checking"
 			  ((dash
 			    (2 4 0))
 			   (pkg-info
@@ -506,11 +522,22 @@
 			    (0 3))
 			   (emacs
 			    (24 1)))
-			  nil nil "/home/kim/.emacs.d/elpa/flycheck-20141220.145"
+			  nil nil "/home/kim/.emacs.d/elpa/flycheck-20150524.144"
 			  ((:keywords "convenience" "languages" "tools")
 			   (:url . "https://www.flycheck.org"))
 			  nil])
  (f
+  [cl-struct-package-desc f
+			  (20150605 927)
+			  "Modern API for working with files and directories"
+			  ((s
+			    (1 7 0))
+			   (dash
+			    (2 2 0)))
+			  nil nil "/home/kim/.emacs.d/elpa/f-20150605.927"
+			  ((:keywords "files" "directories")
+			   (:url . "http://github.com/rejeep/f.el"))
+			  nil]
   [cl-struct-package-desc f
 			  (20150217 328)
 			  "Modern API for working with files and directories"
@@ -524,51 +551,79 @@
 			  nil])
  (epl
   [cl-struct-package-desc epl
-			  (20140823 609)
+			  (20150517 433)
 			  "Emacs Package Library"
 			  ((cl-lib
 			    (0 3)))
-			  nil nil "/home/kim/.emacs.d/elpa/epl-20140823.609"
+			  nil nil "/home/kim/.emacs.d/elpa/epl-20150517.433"
 			  ((:keywords "convenience")
 			   (:url . "http://github.com/cask/epl"))
 			  nil])
  (ensime
   [cl-struct-package-desc ensime
-			  (20150320 843)
+			  (20150601 1304)
 			  "ENhanced Scala Interaction Mode for Emacs"
 			  ((s
 			    (1 3 0))
 			   (dash
 			    (2 10 0))
-			   (popup
-			    (0 5 0))
 			   (auto-complete
-			    (1 4 0))
-			   (scala-mode2
-			    (0 21))
+			    (1 5 0))
 			   (sbt-mode
 			    (0 3))
 			   (company
 			    (0 8 7))
 			   (yasnippet
-			    (0 8 0)))
-			  nil nil "/home/kim/.emacs.d/elpa/ensime-20150320.843" nil nil])
+			    (0 8 0))
+			   (popup
+			    (0 5 0))
+			   (scala-mode2
+			    (0 21)))
+			  nil nil "/home/kim/.emacs.d/elpa/ensime-20150601.1304" nil nil]
+  [cl-struct-package-desc ensime
+			  (20150518 141)
+			  "ENhanced Scala Interaction Mode for Emacs"
+			  ((s
+			    (1 3 0))
+			   (dash
+			    (2 10 0))
+			   (auto-complete
+			    (1 5 0))
+			   (sbt-mode
+			    (0 3))
+			   (company
+			    (0 8 7))
+			   (yasnippet
+			    (0 8 0))
+			   (popup
+			    (0 5 0))
+			   (scala-mode2
+			    (0 21)))
+			  nil nil "/home/kim/.emacs.d/elpa/ensime-20150518.141" nil nil])
  (emmet-mode
   [cl-struct-package-desc emmet-mode
-			  (20141222 1925)
-			  "Unofficial Emmet's support for emacs" nil nil nil "/home/kim/.emacs.d/elpa/emmet-mode-20141222.1925"
+			  (20150410 803)
+			  "Unofficial Emmet's support for emacs" nil nil nil "/home/kim/.emacs.d/elpa/emmet-mode-20150410.803"
 			  ((:keywords "convenience")
 			   (:url . "https://github.com/smihica/emmet-mode"))
 			  nil])
  (emacs-eclim
   [cl-struct-package-desc emacs-eclim
-			  (20140809 207)
+			  (20150528 1637)
 			  "An interface to the Eclipse IDE."
 			  ((json
 			    (1 2))
 			   (s
 			    (1 9 0)))
-			  nil nil "/home/kim/.emacs.d/elpa/emacs-eclim-20140809.207" nil nil])
+			  nil nil "/home/kim/.emacs.d/elpa/emacs-eclim-20150528.1637" nil nil]
+  [cl-struct-package-desc emacs-eclim
+			  (20150502 516)
+			  "An interface to the Eclipse IDE."
+			  ((json
+			    (1 2))
+			   (s
+			    (1 9 0)))
+			  nil nil "/home/kim/.emacs.d/elpa/emacs-eclim-20150502.516" nil nil])
  (eldoc-extension
   [cl-struct-package-desc eldoc-extension
 			  (20140306 1445)
@@ -577,16 +632,12 @@
 			  nil])
  (eldoc-eval
   [cl-struct-package-desc eldoc-eval
-			  (20150205 2234)
-			  "Enable eldoc support when minibuffer is in use." nil nil nil "/home/kim/.emacs.d/elpa/eldoc-eval-20150205.2234" nil nil])
- (dtrace-script-mode
-  [cl-struct-package-desc dtrace-script-mode
-			  (20150213 2223)
-			  "DTrace code editing commands for Emacs" nil nil nil "/home/kim/.emacs.d/elpa/dtrace-script-mode-20150213.2223" nil nil])
+			  (20150512 506)
+			  "Enable eldoc support when minibuffer is in use." nil nil nil "/home/kim/.emacs.d/elpa/eldoc-eval-20150512.506" nil nil])
  (dash
   [cl-struct-package-desc dash
-			  (20150311 2355)
-			  "A modern list library for Emacs" nil nil nil "/home/kim/.emacs.d/elpa/dash-20150311.2355"
+			  (20150513 1027)
+			  "A modern list library for Emacs" nil nil nil "/home/kim/.emacs.d/elpa/dash-20150513.1027"
 			  ((:keywords "lists"))
 			  nil])
  (csv-mode
@@ -598,6 +649,17 @@
 			  (20150124 1923)
 			  "an eldoc-mode plugin for CSS source code" nil nil nil "/home/kim/.emacs.d/elpa/css-eldoc-20150124.1923" nil nil])
  (company-math
+  [cl-struct-package-desc company-math
+			  (20150528 1733)
+			  "Completion back-ends for for math unicode symbols and latex tags"
+			  ((company
+			    (0 8 0))
+			   (math-symbol-lists
+			    (1 0)))
+			  nil nil "/home/kim/.emacs.d/elpa/company-math-20150528.1733"
+			  ((:keywords "unicode" "symbols" "completion")
+			   (:url . "https://github.com/vspinu/company-math"))
+			  nil]
   [cl-struct-package-desc company-math
 			  (20150216 352)
 			  "Completion back-ends for for math unicode symbols and latex tags"
@@ -611,7 +673,7 @@
 			  nil])
  (company-ghc
   [cl-struct-package-desc company-ghc
-			  (20150308 733)
+			  (20150605 522)
 			  "company-mode ghc-mod backend"
 			  ((cl-lib
 			    (0 5))
@@ -621,23 +683,50 @@
 			    (4 1 1))
 			   (emacs
 			    (24)))
-			  nil nil "/home/kim/.emacs.d/elpa/company-ghc-20150308.733"
+			  nil nil "/home/kim/.emacs.d/elpa/company-ghc-20150605.522"
+			  ((:keywords "haskell" "completion")
+			   (:url . "https://github.com/iquiw/company-ghc"))
+			  nil]
+  [cl-struct-package-desc company-ghc
+			  (20150422 844)
+			  "company-mode ghc-mod backend"
+			  ((cl-lib
+			    (0 5))
+			   (company
+			    (0 8 0))
+			   (ghc
+			    (4 1 1))
+			   (emacs
+			    (24)))
+			  nil nil "/home/kim/.emacs.d/elpa/company-ghc-20150422.844"
 			  ((:keywords "haskell" "completion")
 			   (:url . "https://github.com/iquiw/company-ghc"))
 			  nil])
  (company-coq
   [cl-struct-package-desc company-coq
-			  (20150319 739)
+			  (20150602 2240)
 			  "Company-mode backend for Proof General's coq-mode"
-			  ((company
-			    (0 8 12))
-			   (company-math
+			  ((company-math
 			    (0))
+			   (company
+			    (0 8 12))
 			   (yasnippet
 			    (0 9 0 1))
 			   (cl-lib
 			    (0 5)))
-			  nil nil "/home/kim/.emacs.d/elpa/company-coq-20150319.739" nil nil])
+			  nil nil "/home/kim/.emacs.d/elpa/company-coq-20150602.2240" nil nil]
+  [cl-struct-package-desc company-coq
+			  (20150513 2150)
+			  "Company-mode backend for Proof General's coq-mode"
+			  ((company-math
+			    (0))
+			   (company
+			    (0 8 12))
+			   (yasnippet
+			    (0 9 0 1))
+			   (cl-lib
+			    (0 5)))
+			  nil nil "/home/kim/.emacs.d/elpa/company-coq-20150513.2150" nil nil])
  (company-cmake
   [cl-struct-package-desc company-cmake
 			  (0 1)
@@ -658,13 +747,24 @@
 			  nil])
  (company
   [cl-struct-package-desc company
-			  (20150321 730)
+			  (20150525 658)
 			  "Modular text completion framework"
 			  ((emacs
 			    (24 1))
 			   (cl-lib
 			    (0 5)))
-			  nil nil "/home/kim/.emacs.d/elpa/company-20150321.730"
+			  nil nil "/home/kim/.emacs.d/elpa/company-20150525.658"
+			  ((:keywords "abbrev" "convenience" "matching")
+			   (:url . "http://company-mode.github.io/"))
+			  nil]
+  [cl-struct-package-desc company
+			  (20150516 1441)
+			  "Modular text completion framework"
+			  ((emacs
+			    (24 1))
+			   (cl-lib
+			    (0 5)))
+			  nil nil "/home/kim/.emacs.d/elpa/company-20150516.1441"
 			  ((:keywords "abbrev" "convenience" "matching")
 			   (:url . "http://company-mode.github.io/"))
 			  nil])
@@ -672,10 +772,38 @@
   [cl-struct-package-desc cmake-mode
 			  (20150120 620)
 			  "major-mode for editing CMake sources" nil nil nil "/home/kim/.emacs.d/elpa/cmake-mode-20150120.620" nil nil])
+ (clojure-mode
+  [cl-struct-package-desc clojure-mode
+			  (20150517 6)
+			  "Major mode for Clojure code"
+			  ((emacs
+			    (24 3)))
+			  nil nil "/home/kim/.emacs.d/elpa/clojure-mode-20150517.6"
+			  ((:keywords "languages" "clojure" "clojurescript" "lisp")
+			   (:url . "http://github.com/clojure-emacs/clojure-mode"))
+			  nil])
  (cljdoc
   [cl-struct-package-desc cljdoc
 			  (0 1 0)
 			  "eldoc mode for clojure" nil nil nil "/home/kim/.emacs.d/elpa/cljdoc-0.1.0" nil nil])
+ (cider
+  [cl-struct-package-desc cider
+			  (20150604 1532)
+			  "Clojure Interactive Development Environment that Rocks"
+			  ((clojure-mode
+			    (4 0 0))
+			   (dash
+			    (2 4 1))
+			   (pkg-info
+			    (0 4))
+			   (emacs
+			    (24 3))
+			   (queue
+			    (0 1 1)))
+			  nil nil "/home/kim/.emacs.d/elpa/cider-20150604.1532"
+			  ((:keywords "languages" "clojure" "cider")
+			   (:url . "http://www.github.com/clojure-emacs/cider"))
+			  nil])
  (caml
   [cl-struct-package-desc caml
 			  (20141015 634)
@@ -688,19 +816,19 @@
 			  nil])
  (auto-complete
   [cl-struct-package-desc auto-complete
-			  (20150322 813)
+			  (20150408 1132)
 			  "Auto Completion for GNU Emacs"
 			  ((popup
 			    (0 5 0))
 			   (cl-lib
 			    (0 5)))
-			  nil nil "/home/kim/.emacs.d/elpa/auto-complete-20150322.813" nil nil])
+			  nil nil "/home/kim/.emacs.d/elpa/auto-complete-20150408.1132" nil nil])
  (auctex
   [cl-struct-package-desc auctex
-			  (11 88 2)
-			  "Integrated environment for *TeX*" nil nil nil "/home/kim/.emacs.d/elpa/auctex-11.88.2"
+			  (11 88 6)
+			  "Integrated environment for *TeX*" nil nil nil "/home/kim/.emacs.d/elpa/auctex-11.88.6"
 			  ((:url . "http://www.gnu.org/software/auctex/"))
-			  nil])
+			  t])
  (alect-themes
   [cl-struct-package-desc alect-themes
 			  (20150313 1131)
@@ -712,6 +840,15 @@
 			   (:url . "https://github.com/alezost/alect-themes"))
 			  nil])
  (adoc-mode
+  [cl-struct-package-desc adoc-mode
+			  (20150524 909)
+			  "a major-mode for editing AsciiDoc files in Emacs"
+			  ((markup-faces
+			    (1 0 0)))
+			  nil nil "/home/kim/.emacs.d/elpa/adoc-mode-20150524.909"
+			  ((:keywords "wp" "asciidoc")
+			   (:url . "https://github.com/sensorflo/adoc-mode/wiki"))
+			  nil]
   [cl-struct-package-desc adoc-mode
 			  (20150102 835)
 			  "a major-mode for editing AsciiDoc files in Emacs"
