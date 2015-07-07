@@ -11,7 +11,9 @@
 (setq load-path
       (flat-list load-path
                  (expand-file-name "~/.emacs.d/elisp")
-                 (file-expand-wildcards "~/.emacs.d/lisp/*")))
+                 (file-expand-wildcards "~/.emacs.d/lisp/*")
+                 (file-expand-wildcards "~/.emacs.d/lisp/cedet/lisp/*")
+                 "/Users/a13987/Library/Android/sdk/tools/lib/"))
 
 ;; 実行パスの設定
 (setq exec-path
@@ -21,7 +23,10 @@
                (list "~/.emacs.d/bin/"
                      "~/.lein/bin/"
                      "~/.shelly/bin/"
-                     "~/.cabal/bin/"))))
+                     "/usr/local/bin"
+                     "~/.cabal/bin/"
+                     "/Users/a13987/Library/Android/sdk/tools"
+                     "/Users/a13987/Library/Android/sdk/platform-tools"))))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -31,11 +36,14 @@
         (path-concat
          (getenv "LD_LIBRARY_PATH")
          "./" "/usr/local/lib"))
-(setenv "JAVA_HOME" "/usr/lib/jvm/default-java")
+(setenv "JAVA_HOME" "/Library/Java/Home")
 (setenv "CLASSPATH"
         (path-concat
          (getenv "CLASSPATH")
-         "/home/kim/android-sdk-linux/platforms/android-11/android.jar"))
+         "/Users/a13987/Library/Android/sdk/platforms/android-22/android.jar"
+         "/home/kim/android-sdk-linux/platforms/android-11/android.jar"
+         "/Users/a13987/Library/Android/sdk"))
+(setenv "ANDROID_HOME" "/Users/a13987/Library/Android/sdk")
 (setenv "XDG_CONFIG_DIRS" (expand-file-name "~/.config"))
 (setenv "XDG_DATA_DIRS" "/usr/local/share/:/usr/share/")
 
@@ -125,8 +133,10 @@
 ;; ツールバーを消す
 (tool-bar-mode -1)
 ;; スクロールバーを消す
-(scroll-bar-mode -1)
-(horizontal-scroll-bar-mode -1)
+(if (fboundp 'scroll-bar-mode)
+    (scroll-bar-mode -1))
+(if (fboundp 'horizontal-scroll-bar-mode)
+    (horizontal-scroll-bar-mode -1))
 ;; 主張しないスクロールバーを使う
 (global-yascroll-bar-mode +1)
 ;; スタートアップになにもしない
@@ -191,7 +201,6 @@
 ;; (setq ac-menu-height 12)
 ;(add-to-list 'ac-sources 'ac-source-symbols)
 ;(global-auto-complete-mode t)
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #company
@@ -221,8 +230,8 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #Octopress
-(load "octomacs-autoloads" nil t)
-(setq-default octomacs-workdir-alist '(("default" . "~/Ruby/octopress")))
+;; (load "octomacs-autoloads" nil t)
+;; (setq-default octomacs-workdir-alist '(("default" . "~/Ruby/octopress")))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -240,6 +249,7 @@
      (define-key twittering-mode-map (kbd "C-c F") #'twittering-follow)
      (define-key twittering-mode-map (kbd "F")     #'twittering-favorite)))
 (setq-default twittering-use-native-retweet t)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #speedbar
@@ -265,16 +275,16 @@
 (require 'yasnippet)
 (eval-after-load 'yasnippet
   '(progn
-     (defun yas/advise-indent-function (function-symbol)
-       (eval `(defadvice ,function-symbol (around yas/try-expand-first activate)
+     (defun yas-advise-indent-function (function-symbol)
+       (eval `(defadvice ,function-symbol (around yas-try-expand-first activate)
                 ,(format
                   "Try to expand a snippet before point, then call `%s' as usual"
                   function-symbol)
-                (let ((yas/fallback-behavior nil))
-                  (unless (and (called-interactively-p)
-                               (yas/expand))
+                (let ((yas-fallback-behavior nil))
+                  (unless (and (called-interactively-p 'interactive)
+                               (yas-expand))
                     ad-do-it)))))
-     (yas/advise-indent-function #'indent-for-tab-command)))
+     (yas-advise-indent-function #'indent-for-tab-command)))
 (yas-global-mode)
 
 
@@ -339,7 +349,7 @@
 
 ;;yaspnippetを有効化する
 (eval-after-load 'yassnipet
-  '(yas/advise-indent-function #'org-cycle))
+  '(yas-advise-indent-function #'org-cycle))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -380,7 +390,7 @@
 (add-to-list 'auto-mode-alist '("\\.htm[l]" . web-mode))
 (add-hook 'web-mode-hook #'(lambda ()
                              (require 'yasnippet)
-                             (yas/minor-mode)))
+                             (yas-minor-mode)))
 
 ;;; #emmet
 (add-hook 'sgml-mode-hook #'emmet-mode)
@@ -438,7 +448,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; #Lisp
-(load (expand-file-name "~/.cim/init.esh") nil t)
+;; (load (expand-file-name "~/.cim/init.esh") nil t)
 ;;括弧の対応を取る
 (eval-after-load 'paredit
   '(define-key paredit-mode-map (kbd "C-h") #'paredit-backward-delete))
@@ -526,9 +536,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; #Java #eclim
 
-(setq eclimd-default-workspace (expand-file-name "~/Java"))
+(setq eclimd-default-workspace (expand-file-name "~/Java/workspace/"))
+(setq eclim-eclipse-dirs '("/opt/homebrew-cask/Caskroom/eclipse-platform/4.4.2-201502041700/eclipse/"))
 (add-hook 'java-mode-hook (lambda ()
-                            (eclim-mode)
+                            ;; (eclim-mode)
+                            (require 'flymake-eclim-java)
                             (setq-default c-basic-offset 4)))
 
 (eval-after-load 'eclim
@@ -549,51 +561,49 @@
      (add-to-list 'load-path (expand-file-name "~/android-sdk-linux/tools/lib"))
 ;     (require 'android)
      (setq-default android-mode-sdk-dir "~/android-sdk-linux")))
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #OCaml #Caml #ML
-(dolist (cons (car (read-from-string (shell-command-to-string "opam config env --sexp"))))
-  (setenv (car cons) (cadr cons)))
+;; (dolist (cons (car (read-from-string (shell-command-to-string "opam config env --sexp"))))
+;;   (setenv (car cons) (cadr cons)))
 
-;; Update the emacs path
-(setq exec-path (split-string (getenv "PATH") path-separator))
+;; ;; Update the emacs path
+;; (setq exec-path (split-string (getenv "PATH") path-separator))
 
-;; Update the emacs load path
-(add-to-list 'load-path (concat (getenv "OCAML_TOPLEVEL_PATH") "/../../share/emacs/site-lisp"))
-(add-to-list 'load-path (concat (getenv "OCAML_TOPLEVEL_PATH") "/../../build/ocaml/emacs"))
-(autoload #'enable-company-ocp-index "ocp-index" "" t)
-;; Automatically load utop.el
-(autoload #'utop "utop" "Toplevel for OCaml" t)
-(autoload #'utop-setup-ocaml-buffer "utop" "Toplevel for OCaml" t)
-(add-hook #'tuareg-mode-hook 'utop-setup-ocaml-buffer)
-(setq-default utop-edit-command nil)
+;; ;; Update the emacs load path
+;; (add-to-list 'load-path (concat (getenv "OCAML_TOPLEVEL_PATH") "/../../share/emacs/site-lisp"))
+;; (add-to-list 'load-path (concat (getenv "OCAML_TOPLEVEL_PATH") "/../../build/ocaml/emacs"))
+;; (autoload #'enable-company-ocp-index "ocp-index" "" t)
+;; ;; Automatically load utop.el
+;; (autoload #'utop "utop" "Toplevel for OCaml" t)
+;; (autoload #'utop-setup-ocaml-buffer "utop" "Toplevel for OCaml" t)
+;; (add-hook #'tuareg-mode-hook 'utop-setup-ocaml-buffer)
+;; (setq-default utop-edit-command nil)
 
+;; (defun ocp-index-show-type-at-point ()
+;;   (lexical-let* ((sym (ocp-index-symbol-at-point))
+;;                  (out (shell-command-to-string
+;;                        (format "ocp-index type %s --full-open %s. -I."
+;;                                sym
+;;                                (upcase-initials
+;;                                 (file-name-nondirectory
+;;                                  (file-name-sans-extension (buffer-file-name))))))))
+;;     (if (not (string-equal out ""))
+;;         (format "%s: %s" sym (substitute ?\; ?\n out))
+;;       "")))
 
-(defun ocp-index-show-type-at-point ()
-  (lexical-let* ((sym (ocp-index-symbol-at-point))
-                 (out (shell-command-to-string
-                       (format "ocp-index type %s --full-open %s. -I."
-                               sym
-                               (upcase-initials
-                                (file-name-nondirectory
-                                 (file-name-sans-extension (buffer-file-name))))))))
-    (if (not (string-equal out ""))
-        (format "%s: %s" sym (substitute ?\; ?\n out))
-      "")))
-
-(add-hook 'tuareg-mode-hook 'enable-company-ocp-index)
-(add-hook 'caml-mode-hook 'enable-company-ocp-index)
-(autoload 'ocamlspot-query "ocamlspot" "OCamlSpot")
-(add-hook 'tuareg-mode-hook #'(lambda ()
-                                (require 'ocp-index)
-                                (define-key tuareg-mode-map (kbd "C-j") #'reindent-then-newline-and-indent)
-                                (setq-default tuareg-library-path (concat (getenv "OCAML_TOPLEVEL_PATH") "/../"))
-                                (flymake-tuareg-load)
-                                (flymake-mode-on)
-                                (eldoc-mode)
-                                (set (make-local-variable 'eldoc-documentation-function)
-                                     #'ocp-index-show-type-at-point)))
+;; (add-hook 'tuareg-mode-hook 'enable-company-ocp-index)
+;; (add-hook 'caml-mode-hook 'enable-company-ocp-index)
+;; (autoload 'ocamlspot-query "ocamlspot" "OCamlSpot")
+;; (add-hook 'tuareg-mode-hook #'(lambda ()
+;;                                 (require 'ocp-index)
+;;                                 (define-key tuareg-mode-map (kbd "C-j") #'reindent-then-newline-and-indent)
+;;                                 (setq-default tuareg-library-path (concat (getenv "OCAML_TOPLEVEL_PATH") "/../"))
+;;                                 (flymake-tuareg-load)
+;;                                 (flymake-mode-on)
+;;                                 (eldoc-mode)
+;;                                 (set (make-local-variable 'eldoc-documentation-function)
+;;                                      #'ocp-index-show-type-at-point)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -610,20 +620,6 @@
                    (add-to-list (make-local-variable 'company-backends) '(company-ghc :with company-yasnippet)))))
 (add-hook 'haskell-mode-hook #'ghc-init)
 (add-hook 'haskell-mode-hook #'haskell-indentation-mode)
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; #Scilab
-(setq-default scilab-shell-command (expand-file-name "~/Downloads/scilab-5.5.0/bin/scilab"))
-(autoload 'scilab-mode "scilab" "Enter Scilab editing mode." t)
-(setq auto-mode-alist (cons '("\\(\\.sci$\\|\\.sce$\\)" . scilab-mode)
-                            auto-mode-alist))
-(autoload 'scilab-shell "scilab" "Interactive Scilab Shell mode." t)
-(autoload 'scilab-mode-setup "scilab" "Scilab modes Setup." t)
-(autoload 'scilab-help "scilab" "Scilab Topic Browser." t)
-(autoload 'scilab-help-function "scilab" "Scilab Help Function." t)
-(autoload 'scilab-apropos-function "scilab" "Scilab Apropos Function." t)
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #C
@@ -638,8 +634,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; #CMake
 (add-hook 'cmake-mode-hook (lambda ()
--                             (require 'company-cmake)
--                             (add-to-list (make-local-variable 'company-backends) 'company-cmake)))
+                             (require 'company-cmake)
+                             (add-to-list (make-local-variable 'company-backends) 'company-cmake)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -654,15 +650,24 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #rust
-(load "~/.emacs.d/lisp/racer/editors/racer.el" t t)
-(setq racer-cmd "/home/kim/.emacs.d/lisp/racer/bin/racer")
-(setq rust-srcpath "/home/kim/compile/rust/src")
+(setenv "RUST_SRC_PATH" "~/compile/rustc-1.0.0/src")
+(load (expand-file-name "~/.emacs.d/lisp/racer/editors/emacs/racer.el") t t)
+(setq racer-cmd (expand-file-name "~/.emacs.d/lisp/racer/target/release/racer"))
+(setq racer-rust-src-path (expand-file-name "~/compile/rustc-1.0.0/src"))
+(eval-after-load "rust-mode" '(require 'racer))
+(add-hook 'rust-mode-hook (lambda ()
+                            (setq company-idle-delay 0.1)
+                            (setq-default company-minimum-prefix-length 0)
+                            (flycheck-rust-setup)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #sml
 (add-to-list 'auto-mode-alist '("\\.pgg$" . sml-mode))
 (add-to-list 'auto-mode-alist '("\\.smi$" . sml-mode))
+(add-hook 'sml-mode-hook (lambda ()
+                           (prettify-symbols-mode t)
+                           ))
 
 
 (require 'flymake)
@@ -702,6 +707,20 @@
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; #go
+(setenv "GOPATH" (expand-file-name "~/Go"))
+(setenv "PATH" (concat (getenv "PATH" ) ":" (expand-file-name "~/Go/bin")))
+(add-to-list 'exec-path (expand-file-name "~/Go/bin"))
+(add-hook 'go-mode-hook (lambda ()
+                          (go-eldoc-setup)
+                          (set (make-variable-buffer-local 'compile-command)
+                           (concat "go build " buffer-file-name)) 
+                          (add-hook (make-variable-buffer-local 'before-save-hook)
+                                    'gofmt-before-save)
+                          (add-to-list (make-local-variable 'company-backends) 'company-go)))
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -709,7 +728,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (cider clojure-mode ensime sbt-mode scala-mode slime-company emmet-mode company-coq yasnippet yascroll yaml-mode utop twittering-mode tuareg sml-mode rust-mode ruby-electric robe px popup-complete paredit nginx-mode lex git-gutter-fringe gist ghci-completion flymake-yaml flymake-tuareg flymake-shell flymake-ruby flymake-racket flymake-haskell-multi flycheck-tcl flycheck-ocaml flycheck-haskell flycheck-ghcmod f emacs-eclim eldoc-extension eldoc-eval csv-mode css-eldoc company-ghc company-cmake company-c-headers cmake-mode cljdoc c-eldoc auctex alect-themes adoc-mode))))
+    (company-coq flymake-json company-racer flycheck-rust toml-mode toml yascroll yaml-mode utop twittering-mode tuareg sml-mode slime-company shelldoc rust-mode ruby-electric robe pyflakes px pg paredit nginx-mode markdown-mode lex ipython gradle-mode go-eldoc git-gutter-fringe gist ghci-completion flymake-yaml flymake-shell flymake-ruby flymake-racket flymake-haskell-multi flymake-go flycheck-tcl flycheck-pyflakes flycheck-ocaml flycheck-haskell f emmet-mode emacs-eclim elpy eldoc-extension eldoc-eval edbi-minor-mode ddskk csv-mode css-eldoc company-jedi company-go company-edbi company-cmake company-c-headers common-lisp-snippets cmake-mode cljdoc c-eldoc auctex alect-themes))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
