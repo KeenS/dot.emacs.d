@@ -265,16 +265,16 @@
 (require 'yasnippet)
 (eval-after-load 'yasnippet
   '(progn
-     (defun yas/advise-indent-function (function-symbol)
-       (eval `(defadvice ,function-symbol (around yas/try-expand-first activate)
+     (defun yas-advise-indent-function (function-symbol)
+       (eval `(defadvice ,function-symbol (around yas-try-expand-first activate)
                 ,(format
                   "Try to expand a snippet before point, then call `%s' as usual"
                   function-symbol)
-                (let ((yas/fallback-behavior nil))
-                  (unless (and (called-interactively-p)
-                               (yas/expand))
+                (let ((yas-fallback-behavior nil))
+                  (unless (and (called-interactively-p 'interactive)
+                               (yas-expand))
                     ad-do-it)))))
-     (yas/advise-indent-function #'indent-for-tab-command)))
+     (yas-advise-indent-function #'indent-for-tab-command)))
 (yas-global-mode)
 
 
@@ -339,7 +339,7 @@
 
 ;;yaspnippetを有効化する
 (eval-after-load 'yassnipet
-  '(yas/advise-indent-function #'org-cycle))
+  '(yas-advise-indent-function #'org-cycle))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -380,7 +380,7 @@
 (add-to-list 'auto-mode-alist '("\\.htm[l]" . web-mode))
 (add-hook 'web-mode-hook #'(lambda ()
                              (require 'yasnippet)
-                             (yas/minor-mode)))
+                             (yas-minor-mode)))
 
 ;;; #emmet
 (add-hook 'sgml-mode-hook #'emmet-mode)
