@@ -144,6 +144,7 @@
 ;; 対応する括弧を自動で挿入
 (electric-pair-mode 1)
 (electric-indent-mode 1)
+(electric-layout-mode 1)
 ;; 対応する括弧を光らせる
 (show-paren-mode)
 ;; ビーブ音を鳴らさない
