@@ -638,8 +638,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; #CMake
 (add-hook 'cmake-mode-hook (lambda ()
--                             (require 'company-cmake)
--                             (add-to-list (make-local-variable 'company-backends) 'company-cmake)))
+                              (require 'company-cmake)
+                              (add-to-list (make-local-variable 'company-backends) 'company-cmake)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
