@@ -655,10 +655,14 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #rust
-(load "~/.emacs.d/lisp/racer/editors/racer.el" t t)
-(setq racer-cmd "/home/kim/.emacs.d/lisp/racer/bin/racer")
-(setq rust-srcpath "/home/kim/compile/rust/src")
-
+(load "~/.emacs.d/lisp/racer/editors/emacs/racer.el" t t)
+(setq racer-cmd "/home/kim/.emacs.d/lisp/racer/target/release/racer")
+(setq racer-rust-src-path "/home/kim/compile/rustc-1.2.0/src")
+(setenv "RUST_SRC_PATH" racer-rust-src-path)
+(add-hook 'rust-mode-hook (lambda ()
+                            (set (make-variable-buffer-local 'company-backends) '(company-racer))
+                            (set (make-variable-buffer-local 'company-idle-delay) 0.1)
+                            (set (make-variable-buffer-local 'company-minimum-prefix-length) 0)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #sml
@@ -703,6 +707,7 @@
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
