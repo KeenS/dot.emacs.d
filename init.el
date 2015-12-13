@@ -19,6 +19,7 @@
        exec-path
        (mapcar 'expand-file-name
                (list "~/.emacs.d/bin/"
+                     "~/bin/"
                      "~/.lein/bin/"
                      "~/.shelly/bin/"
                      "~/.cabal/bin/"))))
@@ -198,6 +199,7 @@
 ;;; #company
 (add-hook 'after-init-hook '(lambda ()
                               (global-company-mode)
+                              (delete 'company-preview-if-just-one-frontend company-frontends)
                               (define-key company-active-map (kbd "C-h") 'backward-delete-char)))
 (setq-default company-idle-delay 0.02)
 (setq-default company-minimum-prefix-length 3)
@@ -218,6 +220,11 @@
      (setq-default erc-timestamp-format "%Y-%m-%d %H:%M")))
 (autoload #'tiarra-conf-mode "tiarra-conf")
 (add-to-list 'auto-mode-alist '("tiarra.conf" . tiarra-conf-mode))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; #mpc
+(setq-default mpc-host "192.168.1.4")
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -655,12 +662,11 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #rust
-(load "~/.emacs.d/lisp/racer/editors/emacs/racer.el" t t)
 (setq racer-cmd "/home/kim/.emacs.d/lisp/racer/target/release/racer")
-(setq racer-rust-src-path "/home/kim/compile/rustc-1.2.0/src")
-(setenv "RUST_SRC_PATH" racer-rust-src-path)
+(setq racer-rust-src-path "/home/kim/compile/rustc-1.4.0/src")
 (add-hook 'rust-mode-hook (lambda ()
-                            (set (make-variable-buffer-local 'company-backends) '(company-racer))
+                            (eldoc-mode 1)
+                            (racer-mode)
                             (set (make-variable-buffer-local 'company-idle-delay) 0.1)
                             (set (make-variable-buffer-local 'company-minimum-prefix-length) 0)))
 
@@ -715,7 +721,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (cider clojure-mode ensime sbt-mode scala-mode slime-company emmet-mode company-coq yasnippet yascroll yaml-mode utop twittering-mode tuareg sml-mode rust-mode ruby-electric robe px popup-complete paredit nginx-mode lex git-gutter-fringe gist ghci-completion flymake-yaml flymake-tuareg flymake-shell flymake-ruby flymake-racket flymake-haskell-multi flycheck-tcl flycheck-ocaml flycheck-haskell flycheck-ghcmod f emacs-eclim eldoc-extension eldoc-eval csv-mode css-eldoc company-ghc company-cmake company-c-headers cmake-mode cljdoc c-eldoc auctex alect-themes adoc-mode))))
+    (sql-indent cargo rustfmt racer yascroll yaml-mode web-mode utop twittering-mode tuareg sml-mode slime-company slime-annot rust-mode ruby-electric robe px popup-complete paredit nginx-mode markdown-mode lex git-gutter-fringe gist ghci-completion fold-this flymake-yaml flymake-tuareg flymake-shell flymake-ruby flymake-racket flymake-haskell-multi flycheck-tcl flycheck-rust flycheck-ocaml flycheck-haskell flycheck-ghcmod flycheck-ats2 f ensime emmet-mode emacs-eclim eldoc-extension eldoc-eval csv-mode css-eldoc company-racer company-ghc company-coq company-cmake company-c-headers cmake-mode cljdoc cider c-eldoc auctex alect-themes adoc-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
