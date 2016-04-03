@@ -1,0 +1,12 @@
+[submodule "lisp/mirah-mode.el"]
+	path = lisp/mirah-mode.el
+	url = git@github.com:KeenS/mirah-mode.el.git
+[submodule "lisp/racer"]
+	path = lisp/racer
+	url = https://github.com/phildawes/racer.git
+[submodule "lisp/sql-drill.el"]
+	path = lisp/sql-drill.el
+	url = git@github.com:KeenS/sql-drill.el.git
+[submodule "lisp/ProofGeneral"]
+	path = lisp/ProofGeneral
+	url = https://github.com/ProofGeneral/PG.git
