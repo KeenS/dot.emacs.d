@@ -156,7 +156,7 @@
 (ffap-bindings)
 ;; windowサイズが100桁以上なら左右に分割、それ以外なら上下に分割。
 (setq split-height-threshold nil)
-(setq split-width-threshold 100)
+(setq split-width-threshold 150)
 ;; ミニバッファの履歴を終了後も保存
 (savehist-mode)
 ;; recentf-modeのセットアップ
@@ -170,7 +170,8 @@
 ;; minibufferからminibufferを使うコマンドを許す
 (setq-default enable-recursive-minibuffers t)
 ;; 余分な空白をハイライト
-(setq show-trailing-whitespace t)
+(setq-default show-trailing-whitespace t)
+(column-number-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #dired
@@ -606,6 +607,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #Coq
 (load (expand-file-name "~/.emacs.d/lisp/ProofGeneral/generic/proof-site") nil t)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; #Isabelle
+;;(setq-default isa-isabelle-command (expand-file-name "~/bin/isar_wrap"))
+(setq-default proof-general-debug t)
+(require 'warnings)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #Haskell
@@ -617,19 +625,6 @@
                    (add-to-list (make-local-variable 'company-backends) '(company-ghc :with company-yasnippet)))))
 (add-hook 'haskell-mode-hook #'ghc-init)
 (add-hook 'haskell-mode-hook #'haskell-indentation-mode)
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; #Scilab
-(setq-default scilab-shell-command (expand-file-name "~/Downloads/scilab-5.5.0/bin/scilab"))
-(autoload 'scilab-mode "scilab" "Enter Scilab editing mode." t)
-(setq auto-mode-alist (cons '("\\(\\.sci$\\|\\.sce$\\)" . scilab-mode)
-                            auto-mode-alist))
-(autoload 'scilab-shell "scilab" "Interactive Scilab Shell mode." t)
-(autoload 'scilab-mode-setup "scilab" "Scilab modes Setup." t)
-(autoload 'scilab-help "scilab" "Scilab Topic Browser." t)
-(autoload 'scilab-help-function "scilab" "Scilab Help Function." t)
-(autoload 'scilab-apropos-function "scilab" "Scilab Apropos Function." t)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -662,7 +657,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #rust
 (setq racer-cmd "/home/kim/.emacs.d/lisp/racer/target/release/racer")
-(setq racer-rust-src-path "/home/kim/compile/rustc-1.4.0/src")
+(setq racer-rust-src-path "/home/kim/compile/rustc-1.7.0/src")
 (add-hook 'rust-mode-hook (lambda ()
                             (eldoc-mode 1)
                             (racer-mode)
@@ -671,12 +666,24 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #sml
-(add-to-list 'auto-mode-alist '("\\.pgg$" . sml-mode))
+
+(add-to-list 'auto-mode-alist '("\\.ppg$" . sml-mode))
 (add-to-list 'auto-mode-alist '("\\.smi$" . sml-mode))
+(add-hook 'sml-mode-hook (lambda ()
+                           (prettify-symbols-mode t)
+                           ))
 
 
 (require 'flymake)
 
+(defun flymake-smlsharp-init ()
+  (let* ((dir         (file-name-directory buffer-file-name))
+         (temp-file   (flymake-init-create-temp-buffer-copy
+                       'flymake-create-temp-inplace))
+	 (local-file  (file-relative-name
+                       temp-file
+                       (file-name-directory buffer-file-name))))
+    (list (expand-file-name "~/.emacs.d/bin/sml-check.sh") (list "-ftypecheck-only" buffer-file-name "-I" dir))))
 ;; (defun flymake-sml-lint-init ()
 ;;   (flymake-simple-make-init-impl
 ;;    'flymake-create-temp-inplace nil nil
@@ -690,17 +697,19 @@
 
 
 ;; (push '(".+\\.sml$" flymake-sml-lint-init) flymake-allowed-file-name-masks)
+
 (eval-after-load 'flymake
   '(progn 
-    (add-to-list 'flymake-allowed-file-name-masks '(".+\\.sml$"
-                                                    (lambda ()
-                                                      (list "/usr/local/bin/smlsharp" (list "-ftypecheck-only" (buffer-file-name))))
-                                                    (lambda () nil)))
-    (add-to-list 'flymake-err-line-patterns '("^\\([^: ]*\\):\\([0-9]+\\)\\.\\([0-9]+\\)-[0-9]+\\.[0-9]+ \\(Error\\|Warning\\):"
+    (add-to-list 'flymake-allowed-file-name-masks '(".+\\.sml$" flymake-smlsharp-init flymake-master-cleanup))
+    (add-to-list 'flymake-err-line-patterns '("^\\([^: ]*\\):\\([0-9]+\\)\\.\\([0-9]+\\)-[0-9]+\\.[0-9]+ \\(\\(Error\\|Warning\\):.*\\)"
                                               1 2 3 4))))
-(add-hook 'sml-mode-hook (lambda ()
-                           (flymake-mode)
-                           (prettify-symbols-mode)))
+
+(add-to-list 'compilation-error-regexp-alist-alist '(sml "^\\([^: ]*\\):\\([0-9]+\\)\\.\\([0-9]+\\)-\\([0-9]+\\)\\.\\([0-9]+\\) \\(Error:.*\\)"
+                                                         (1 "%s.sml") (2 . 4) (3 . 5) 2))
+(add-to-list 'compilation-error-regexp-alist-alist '(sml "^\\([^: ]*\\):\\([0-9]+\\)\\.\\([0-9]+\\)-\\([0-9]+\\)\\.\\([0-9]+\\) \\(Warning:.*\\)"
+                                                         (1 "%s.sml") (2 . 4) (3 . 5) 2))
+(flymake-reformat-err-line-patterns-from-compile-el compilation-error-regexp-alist-alist)
+(add-hook 'sml-mode-hook (lambda () (flymake-mode)))
 
 ;; (push '("\\([^,]*\\), line \\([0-9]+\\), column \\([0-9]+\\): \\(.*\\)"
 ;;         1 2 3 4)
