@@ -32,11 +32,10 @@
         (path-concat
          (getenv "LD_LIBRARY_PATH")
          "./" "/usr/local/lib"))
-(setenv "JAVA_HOME" "/usr/lib/jvm/default-java")
+(setenv "JAVA_HOME" "/usr/lib/jvm/java-8-openjdk-amd64/")
 (setenv "CLASSPATH"
         (path-concat
-         (getenv "CLASSPATH")
-         "/home/kim/android-sdk-linux/platforms/android-11/android.jar"))
+         (getenv "CLASSPATH")))
 (setenv "XDG_CONFIG_DIRS" (expand-file-name "~/.config"))
 (setenv "XDG_DATA_DIRS" "/usr/local/share/:/usr/share/")
 
