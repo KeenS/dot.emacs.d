@@ -226,11 +226,6 @@
 ;;; #mpc
 (setq-default mpc-host "192.168.1.4")
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; #Octopress
-(load "octomacs-autoloads" nil t)
-(setq-default octomacs-workdir-alist '(("default" . "~/Ruby/octopress")))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
