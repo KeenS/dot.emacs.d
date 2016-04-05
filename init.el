@@ -711,7 +711,37 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #scala
 (require 'ensime)
+(require 'ensime-goto-testfile)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+(add-to-list 'ensime-goto-test-configs
+             '("Axion" .
+               (:test-class-names-fn ensime-goto-test--test-class-names
+                                      :test-class-suffixes ("Test" "Spec" "Specification" "Check")
+                                      :impl-class-name-fn  ensime-goto-test--impl-class-name
+                                      :impl-to-test-dir-fn ensime-goto-test--impl-to-test-dir
+                                      :is-test-dir-fn      ensime-goto-test--is-test-dir
+                                      :test-template-fn    ensime-goto-test--test-template-scalatest-3)))
+
+(defun ensime-goto-test--test-template-scalatest-3 ()
+  ""
+  "package %TESTPACKAGE%
+
+import org.mockito.{Matchers => M}
+import org.mockito.Mockito._
+import org.scalatest.{WordSpec, Matchers}
+import org.scalatest.mock.MockitoSugar
+
+class %TESTCLASS% extends WordSpec with Matchers with MockitoSugar {
+  \"%IMPLCLASS%#foo\" when {
+    \"normal\" should {
+      \"throw any exception\" in {
+        noException shouldBe thrownBy {}
+      }       
+    }
+  }
+}
+")
+
 
 
 (custom-set-variables
