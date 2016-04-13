@@ -13,6 +13,7 @@
                  (expand-file-name "~/.emacs.d/elisp")
                  (file-expand-wildcards "~/.emacs.d/lisp/*")))
 
+
 ;; 実行パスの設定
 (setq exec-path
       (append
@@ -22,7 +23,8 @@
                      "~/bin/"
                      "~/.lein/bin/"
                      "~/.shelly/bin/"
-                     "~/.cabal/bin/"))))
+                     "~/.cabal/bin/"
+                     "~/Go/bin/"))))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -38,7 +40,7 @@
          (getenv "CLASSPATH")))
 (setenv "XDG_CONFIG_DIRS" (expand-file-name "~/.config"))
 (setenv "XDG_DATA_DIRS" "/usr/local/share/:/usr/share/")
-
+(setenv "export GOPATH" (expand-file-name "~/Go"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #compat
@@ -156,7 +158,7 @@
 (ffap-bindings)
 ;; windowサイズが100桁以上なら左右に分割、それ以外なら上下に分割。
 (setq split-height-threshold nil)
-(setq split-width-threshold 150)
+(setq split-width-threshold 100)
 ;; ミニバッファの履歴を終了後も保存
 (savehist-mode)
 ;; recentf-modeのセットアップ
@@ -441,7 +443,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; #Lisp
-(load (expand-file-name "~/.cim/init.esh") nil t)
+;(load (expand-file-name "~/.cim/init.esh") nil t)
 ;;括弧の対応を取る
 (eval-after-load 'paredit
   '(define-key paredit-mode-map (kbd "C-h") #'paredit-backward-delete))
@@ -746,6 +748,12 @@ class %TESTCLASS% extends WordSpec with Matchers with MockitoSugar {
 ")
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; #Go
+(add-hook 'go-mode-hook (lambda ()
+                            (eldoc-mode 1)
+                            (set (make-variable-buffer-local 'company-minimum-prefix-length) 0)))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #wakatime
@@ -759,7 +767,7 @@ class %TESTCLASS% extends WordSpec with Matchers with MockitoSugar {
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (async auto-highlight-symbol caml clojure-mode company company-math dash deferred epl eproject flycheck flymake-easy fringe-helper gh ghc git-gutter haskell-mode helm helm-core inf-ruby logito macrostep markup-faces math-symbol-lists merlin pcache pkg-info popup queue rust-mode s sbt-mode scala-mode2 slime spinner yasnippet "yasnippet" edts erlang qml-mode yascroll yaml-mode web-mode wakatime-mode utop twittering-mode tuareg sql-indent sml-mode slime-company slime-annot rustfmt ruby-electric robe racer px popup-complete paredit nginx-mode markdown-mode lex git-gutter-fringe gist ghci-completion fold-this flymake-yaml flymake-tuareg flymake-shell flymake-ruby flymake-racket flymake-haskell-multi flycheck-tcl flycheck-rust flycheck-ocaml flycheck-haskell flycheck-ghcmod flycheck-ats2 f ensime emmet-mode emacs-eclim eldoc-extension eldoc-eval csv-mode css-eldoc company-racer company-ghc company-coq company-cmake company-c-headers cmake-mode cljdoc cider cargo c-eldoc auto-complete auctex alect-themes adoc-mode))))
+    (go-eldoc company-go flymake-go go-mode dockerfile-mode async auto-highlight-symbol caml clojure-mode company company-math dash deferred epl eproject flycheck flymake-easy fringe-helper gh ghc git-gutter haskell-mode helm helm-core inf-ruby logito macrostep markup-faces math-symbol-lists merlin pcache pkg-info popup queue rust-mode s sbt-mode scala-mode2 slime spinner yasnippet "yasnippet" edts erlang qml-mode yascroll yaml-mode web-mode wakatime-mode utop twittering-mode tuareg sql-indent sml-mode slime-company slime-annot rustfmt ruby-electric robe racer px popup-complete paredit nginx-mode markdown-mode lex git-gutter-fringe gist ghci-completion fold-this flymake-yaml flymake-tuareg flymake-shell flymake-ruby flymake-racket flymake-haskell-multi flycheck-tcl flycheck-rust flycheck-ocaml flycheck-haskell flycheck-ghcmod flycheck-ats2 f ensime emmet-mode emacs-eclim eldoc-extension eldoc-eval csv-mode css-eldoc company-racer company-ghc company-coq company-cmake company-c-headers cmake-mode cljdoc cider cargo c-eldoc auto-complete auctex alect-themes adoc-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
