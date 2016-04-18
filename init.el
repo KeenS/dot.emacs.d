@@ -741,7 +741,7 @@ class %TESTCLASS% extends WordSpec with Matchers with MockitoSugar {
     \"normal\" should {
       \"throw any exception\" in {
         noException shouldBe thrownBy {}
-      }       
+      }
     }
   }
 }
