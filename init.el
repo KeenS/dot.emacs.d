@@ -655,7 +655,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #rust
 (setq racer-cmd "/home/kim/.emacs.d/lisp/racer/target/release/racer")
-(setq racer-rust-src-path "/home/kim/compile/rustc-1.7.0/src")
+(setq racer-rust-src-path "/home/kim/compile/rustc-1.8.0/src")
 (add-hook 'rust-mode-hook (lambda ()
                             (eldoc-mode 1)
                             (racer-mode)
