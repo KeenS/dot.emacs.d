@@ -283,7 +283,7 @@
                                (yas-expand))
                     ad-do-it)))))
      (yas-advise-indent-function #'indent-for-tab-command)))
-(yas-global-mode)
+;;(yas-global-mode)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
