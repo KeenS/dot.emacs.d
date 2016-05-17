@@ -17,19 +17,20 @@
 ;; 実行パスの設定
 (setq exec-path
       (append
-       exec-path
        (mapcar 'expand-file-name
                (list "~/.emacs.d/bin/"
                      "~/bin/"
                      "~/.lein/bin/"
                      "~/.shelly/bin/"
                      "~/.cabal/bin/"
-                     "~/Go/bin/"))))
+                     "~/.opam/system/bin/"
+                     "~/Go/bin/"))
+       exec-path))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #環境変数の設定 #env
-(setenv "PATH" (path-concat (getenv "PATH") exec-path))
+(setenv "PATH" (path-concat exec-path (getenv "PATH")))
 (setenv "LD_LIBRARY_PATH"
         (path-concat
          (getenv "LD_LIBRARY_PATH")
@@ -655,11 +656,12 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #rust
-(setq racer-cmd "/home/kim/.emacs.d/lisp/racer/target/release/racer")
-(setq racer-rust-src-path "/home/kim/compile/rustc-1.8.0/src")
+(setq-default racer-cmd "/home/kim/.emacs.d/lisp/racer/target/release/racer")
+(setq-default racer-rust-src-path "/home/kim/compile/rustc-1.8.0/src")
 (add-hook 'rust-mode-hook (lambda ()
                             (eldoc-mode 1)
                             (racer-mode)
+                            (flycheck-rust-setup)
                             (set (make-variable-buffer-local 'company-idle-delay) 0.1)
                             (set (make-variable-buffer-local 'company-minimum-prefix-length) 0)))
 
@@ -769,7 +771,7 @@ class %TESTCLASS% extends WordSpec with Matchers with MockitoSugar {
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (sr-speedbar go-eldoc company-go flymake-go go-mode dockerfile-mode async auto-highlight-symbol caml clojure-mode company company-math dash deferred epl eproject flycheck flymake-easy fringe-helper gh ghc git-gutter haskell-mode helm helm-core inf-ruby logito macrostep markup-faces math-symbol-lists merlin pcache pkg-info popup queue rust-mode s sbt-mode scala-mode2 slime spinner yasnippet "yasnippet" edts erlang qml-mode yascroll yaml-mode web-mode wakatime-mode utop twittering-mode tuareg sql-indent sml-mode slime-company slime-annot rustfmt ruby-electric robe racer px popup-complete paredit nginx-mode markdown-mode lex git-gutter-fringe gist ghci-completion fold-this flymake-yaml flymake-tuareg flymake-shell flymake-ruby flymake-racket flymake-haskell-multi flycheck-tcl flycheck-rust flycheck-ocaml flycheck-haskell flycheck-ghcmod flycheck-ats2 f ensime emmet-mode emacs-eclim eldoc-extension eldoc-eval csv-mode css-eldoc company-racer company-ghc company-coq company-cmake company-c-headers cmake-mode cljdoc cider cargo c-eldoc auto-complete auctex alect-themes adoc-mode))))
+    (nasm-mode sr-speedbar go-eldoc company-go flymake-go go-mode dockerfile-mode async auto-highlight-symbol caml clojure-mode company company-math dash deferred epl eproject flycheck flymake-easy fringe-helper gh ghc git-gutter haskell-mode helm helm-core inf-ruby logito macrostep markup-faces math-symbol-lists merlin pcache pkg-info popup queue rust-mode s sbt-mode scala-mode2 slime spinner yasnippet "yasnippet" edts erlang qml-mode yascroll yaml-mode web-mode wakatime-mode utop twittering-mode tuareg sql-indent sml-mode slime-company slime-annot rustfmt ruby-electric robe racer px popup-complete paredit nginx-mode markdown-mode lex git-gutter-fringe gist ghci-completion fold-this flymake-yaml flymake-tuareg flymake-shell flymake-ruby flymake-racket flymake-haskell-multi flycheck-tcl flycheck-rust flycheck-ocaml flycheck-haskell flycheck-ghcmod flycheck-ats2 f ensime emmet-mode emacs-eclim eldoc-extension eldoc-eval csv-mode css-eldoc company-racer company-ghc company-coq company-cmake company-c-headers cmake-mode cljdoc cider cargo c-eldoc auto-complete auctex alect-themes adoc-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
