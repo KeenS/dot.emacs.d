@@ -561,47 +561,47 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #OCaml #Caml #ML
-;; (dolist (cons (car (read-from-string (shell-command-to-string "opam config env --sexp"))))
-;;   (setenv (car cons) (cadr cons)))
+(dolist (cons (car (read-from-string (shell-command-to-string "opam config env --sexp"))))
+  (setenv (car cons) (cadr cons)))
 
-;; ;; Update the emacs path
-;; (setq exec-path (split-string (getenv "PATH") path-separator))
+;; Update the emacs path
+(setq exec-path (split-string (getenv "PATH") path-separator))
 
-;; ;; Update the emacs load path
-;; (add-to-list 'load-path (concat (getenv "OCAML_TOPLEVEL_PATH") "/../../share/emacs/site-lisp"))
-;; (add-to-list 'load-path (concat (getenv "OCAML_TOPLEVEL_PATH") "/../../build/ocaml/emacs"))
-;; (autoload #'enable-company-ocp-index "ocp-index" "" t)
-;; ;; Automatically load utop.el
-;; (autoload #'utop "utop" "Toplevel for OCaml" t)
-;; (autoload #'utop-setup-ocaml-buffer "utop" "Toplevel for OCaml" t)
-;; (add-hook #'tuareg-mode-hook 'utop-setup-ocaml-buffer)
-;; (setq-default utop-edit-command nil)
+;; Update the emacs load path
+(add-to-list 'load-path (concat (getenv "OCAML_TOPLEVEL_PATH") "/../../share/emacs/site-lisp"))
+(add-to-list 'load-path (concat (getenv "OCAML_TOPLEVEL_PATH") "/../../build/ocaml/emacs"))
+(autoload #'enable-company-ocp-index "ocp-index" "" t)
+;; Automatically load utop.el
+(autoload #'utop "utop" "Toplevel for OCaml" t)
+(autoload #'utop-setup-ocaml-buffer "utop" "Toplevel for OCaml" t)
+(add-hook #'tuareg-mode-hook 'utop-setup-ocaml-buffer)
+(setq-default utop-edit-command nil)
 
 
-;; (defun ocp-index-show-type-at-point ()
-;;   (lexical-let* ((sym (ocp-index-symbol-at-point))
-;;                  (out (shell-command-to-string
-;;                        (format "ocp-index type %s --full-open %s. -I."
-;;                                sym
-;;                                (upcase-initials
-;;                                 (file-name-nondirectory
-;;                                  (file-name-sans-extension (buffer-file-name))))))))
-;;     (if (not (string-equal out ""))
-;;         (format "%s: %s" sym (substitute ?\; ?\n out))
-;;       "")))
+(defun ocp-index-show-type-at-point ()
+  (lexical-let* ((sym (ocp-index-symbol-at-point))
+                 (out (shell-command-to-string
+                       (format "ocp-index type %s --full-open %s. -I."
+                               sym
+                               (upcase-initials
+                                (file-name-nondirectory
+                                 (file-name-sans-extension (buffer-file-name))))))))
+    (if (not (string-equal out ""))
+        (format "%s: %s" sym (substitute ?\; ?\n out))
+      "")))
 
-;; (add-hook 'tuareg-mode-hook 'enable-company-ocp-index)
-;; (add-hook 'caml-mode-hook 'enable-company-ocp-index)
-;; (autoload 'ocamlspot-query "ocamlspot" "OCamlSpot")
-;; (add-hook 'tuareg-mode-hook #'(lambda ()
-;;                                 (require 'ocp-index)
-;;                                 (define-key tuareg-mode-map (kbd "C-j") #'reindent-then-newline-and-indent)
-;;                                 (setq-default tuareg-library-path (concat (getenv "OCAML_TOPLEVEL_PATH") "/../"))
-;;                                 (flymake-tuareg-load)
-;;                                 (flymake-mode-on)
-;;                                 (eldoc-mode)
-;;                                 (set (make-local-variable 'eldoc-documentation-function)
-;;                                      #'ocp-index-show-type-at-point)))
+(add-hook 'tuareg-mode-hook 'enable-company-ocp-index)
+(add-hook 'caml-mode-hook 'enable-company-ocp-index)
+(autoload 'ocamlspot-query "ocamlspot" "OCamlSpot")
+(add-hook 'tuareg-mode-hook #'(lambda ()
+                                (require 'ocp-index)
+                                (define-key tuareg-mode-map (kbd "C-j") #'reindent-then-newline-and-indent)
+                                (setq-default tuareg-library-path (concat (getenv "OCAML_TOPLEVEL_PATH") "/../"))
+                                (flymake-tuareg-load)
+                                (flymake-mode-on)
+                                (eldoc-mode)
+                                (set (make-local-variable 'eldoc-documentation-function)
+                                     #'ocp-index-show-type-at-point)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
