@@ -743,7 +743,7 @@ import org.scalatest.mock.MockitoSugar
 class %TESTCLASS% extends WordSpec with Matchers with MockitoSugar {
   \"%IMPLCLASS%#foo\" when {
     \"normal\" should {
-      \"throw any exception\" in {
+      \"not throw any exception\" in {
         noException shouldBe thrownBy {}
       }
     }
