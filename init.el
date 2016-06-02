@@ -70,7 +70,7 @@
 ;;; #package
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 (package-initialize)
 
 
@@ -656,7 +656,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #rust
 (setq-default racer-cmd "/home/kim/.emacs.d/lisp/racer/target/release/racer")
-(setq-default racer-rust-src-path "/home/kim/compile/rustc-1.8.0/src")
+(setq-default racer-rust-src-path "/home/kim/compile/rustc-1.9.0/src")
 (add-hook 'rust-mode-hook (lambda ()
                             (eldoc-mode 1)
                             (racer-mode)
@@ -724,7 +724,7 @@
 (add-to-list 'ensime-goto-test-configs
              '("Axion" .
                (:test-class-names-fn ensime-goto-test--test-class-names
-                                      :test-class-suffixes ("Test" "Spec" "Specification" "Check")
+                                      :test-class-suffixes ("Spec" "Test" "Specification" "Check")
                                       :impl-class-name-fn  ensime-goto-test--impl-class-name
                                       :impl-to-test-dir-fn ensime-goto-test--impl-to-test-dir
                                       :is-test-dir-fn      ensime-goto-test--is-test-dir
