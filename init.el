@@ -611,7 +611,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #Isabelle
 ;;(setq-default isa-isabelle-command (expand-file-name "~/bin/isar_wrap"))
-(setq-default proof-general-debug t)
+(setq-default proof-general-debug nil)
 (require 'warnings)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
