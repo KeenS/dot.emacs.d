@@ -41,7 +41,7 @@
          (getenv "CLASSPATH")))
 (setenv "XDG_CONFIG_DIRS" (expand-file-name "~/.config"))
 (setenv "XDG_DATA_DIRS" "/usr/local/share/:/usr/share/")
-(setenv "export GOPATH" (expand-file-name "~/Go"))
+(setenv "GOPATH" (expand-file-name "~/Go"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #compat
@@ -71,8 +71,13 @@
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
-(package-initialize)
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 
+(package-initialize)
+(when (not package-archive-contents)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(require 'use-package)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #keybind
@@ -122,6 +127,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #misc
 ;; テーマを設定
+(use-package alect-themes :ensure t)
 (load-theme 'alect-dark t)
 ;; .elと.elcの新しい方をロードする
 (setq load-prefer-newer t)
@@ -133,6 +139,7 @@
 (scroll-bar-mode -1)
 (horizontal-scroll-bar-mode -1)
 ;; 主張しないスクロールバーを使う
+(use-package yascroll :ensure t)
 (global-yascroll-bar-mode +1)
 ;; スタートアップになにもしない
 (setq inhibit-startup-screen t)
@@ -202,6 +209,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #company
+(use-package company :ensure t)
 (add-hook 'after-init-hook '(lambda ()
                               (global-company-mode)
                               (delete 'company-preview-if-just-one-frontend company-frontends)
@@ -235,6 +243,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;#twittering-mode
+(use-package twittering-mode)
 (autoload #'twit "twittering-mode" nil t)
 (setq-default twittering-username "blackenedgold")
 (setq-default twittering-use-master-password t)
@@ -412,6 +421,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #yaml
+(use-package yaml-mode :ensure t)
 (autoload #'yaml-mode "yaml-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.ya?ml" . yaml-mode))
 
@@ -426,6 +436,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #flymake 文法チェック
+(use-package flycheck :ensure t)
 (global-flycheck-mode)
 (dolist (mode '(emacs-lisp emacs-lisp-checkdoc))
   (delete mode flycheck-checkers))
@@ -471,6 +482,7 @@
                 (ccl ("~/.cim/bin/ccl"))
                 (ecl ("~/.cim/bin/ecl"))))
 
+(use-package slime :ensure t)
 (slime-setup '(slime-company slime-fancy))
 ;;; #Clojure
 
@@ -486,7 +498,7 @@
 (autoload #'run-scheme "cmuscheme" "Run an inferior Scheme process." t)
 
 ;;; #EmacsLisp
-(defun eldoc-documentation-function-default ())
+;;(defun eldoc-documentation-function-default ())
 (dolist (hook '(emacs-lisp-mode-hook lisp-interaction-mode-hook ielm-mode-hook))
   (add-hook hook #'(lambda ()
                      (eldoc-mode))))
@@ -494,9 +506,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; #ruby系
 (setq-default ruby-deep-indent-paren-style nil)
-
-;;; デバッガ
-(autoload #'rubydb "rubydb3x" "ruby debug" t)
 
 (add-hook 'ruby-mode-hook #'(lambda ()
                               (require 'smartparens-ruby)
@@ -699,7 +708,7 @@
 ;; (push '(".+\\.sml$" flymake-sml-lint-init) flymake-allowed-file-name-masks)
 
 (eval-after-load 'flymake
-  '(progn 
+  '(progn
     (add-to-list 'flymake-allowed-file-name-masks '(".+\\.sml$" flymake-smlsharp-init flymake-master-cleanup))
     (add-to-list 'flymake-err-line-patterns '("^\\([^: ]*\\):\\([0-9]+\\)\\.\\([0-9]+\\)-[0-9]+\\.[0-9]+ \\(\\(Error\\|Warning\\):.*\\)"
                                               1 2 3 4))))
@@ -718,6 +727,10 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #scala
+(use-package ensime
+  :ensure t
+  :pin melpa-stable)
+
 (require 'ensime)
 (require 'ensime-goto-testfile)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
@@ -754,8 +767,14 @@ class %TESTCLASS% extends WordSpec with Matchers with MockitoSugar {
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #Go
 (add-hook 'go-mode-hook (lambda ()
-                            (eldoc-mode 1)
-                            (set (make-variable-buffer-local 'company-minimum-prefix-length) 0)))
+                          (load "~/Go/src/github.com/nsf/gocode/emacs-company/company-go.el" nil t)
+                          (load "~/Go/src/github.com/nsf/gocode/emacs/go-autocomplete.el" nil t)
+                          (require 'auto-complete-config)
+                          (ac-config-default)
+                          (setq-default company-go-show-annotation t)
+                          (setq-default company-go-insert-arguments nil)
+                          (add-to-list 'company-backend 'company-go)
+                          (eldoc-mode 1)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -770,7 +789,7 @@ class %TESTCLASS% extends WordSpec with Matchers with MockitoSugar {
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (hcl-mode julia-shell ess nasm-mode sr-speedbar go-eldoc company-go flymake-go go-mode dockerfile-mode async auto-highlight-symbol caml clojure-mode company company-math dash deferred epl eproject flycheck flymake-easy fringe-helper gh ghc git-gutter haskell-mode helm helm-core inf-ruby logito macrostep markup-faces math-symbol-lists merlin pcache pkg-info popup queue rust-mode s sbt-mode scala-mode2 slime spinner yasnippet "yasnippet" edts erlang qml-mode yascroll yaml-mode web-mode wakatime-mode utop twittering-mode tuareg sql-indent sml-mode slime-company slime-annot rustfmt ruby-electric robe racer px popup-complete paredit nginx-mode markdown-mode lex git-gutter-fringe gist ghci-completion fold-this flymake-yaml flymake-tuareg flymake-shell flymake-ruby flymake-racket flymake-haskell-multi flycheck-tcl flycheck-rust flycheck-ocaml flycheck-haskell flycheck-ghcmod flycheck-ats2 f ensime emmet-mode emacs-eclim eldoc-eval csv-mode css-eldoc company-racer company-ghc company-coq company-cmake company-c-headers cmake-mode cljdoc cider cargo c-eldoc auto-complete auctex alect-themes adoc-mode))))
+    (go-complete hcl-mode julia-shell ess nasm-mode sr-speedbar go-eldoc company-go flymake-go go-mode dockerfile-mode async auto-highlight-symbol caml clojure-mode company company-math dash deferred epl eproject flycheck flymake-easy fringe-helper gh ghc git-gutter haskell-mode helm helm-core inf-ruby logito macrostep markup-faces math-symbol-lists merlin pcache pkg-info popup queue rust-mode s sbt-mode scala-mode2 slime spinner yasnippet "yasnippet" edts erlang qml-mode yascroll yaml-mode web-mode wakatime-mode utop twittering-mode tuareg sql-indent sml-mode slime-company slime-annot rustfmt ruby-electric robe racer px popup-complete paredit nginx-mode markdown-mode lex git-gutter-fringe gist ghci-completion fold-this flymake-yaml flymake-tuareg flymake-shell flymake-ruby flymake-racket flymake-haskell-multi flycheck-tcl flycheck-rust flycheck-ocaml flycheck-haskell flycheck-ghcmod flycheck-ats2 f ensime emmet-mode emacs-eclim eldoc-eval csv-mode css-eldoc company-racer company-ghc company-coq company-cmake company-c-headers cmake-mode cljdoc cider cargo c-eldoc auto-complete auctex alect-themes adoc-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
