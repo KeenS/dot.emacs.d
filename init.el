@@ -243,7 +243,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;#twittering-mode
-(use-package twittering-mode)
+(use-package twittering-mode :ensure t)
 (autoload #'twit "twittering-mode" nil t)
 (setq-default twittering-username "blackenedgold")
 (setq-default twittering-use-master-password t)
@@ -279,7 +279,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #yasnippet
-(require 'yasnippet)
+(use-package yasnippet :ensure t)
 (eval-after-load 'yasnippet
   '(progn
      (defun yas-advise-indent-function (function-symbol)
@@ -459,6 +459,7 @@
 ;; #Lisp
 ;(load (expand-file-name "~/.cim/init.esh") nil t)
 ;;括弧の対応を取る
+(use-package paredit :ensure t)
 (eval-after-load 'paredit
   '(define-key paredit-mode-map (kbd "C-h") #'paredit-backward-delete))
 (dolist (hook '(emacs-lisp-mode-hook
@@ -483,6 +484,7 @@
                 (ecl ("~/.cim/bin/ecl"))))
 
 (use-package slime :ensure t)
+(use-package slime-company :ensure t)
 (slime-setup '(slime-company slime-fancy))
 ;;; #Clojure
 
@@ -779,6 +781,7 @@ class %TESTCLASS% extends WordSpec with Matchers with MockitoSugar {
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #wakatime
+(use-package wakatime-mode :ensure t)
 (load "~/.wakatime.el" t t)
 (global-wakatime-mode)
 
