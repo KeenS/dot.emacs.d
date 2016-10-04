@@ -782,7 +782,6 @@ class %TESTCLASS% extends WordSpec with Matchers with MockitoSugar {
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #wakatime
 (use-package wakatime-mode :ensure t)
-(load "~/.wakatime.el" t t)
 (global-wakatime-mode)
 
 (custom-set-variables
