@@ -11,5 +11,5 @@
 	path = lisp/ProofGeneral
 	url = https://github.com/ProofGeneral/PG.git
 [submodule "lisp/cssfmt.el"]
-	path = lisp/cssfmt.el
+	path = lisp/stylefmt.el
 	url = git@github.com:KeenS/cssfmt.el.git
