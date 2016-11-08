@@ -666,8 +666,8 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #rust
-(setq-default racer-cmd "/home/kim/.emacs.d/lisp/racer/target/release/racer")
-(setq-default racer-rust-src-path "/home/kim/compile/rustc-1.12.0/src")
+(setq-default racer-cmd (expand-file-name "~/.cargo/bin/racer"))
+(setq-default racer-rust-src-path (expand-file-name "~/compile/rustc-1.12.0/src"))
 (add-hook 'rust-mode-hook (lambda ()
                             (eldoc-mode 1)
                             (racer-mode)
