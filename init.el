@@ -667,7 +667,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #rust
 (setq-default racer-cmd (expand-file-name "~/.cargo/bin/racer"))
-(setq-default racer-rust-src-path (expand-file-name "~/compile/rustc-1.12.0/src"))
+(setq-default racer-rust-src-path (expand-file-name "~/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust"))
 (add-hook 'rust-mode-hook (lambda ()
                             (eldoc-mode 1)
                             (racer-mode)
