@@ -20,9 +20,11 @@
        (mapcar 'expand-file-name
                (list "~/.emacs.d/bin/"
                      "~/bin/"
+                     "~/.local/bin/"
                      "~/.lein/bin/"
                      "~/.shelly/bin/"
                      "~/.cabal/bin/"
+                     "~/.cargo/bin/"
                      "~/.opam/system/bin/"
                      "~/Go/bin/"))
        exec-path))
@@ -123,6 +125,10 @@
   "Top of the page is to be top of window."
   (recenter-top-bottom 0))
 
+(defun count-pages ()
+  (interactive)
+  (save-excursion
+    (message "%i" (1+ (count-matches "===" 0 (point))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #misc
@@ -161,7 +167,7 @@
 (show-paren-mode)
 ;; ビーブ音を鳴らさない
 (if (bound-and-true-p ring-bell-function)
-    (setq ring-bell-function nil))
+    (setq ring-bell-function 'ignore))
 ;; yes or noを全てy or nに
 (fset 'yes-or-no-p #'y-or-n-p)
 ;; C-x C-f のデフォルトをポイントに応じて変更する
@@ -184,6 +190,8 @@
 ;; 余分な空白をハイライト
 (setq-default show-trailing-whitespace t)
 (column-number-mode 1)
+;; emacsサーバを開始
+(server-start)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #dired
@@ -287,10 +295,9 @@
                 ,(format
                   "Try to expand a snippet before point, then call `%s' as usual"
                   function-symbol)
-                (let ((yas-fallback-behavior nil))
-                  (unless (and (called-interactively-p 'interactive)
-                               (yas-expand))
-                    ad-do-it)))))
+                (unless (and (called-interactively-p 'interactive)
+                             (yas-expand))
+                  ad-do-it))))
      (yas-advise-indent-function #'indent-for-tab-command)))
 ;;(yas-global-mode)
 
@@ -666,14 +673,17 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #rust
-(setq-default racer-cmd (expand-file-name "~/.cargo/bin/racer"))
-(setq-default racer-rust-src-path (expand-file-name "~/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust"))
+(eval-after-load "rust-mode"
+  '(setq-default rust-format-on-save t))
 (add-hook 'rust-mode-hook (lambda ()
-                            (eldoc-mode 1)
                             (racer-mode)
                             (flycheck-rust-setup)
-                            (set (make-variable-buffer-local 'company-idle-delay) 0.1)
-                            (set (make-variable-buffer-local 'company-minimum-prefix-length) 0)))
+                            (cargo-minor-mode)))
+(add-hook 'racer-mode-hook #'eldoc-mode)
+(add-hook 'racer-mode-hook (lambda ()
+                             (company-mode)
+                             (set (make-variable-buffer-local 'company-idle-delay) 0.1)
+                             (set (make-variable-buffer-local 'company-minimum-prefix-length) 1)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #sml
@@ -783,6 +793,7 @@ class %TESTCLASS% extends WordSpec with Matchers with MockitoSugar {
 ;;; #wakatime
 (use-package wakatime-mode :ensure t)
 (global-wakatime-mode)
+(setq-default wakatime-cli-path "/usr/local/bin/wakatime")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -791,7 +802,7 @@ class %TESTCLASS% extends WordSpec with Matchers with MockitoSugar {
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (toml-mode thrift racket-mode terraform-mode go-complete hcl-mode julia-shell ess nasm-mode sr-speedbar go-eldoc company-go flymake-go go-mode dockerfile-mode async auto-highlight-symbol caml clojure-mode company company-math dash deferred epl eproject flycheck flymake-easy fringe-helper gh ghc git-gutter haskell-mode helm helm-core inf-ruby logito macrostep markup-faces math-symbol-lists merlin pcache pkg-info popup queue rust-mode s sbt-mode scala-mode2 slime spinner yasnippet "yasnippet" edts erlang qml-mode yascroll yaml-mode web-mode wakatime-mode utop twittering-mode tuareg sql-indent sml-mode slime-company slime-annot rustfmt ruby-electric robe racer px popup-complete paredit nginx-mode markdown-mode lex git-gutter-fringe gist ghci-completion fold-this flymake-yaml flymake-tuareg flymake-shell flymake-ruby flymake-racket flymake-haskell-multi flycheck-tcl flycheck-rust flycheck-ocaml flycheck-haskell flycheck-ghcmod flycheck-ats2 f ensime emmet-mode emacs-eclim eldoc-eval csv-mode css-eldoc company-racer company-ghc company-coq company-cmake company-c-headers cmake-mode cljdoc cider cargo c-eldoc auto-complete auctex alect-themes adoc-mode))))
+    (llvm-mode unicode-fonts dash-functional lsp-rust idris-mode csv-mode csv lsp-mode docker auto-complete-verilog toml-mode thrift racket-mode terraform-mode go-complete hcl-mode julia-shell ess nasm-mode sr-speedbar go-eldoc company-go flymake-go go-mode dockerfile-mode async auto-highlight-symbol caml clojure-mode company company-math dash deferred epl eproject flycheck flymake-easy fringe-helper gh ghc git-gutter haskell-mode inf-ruby logito macrostep markup-faces math-symbol-lists merlin pcache pkg-info popup queue rust-mode s sbt-mode scala-mode2 slime spinner yasnippet "yasnippet" edts erlang qml-mode yascroll yaml-mode web-mode utop twittering-mode tuareg sql-indent sml-mode slime-company slime-annot ruby-electric robe racer px popup-complete paredit nginx-mode markdown-mode lex git-gutter-fringe gist ghci-completion fold-this flymake-yaml flymake-tuareg flymake-shell flymake-ruby flymake-racket flymake-haskell-multi flycheck-tcl flycheck-rust flycheck-ocaml flycheck-haskell flycheck-ghcmod flycheck-ats2 f ensime emmet-mode emacs-eclim eldoc-eval css-eldoc company-racer company-ghc company-coq company-cmake company-c-headers cmake-mode cljdoc cider cargo c-eldoc auto-complete auctex alect-themes adoc-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
