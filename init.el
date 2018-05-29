@@ -677,17 +677,27 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #rust
+(with-eval-after-load 'lsp-mode
+  (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls"))
+  (require 'lsp-rust))
+(require 'lsp-ui)
+(add-hook 'lsp-mode-hook 'lsp-ui-mode)
+
+(require 'lsp-mode)
 (eval-after-load "rust-mode"
   '(setq-default rust-format-on-save t))
 (add-hook 'rust-mode-hook (lambda ()
-                            (racer-mode)
-                            (flycheck-rust-setup)
+;                            (racer-mode)
+;                            (flycheck-rust-setup)
                             (cargo-minor-mode)))
+(add-hook 'rust-mode-hook #'lsp-rust-enable)
+(add-hook 'rust-mode-hook #'flycheck-mode)
+
 (add-hook 'racer-mode-hook #'eldoc-mode)
 (add-hook 'racer-mode-hook (lambda ()
                              (company-mode)
                              (set (make-variable-buffer-local 'company-idle-delay) 0.1)
-                             (set (make-variable-buffer-local 'company-minimum-prefix-length) 1)))
+                             (set (make-variable-buffer-local 'company-minimum-prefix-length) 3)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #sml
