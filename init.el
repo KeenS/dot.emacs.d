@@ -802,6 +802,12 @@ class %TESTCLASS% extends WordSpec with Matchers with MockitoSugar {
                           (add-to-list 'company-backend 'company-go)
                           (eldoc-mode 1)))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; #JSON
+(eval-after-load 'flycheck
+  '(setq flycheck-json-python-json-executable "python3"))
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #wakatime
