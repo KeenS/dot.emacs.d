@@ -190,6 +190,11 @@
 (column-number-mode 1)
 ;; emacsサーバを開始
 (server-start)
+;; スクロールをピクセル単位に
+(pixel-scroll-mode 1)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 5) ((control))))
+(setq mouse-wheel-progressive-speed nil)
+(setq pixel-resolution-fine-flag t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #dired
