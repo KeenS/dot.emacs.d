@@ -1,12 +1,12 @@
 ((yasnippet #s(package-desc yasnippet
-			    (20180513 1004)
+			    (20180620 1750)
 			    "Yet another snippet extension for Emacs."
 			    ((cl-lib
 			      (0 5)))
-			    nil nil "/home/kim/.emacs.d/elpa/yasnippet-20180513.1004"
+			    nil nil "/home/kim/.emacs.d/elpa/yasnippet-20180620.1750"
 			    ((:url . "http://github.com/joaotavora/yasnippet")
 			     (:keywords "convenience" "emulation")
-			     (:commit . "5a29fe67d70de3749e30ebb37206395b4d1a51a8"))
+			     (:commit . "d3bb879356288ef38975fbf85947c7371b8c9759"))
 			    nil))
  (yascroll #s(package-desc yascroll
 			   (20170315 1206)
@@ -26,15 +26,11 @@
 			     (:commit . "40067a10ac1360f0b9533f0bbbb2eea128e2574d"))
 			    nil))
  (web-mode #s(package-desc web-mode
-			   (20180522 817)
+			   (20180628 422)
 			   "major mode for editing web templates"
 			   ((emacs
 			     (23 1)))
-			   nil nil "/home/kim/.emacs.d/elpa/web-mode-20180522.817"
-			   ((:url . "http://web-mode.org")
-			    (:keywords "languages")
-			    (:commit . "3d42ceaec60623c0b2fba7456f984e7a2cf6c5af"))
-			   nil))
+			   nil nil "/home/kim/.emacs.d/elpa/web-mode-20180628.422" nil nil))
  (wakatime-mode #s(package-desc wakatime-mode
 				(20170517 2053)
 				"Automatic time tracking extension for WakaTime" nil nil nil "/home/kim/.emacs.d/elpa/wakatime-mode-20170517.2053"
@@ -42,25 +38,21 @@
 				 (:commit . "b1eae15f38a367017e519c10837c44650631b154"))
 				nil))
  (utop #s(package-desc utop
-		       (20180228 305)
+		       (20180706 1549)
 		       "Universal toplevel for OCaml"
 		       ((emacs
 			 (24)))
-		       nil nil "/home/kim/.emacs.d/elpa/utop-20180228.305"
-		       ((:keywords "ocaml" "languages")
-			(:url . "https://github.com/diml/utop")
-			(:commit . "1b4bd052c6513d38f6cc626c24665637d25fdc07"))
-		       nil))
+		       nil nil "/home/kim/.emacs.d/elpa/utop-20180706.1549" nil nil))
  (use-package #s(package-desc use-package
-			      (20180314 1143)
+			      (20180715 1101)
 			      "A configuration macro for simplifying your .emacs"
 			      ((emacs
 				(24 3))
 			       (bind-key
 				(2 4)))
-			      nil nil "/home/kim/.emacs.d/elpa/use-package-20180314.1143"
-			      ((:keywords "dotemacs" "startup" "speed" "config" "package")
-			       (:url . "https://github.com/jwiegley/use-package"))
+			      nil nil "/home/kim/.emacs.d/elpa/use-package-20180715.1101"
+			      ((:url . "https://github.com/jwiegley/use-package")
+			       (:keywords "dotemacs" "startup" "speed" "config" "package"))
 			      nil))
  (unicode-fonts #s(package-desc unicode-fonts
 				(20150826 1532)
@@ -181,25 +173,28 @@
 				 (:commit . "4c2e2805540dea700130607fa235018a87e4a070"))
 				nil))
  (slime #s(package-desc slime
-			(20180519 1327)
+			(20180719 1821)
 			"Superior Lisp Interaction Mode for Emacs"
 			((cl-lib
 			  (0 5))
 			 (macrostep
 			  (0 9)))
-			nil nil "/home/kim/.emacs.d/elpa/slime-20180519.1327"
+			nil nil "/home/kim/.emacs.d/elpa/slime-20180719.1821"
 			((:url . "https://github.com/slime/slime")
 			 (:keywords "languages" "lisp" "slime"))
 			nil))
+ (sesman #s(package-desc sesman
+			 (20180719 213)
+			 "Generic Session Manager"
+			 ((emacs
+			   (25)))
+			 nil nil "/home/kim/.emacs.d/elpa/sesman-20180719.213" nil nil))
  (seq #s(package-desc seq
 		      (2 20)
 		      "Sequence manipulation functions" nil nil nil "/home/kim/.emacs.d/elpa/seq-2.20"
 		      ((:keywords "sequences")
 		       (:url . "http://elpa.gnu.org/packages/seq.html"))
 		      t))
- (scala-mode2 #s(package-desc scala-mode2
-			      (20151226 1048)
-			      "Major mode for editing Scala >= 2.9" nil nil nil "/home/kim/.emacs.d/elpa/scala-mode2-20151226.1048" nil nil))
  (scala-mode #s(package-desc scala-mode
 			     (20170802 432)
 			     "Major mode for editing Scala" nil nil nil "/home/kim/.emacs.d/elpa/scala-mode-20170802.432"
@@ -222,15 +217,11 @@
 		     (:commit . "03410e6a7a2b11e47e1fea3b7d9899c7df26435e"))
 		    nil))
  (rust-mode #s(package-desc rust-mode
-			    (20180322 127)
+			    (20180626 1512)
 			    "A major emacs mode for editing Rust source code"
 			    ((emacs
 			      (24 0)))
-			    nil nil "/home/kim/.emacs.d/elpa/rust-mode-20180322.127"
-			    ((:keywords "languages")
-			     (:url . "https://github.com/rust-lang/rust-mode")
-			     (:commit . "07e16c6364bf0362f76c6aa46604453dec3ac640"))
-			    nil))
+			    nil nil "/home/kim/.emacs.d/elpa/rust-mode-20180626.1512" nil nil))
  (ruby-electric #s(package-desc ruby-electric
 				(20170810 430)
 				"Minor mode for electrically editing ruby code" nil nil nil "/home/kim/.emacs.d/elpa/ruby-electric-20170810.430"
@@ -250,7 +241,7 @@
 			(:url . "https://github.com/dgutov/robe"))
 		       nil))
  (racer #s(package-desc racer
-			(20171211 1548)
+			(20180708 2325)
 			"code completion, goto-definition and docs browsing for Rust via racer"
 			((emacs
 			  (24 3))
@@ -264,11 +255,7 @@
 			  (0 18 2))
 			 (pos-tip
 			  (0 4 6)))
-			nil nil "/home/kim/.emacs.d/elpa/racer-20171211.1548"
-			((:keywords "abbrev" "convenience" "matching" "rust" "tools")
-			 (:url . "https://github.com/racer-rust/emacs-racer")
-			 (:commit . "cb74060bbaff8e505ba36e20e4a3a763ee7dd4c8"))
-			nil))
+			nil nil "/home/kim/.emacs.d/elpa/racer-20180708.2325" nil nil))
  (queue #s(package-desc queue
 			(0 2)
 			"Queue data structure" nil nil nil "/home/kim/.emacs.d/elpa/queue-0.2"
@@ -359,19 +346,16 @@
 			      (:commit . "a2bab83c2eb233d57d76b236e7c141c2ccc97005"))
 			     nil))
  (nasm-mode #s(package-desc nasm-mode
-			    (20180422 924)
+			    (20180711 1209)
 			    "NASM x86 assembly major mode"
 			    ((emacs
 			      (24 3)))
-			    nil nil "/home/kim/.emacs.d/elpa/nasm-mode-20180422.924"
-			    ((:url . "https://github.com/skeeto/nasm-mode")
-			     (:commit . "af3d9352a678eac61961f795dae158d9085353d3"))
-			    nil))
+			    nil nil "/home/kim/.emacs.d/elpa/nasm-mode-20180711.1209" nil nil))
  (merlin #s(package-desc merlin
-			 (20170917 430)
-			 "Mode for Merlin, an assistant for OCaml." nil nil nil "/home/kim/.emacs.d/elpa/merlin-20170917.430"
-			 ((:keywords "ocaml" "languages")
-			  (:url . "https://github.com/ocaml/merlin"))
+			 (20180214 242)
+			 "Mode for Merlin, an assistant for OCaml." nil nil nil "/home/kim/.emacs.d/elpa/merlin-20180214.242"
+			 ((:url . "https://github.com/ocaml/merlin")
+			  (:keywords "ocaml" "languages"))
 			 nil))
  (math-symbol-lists #s(package-desc math-symbol-lists
 				    (20170221 553)
@@ -400,19 +384,15 @@
 				(:url . "https://github.com/sensorflo/markup-faces"))
 			       nil))
  (markdown-mode #s(package-desc markdown-mode
-				(20180525 1952)
+				(20180707 555)
 				"Major mode for Markdown-formatted text"
 				((emacs
 				  (24 4))
 				 (cl-lib
 				  (0 5)))
-				nil nil "/home/kim/.emacs.d/elpa/markdown-mode-20180525.1952"
-				((:url . "https://jblevins.org/projects/markdown-mode/")
-				 (:keywords "markdown" "github flavored markdown" "itex")
-				 (:commit . "4f9c5e24aec582ed3413a8165ec0d613e71b7430"))
-				nil))
+				nil nil "/home/kim/.emacs.d/elpa/markdown-mode-20180707.555" nil nil))
  (magit-popup #s(package-desc magit-popup
-			      (20180509 1041)
+			      (20180618 1602)
 			      "Define prefix-infix-suffix command combos"
 			      ((emacs
 				(24 4))
@@ -420,7 +400,7 @@
 				(1 9 2))
 			       (dash
 				(2 13 0)))
-			      nil nil "/home/kim/.emacs.d/elpa/magit-popup-20180509.1041"
+			      nil nil "/home/kim/.emacs.d/elpa/magit-popup-20180618.1602"
 			      ((:url . "https://github.com/magit/magit-popup")
 			       (:keywords "bindings"))
 			      nil))
@@ -434,7 +414,7 @@
 			     (:url . "https://github.com/joddie/macrostep"))
 			    nil))
  (lsp-ui #s(package-desc lsp-ui
-			 (20180526 2113)
+			 (20180618 1951)
 			 "UI modules for lsp-mode"
 			 ((emacs
 			   (25 1))
@@ -448,7 +428,7 @@
 			   (4 0))
 			  (markdown-mode
 			   (2 3)))
-			 nil nil "/home/kim/.emacs.d/elpa/lsp-ui-20180526.2113"
+			 nil nil "/home/kim/.emacs.d/elpa/lsp-ui-20180618.1951"
 			 ((:url . "https://github.com/emacs-lsp/lsp-ui")
 			  (:keywords "lsp"))
 			 nil))
@@ -471,11 +451,11 @@
 			    (:commit . "ecc889cc8735b280e0e6e84d2f4526b0048148b3"))
 			   nil))
  (lsp-mode #s(package-desc lsp-mode
-			   (20180518 2223)
+			   (20180708 1914)
 			   "Minor mode for interacting with Language Servers"
 			   ((emacs
 			     (25 1)))
-			   nil nil "/home/kim/.emacs.d/elpa/lsp-mode-20180518.2223"
+			   nil nil "/home/kim/.emacs.d/elpa/lsp-mode-20180708.1914"
 			   ((:url . "https://github.com/emacs-lsp/lsp-mode"))
 			   nil))
  (logito #s(package-desc logito
@@ -486,9 +466,6 @@
 			 nil nil "/home/kim/.emacs.d/elpa/logito-20120225.1255"
 			 ((:keywords "lisp" "tool"))
 			 nil))
- (llvm-mode #s(package-desc llvm-mode
-			    (20160617 2215)
-			    "Major mode for the LLVM assembler language." nil nil nil "/home/kim/.emacs.d/elpa/llvm-mode-20160617.2215" nil nil))
  (list-utils #s(package-desc list-utils
 			     (20160414 702)
 			     "List-manipulation utility functions" nil nil nil "/home/kim/.emacs.d/elpa/list-utils-20160414.702"
@@ -516,16 +493,13 @@
 				 (:url . "https://github.com/gongo/json-reformat"))
 				nil))
  (json-mode #s(package-desc json-mode
-			    (20170719 2205)
+			    (20180718 109)
 			    "Major mode for editing JSON files."
 			    ((json-reformat
 			      (0 0 5))
 			     (json-snatcher
 			      (1 0 0)))
-			    nil nil "/home/kim/.emacs.d/elpa/json-mode-20170719.2205"
-			    ((:url . "https://github.com/joshwnj/json-mode")
-			     (:commit . "32d5a9b3319e6797c4d52e7d61a65e5638102ef4"))
-			    nil))
+			    nil nil "/home/kim/.emacs.d/elpa/json-mode-20180718.109" nil nil))
  (inf-ruby #s(package-desc inf-ruby
 			   (20180521 648)
 			   "Run a Ruby process in a buffer" nil nil nil "/home/kim/.emacs.d/elpa/inf-ruby-20180521.648"
@@ -565,11 +539,11 @@
 			    (:commit . "0f2c5ec7e7bcf77c8548e8cac8721ea935ca1b5e"))
 			   nil))
  (haskell-mode #s(package-desc haskell-mode
-			       (20180406 2222)
+			       (20180601 143)
 			       "A Haskell editing mode"
 			       ((emacs
 				 (24 3)))
-			       nil nil "/home/kim/.emacs.d/elpa/haskell-mode-20180406.2222"
+			       nil nil "/home/kim/.emacs.d/elpa/haskell-mode-20180601.143"
 			       ((:url . "https://github.com/haskell/haskell-mode")
 				(:keywords "haskell" "cabal" "ghc" "repl"))
 			       nil))
@@ -675,9 +649,6 @@
 			       ((:keywords "yaml")
 				(:url . "https://github.com/yasuyk/flymake-yaml"))
 			       nil))
- (flymake-tuareg #s(package-desc flymake-tuareg
-				 (0 1)
-				 "A flymake handler for tuareg-mode files" nil nil nil "/home/kim/.emacs.d/elpa/flymake-tuareg-0.1" nil nil))
  (flymake-shell #s(package-desc flymake-shell
 				(20170722 1846)
 				"A flymake syntax-checker for shell scripts"
@@ -696,14 +667,6 @@
 			       ((:url . "https://github.com/purcell/flymake-ruby")
 				(:commit . "6c320c6fb686c5223bf975cc35178ad6b195e073"))
 			       nil))
- (flymake-racket #s(package-desc flymake-racket
-				 (20131209 2157)
-				 "A flymake handler for scheme-mode files"
-				 ((flymake-easy
-				   (0 1)))
-				 nil nil "/home/kim/.emacs.d/elpa/flymake-racket-20131209.2157"
-				 ((:url . "https://github.com/yuyang0/flymake-racket"))
-				 nil))
  (flymake-haskell-multi #s(package-desc flymake-haskell-multi
 					(20170722 1846)
 					"Syntax-check haskell-mode using both ghc and hlint"
@@ -762,7 +725,7 @@
 				  (:commit . "8707a7bf545a8639a6a5c600a98d9a2ea1487dc9"))
 				 nil))
  (flycheck-haskell #s(package-desc flycheck-haskell
-				   (20180321 1340)
+				   (20180611 1442)
 				   "Flycheck: Automatic Haskell configuration"
 				   ((emacs
 				     (24 3))
@@ -776,9 +739,9 @@
 				     (1 11))
 				    (let-alist
 					(1 0 1)))
-				   nil nil "/home/kim/.emacs.d/elpa/flycheck-haskell-20180321.1340"
-				   ((:keywords "tools" "convenience")
-				    (:url . "https://github.com/flycheck/flycheck-haskell"))
+				   nil nil "/home/kim/.emacs.d/elpa/flycheck-haskell-20180611.1442"
+				   ((:url . "https://github.com/flycheck/flycheck-haskell")
+				    (:keywords "tools" "convenience"))
 				   nil))
  (flycheck-ghcmod #s(package-desc flycheck-ghcmod
 				  (20150113 2232)
@@ -803,7 +766,7 @@
 				 (:url . "http://github.com/drvink/flycheck-ats2"))
 				nil))
  (flycheck #s(package-desc flycheck
-			   (20180527 918)
+			   (20180614 1235)
 			   "On-the-fly syntax checking"
 			   ((dash
 			     (2 12 1))
@@ -815,7 +778,7 @@
 			     (1 11))
 			    (emacs
 			     (24 3)))
-			   nil nil "/home/kim/.emacs.d/elpa/flycheck-20180527.918"
+			   nil nil "/home/kim/.emacs.d/elpa/flycheck-20180614.1235"
 			   ((:url . "http://www.flycheck.org")
 			    (:keywords "convenience" "languages" "tools"))
 			   nil))
@@ -832,11 +795,11 @@
 		     (:commit . "de6d4d40ddc844eee643e92d47b9d6a63fbebb48"))
 		    nil))
  (erlang #s(package-desc erlang
-			 (20180507 130)
+			 (20180618 557)
 			 "Erlang major mode"
 			 ((emacs
 			   (24 1)))
-			 nil nil "/home/kim/.emacs.d/elpa/erlang-20180507.130" nil nil))
+			 nil nil "/home/kim/.emacs.d/elpa/erlang-20180618.557" nil nil))
  (epl #s(package-desc epl
 		      (20180205 1249)
 		      "Emacs Package Library"
@@ -869,26 +832,12 @@
 			  (:url . "https://github.com/ensime/ensime-emacs"))
 			 nil))
  (emmet-mode #s(package-desc emmet-mode
-			     (20180504 1944)
-			     "Unofficial Emmet's support for emacs" nil nil nil "/home/kim/.emacs.d/elpa/emmet-mode-20180504.1944"
+			     (20180612 2041)
+			     "Unofficial Emmet's support for emacs" nil nil nil "/home/kim/.emacs.d/elpa/emmet-mode-20180612.2041"
 			     ((:url . "https://github.com/smihica/emmet-mode")
 			      (:keywords "convenience")
-			      (:commit . "45c633ac79bba1dd185c541830c126db37a63dab"))
+			      (:commit . "1acb821e0142136344ccf40c1e5fb664d7db2e70"))
 			     nil))
- (emacs-eclim #s(package-desc emacs-eclim
-			      (20160616 2312)
-			      "An interface to the Eclipse IDE."
-			      ((dash
-				(2 11 0))
-			       (json
-				(1 2))
-			       (popup
-				(0 5 2))
-			       (s
-				(1 9 0))
-			       (cl-lib
-				(0 5)))
-			      nil nil "/home/kim/.emacs.d/elpa/emacs-eclim-20160616.2312" nil nil))
  (elm-mode #s(package-desc elm-mode
 			   (20180114 9)
 			   "Major mode for Elm"
@@ -908,19 +857,18 @@
 			   ((:url . "https://github.com/jcollard/elm-mode"))
 			   nil))
  (eldoc-eval #s(package-desc eldoc-eval
-			     (20150512 506)
-			     "Enable eldoc support when minibuffer is in use." nil nil nil "/home/kim/.emacs.d/elpa/eldoc-eval-20150512.506" nil nil))
+			     (20180607 457)
+			     "Enable eldoc support when minibuffer is in use." nil nil nil "/home/kim/.emacs.d/elpa/eldoc-eval-20180607.457"
+			     ((:commit . "f59a1ae7ecfa97ef659c7adb93e0673419acc485"))
+			     nil))
  (dockerfile-mode #s(package-desc dockerfile-mode
-				  (20180410 936)
+				  (20180628 959)
 				  "Major mode for editing Docker's Dockerfiles"
 				  ((emacs
 				    (24))
 				   (s
 				    (1 12)))
-				  nil nil "/home/kim/.emacs.d/elpa/dockerfile-mode-20180410.936"
-				  ((:url . "https://github.com/spotify/dockerfile-mode")
-				   (:commit . "818e6946fcf2d58438ab78ea06761a372cc5435a"))
-				  nil))
+				  nil nil "/home/kim/.emacs.d/elpa/dockerfile-mode-20180628.959" nil nil))
  (docker-tramp #s(package-desc docker-tramp
 			       (20170206 1925)
 			       "TRAMP integration for docker containers"
@@ -933,23 +881,23 @@
 				(:url . "https://github.com/emacs-pe/docker-tramp.el"))
 			       nil))
  (docker #s(package-desc docker
-			 (20180524 506)
+			 (20180710 743)
 			 "Emacs interface to Docker"
 			 ((emacs
-			   (24 4))
+			   (24 5))
 			  (dash
-			   (2 12 1))
+			   (2 14 1))
 			  (docker-tramp
 			   (0 1))
 			  (magit-popup
-			   (2 6 0))
+			   (2 12 3))
 			  (s
-			   (1 11 0))
+			   (1 12 0))
 			  (tablist
 			   (0 70))
 			  (json-mode
 			   (1 7 0)))
-			 nil nil "/home/kim/.emacs.d/elpa/docker-20180524.506"
+			 nil nil "/home/kim/.emacs.d/elpa/docker-20180710.743"
 			 ((:url . "https://github.com/Silex/docker.el")
 			  (:keywords "filename" "convenience"))
 			 nil))
@@ -1037,12 +985,6 @@
 			       (cl-lib
 				(0 5)))
 			      nil nil "/home/kim/.emacs.d/elpa/company-coq-20180307.510" nil nil))
- (company-cmake #s(package-desc company-cmake
-				(0 1)
-				"company-mode completion back-end for CMake"
-				((company
-				  (0 6 8)))
-				nil nil "/home/kim/.emacs.d/elpa/company-cmake-0.1" nil nil))
  (company-c-headers #s(package-desc company-c-headers
 				    (20170531 1330)
 				    "Company mode backend for C/C++ header files"
@@ -1055,37 +997,28 @@
 				     (:commit . "e959d43bebf0a524f7378669983a39ee1379cc21"))
 				    nil))
  (company #s(package-desc company
-			  (20180501 11)
+			  (20180704 701)
 			  "Modular text completion framework"
 			  ((emacs
 			    (24 3)))
-			  nil nil "/home/kim/.emacs.d/elpa/company-20180501.11"
+			  nil nil "/home/kim/.emacs.d/elpa/company-20180704.701"
 			  ((:url . "http://company-mode.github.io/")
 			   (:keywords "abbrev" "convenience" "matching"))
 			  nil))
  (cmake-mode #s(package-desc cmake-mode
-			     (20180104 1137)
-			     "major-mode for editing CMake sources" nil nil nil "/home/kim/.emacs.d/elpa/cmake-mode-20180104.1137"
-			     ((:commit . "d88451568dae61422d9d1b5796ad450ad28e0eb6"))
-			     nil))
+			     (20180709 726)
+			     "major-mode for editing CMake sources" nil nil nil "/home/kim/.emacs.d/elpa/cmake-mode-20180709.726" nil nil))
  (clojure-mode #s(package-desc clojure-mode
-			       (20180526 225)
+			       (20180709 648)
 			       "Major mode for Clojure code"
 			       ((emacs
-				 (24 4)))
-			       nil nil "/home/kim/.emacs.d/elpa/clojure-mode-20180526.225"
-			       ((:url . "http://github.com/clojure-emacs/clojure-mode")
-				(:keywords "languages" "clojure" "clojurescript" "lisp")
-				(:commit . "615ad758248c3901e4b32afb4cf43511d509291e"))
-			       nil))
- (cljdoc #s(package-desc cljdoc
-			 (0 1 0)
-			 "eldoc mode for clojure" nil nil nil "/home/kim/.emacs.d/elpa/cljdoc-0.1.0" nil nil))
+				 (25 1)))
+			       nil nil "/home/kim/.emacs.d/elpa/clojure-mode-20180709.648" nil nil))
  (cider #s(package-desc cider
-			(20180527 645)
+			(20180719 542)
 			"Clojure Interactive Development Environment that Rocks"
 			((emacs
-			  (24 4))
+			  (25))
 			 (clojure-mode
 			  (5 7 0))
 			 (pkg-info
@@ -1095,8 +1028,10 @@
 			 (spinner
 			  (1 7))
 			 (seq
-			  (2 16)))
-			nil nil "/home/kim/.emacs.d/elpa/cider-20180527.645"
+			  (2 16))
+			 (sesman
+			  (0 1 1)))
+			nil nil "/home/kim/.emacs.d/elpa/cider-20180719.542"
 			((:url . "http://www.github.com/clojure-emacs/cider")
 			 (:keywords "languages" "clojure" "cider"))
 			nil))

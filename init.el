@@ -71,8 +71,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #package
 (require 'package)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 (add-hook 'after-init-hook #'package-initialize)
 (when (not package-archive-contents)
@@ -553,31 +551,14 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; #Java #eclim
+;; #Java
 
-(setq eclimd-default-workspace (expand-file-name "~/Java"))
 (add-hook 'java-mode-hook (lambda ()
-                            (eclim-mode)
                             (setq-default c-basic-offset 4)))
 
-(eval-after-load 'eclim
-  '(progn
-     (setq-default eclimd-wait-for-process nil)
-     (require 'eclimd)
-     (start-eclimd eclimd-default-workspace)
-     (require 'company-emacs-eclim)
-     (company-emacs-eclim-setup)))
 (autoload 'javadoc-help         "javadoc-help" "Open up the Javadoc-help menu."   t)
 (autoload 'javadoc-set-predefined-urls  "javadoc-help" "Set pre-defined urls."    t)
 (setq-default *jdh-predefined-urls* '("/usr/lib/jvm/default-java/docs/api"))
-
-;;;#android
-(eval-after-load 'malabar-mode
-  '(progn
-;     (android-mode)
-     (add-to-list 'load-path (expand-file-name "~/android-sdk-linux/tools/lib"))
-;     (require 'android)
-     (setq-default android-mode-sdk-dir "~/android-sdk-linux")))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -618,8 +599,6 @@
                                 (require 'ocp-index)
                                 (define-key tuareg-mode-map (kbd "C-j") #'reindent-then-newline-and-indent)
                                 (setq-default tuareg-library-path (concat (getenv "OCAML_TOPLEVEL_PATH") "/../"))
-                                (flymake-tuareg-load)
-                                (flymake-mode-on)
                                 (eldoc-mode)
                                 (set (make-local-variable 'eldoc-documentation-function)
                                      #'ocp-index-show-type-at-point)))
@@ -758,36 +737,7 @@
   :pin melpa-stable)
 
 (require 'ensime)
-(require 'ensime-goto-testfile)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
-(add-to-list 'ensime-goto-test-configs
-             '("acd-axion" .
-               (:test-class-names-fn ensime-goto-test--test-class-names
-                                      :test-class-suffixes ("Spec" "Test" "Specification" "Check")
-                                      :impl-class-name-fn  ensime-goto-test--impl-class-name
-                                      :impl-to-test-dir-fn ensime-goto-test--impl-to-test-dir
-                                      :is-test-dir-fn      ensime-goto-test--is-test-dir
-                                      :test-template-fn    ensime-goto-test--test-template-scalatest-3)))
-
-(defun ensime-goto-test--test-template-scalatest-3 ()
-  ""
-  "package %TESTPACKAGE%
-
-import org.mockito.{Matchers => M}
-import org.mockito.Mockito._
-import org.scalatest.{WordSpec, Matchers}
-import org.scalatest.mock.MockitoSugar
-
-class %TESTCLASS% extends WordSpec with Matchers with MockitoSugar {
-  \"%IMPLCLASS%#foo\" when {
-    \"normal\" should {
-      \"not throw any exception\" in {
-        noException shouldBe thrownBy {}
-      }
-    }
-  }
-}
-")
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -815,13 +765,7 @@ class %TESTCLASS% extends WordSpec with Matchers with MockitoSugar {
 (global-wakatime-mode)
 (setq-default wakatime-cli-path "/usr/local/bin/wakatime")
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(lsp-ui elm-mode llvm-mode unicode-fonts dash-functional lsp-rust idris-mode csv-mode csv lsp-mode docker auto-complete-verilog toml-mode thrift racket-mode terraform-mode go-complete hcl-mode julia-shell ess nasm-mode sr-speedbar go-eldoc company-go flymake-go go-mode dockerfile-mode async auto-highlight-symbol caml clojure-mode company company-math dash deferred epl eproject flycheck flymake-easy fringe-helper gh ghc git-gutter haskell-mode inf-ruby logito macrostep markup-faces math-symbol-lists merlin pcache pkg-info popup queue rust-mode s sbt-mode scala-mode2 slime spinner yasnippet "yasnippet" edts erlang qml-mode yascroll yaml-mode web-mode utop twittering-mode tuareg sql-indent sml-mode slime-company slime-annot ruby-electric robe racer px popup-complete paredit nginx-mode markdown-mode lex git-gutter-fringe gist ghci-completion fold-this flymake-yaml flymake-tuareg flymake-shell flymake-ruby flymake-racket flymake-haskell-multi flycheck-tcl flycheck-rust flycheck-ocaml flycheck-haskell flycheck-ghcmod flycheck-ats2 f ensime emmet-mode emacs-eclim eldoc-eval css-eldoc company-racer company-ghc company-coq company-cmake company-c-headers cmake-mode cljdoc cider cargo c-eldoc auto-complete auctex alect-themes adoc-mode)))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
