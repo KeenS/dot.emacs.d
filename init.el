@@ -734,7 +734,7 @@
 ;;; #scala
 (use-package ensime
   :ensure t
-  :pin melpa-stable)
+  :pin melpa)
 
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
