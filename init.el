@@ -26,24 +26,24 @@
                      "~/.cabal/bin/"
                      "~/.cargo/bin/"
                      "~/.opam/system/bin/"
-                     "~/go/bin/"))
+                     "~/Go/bin/"))
        exec-path))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #環境変数の設定 #env
-(setenv "path" (path-concat exec-path (getenv "path")))
-(setenv "ld_library_path"
+(setenv "PATH" (path-concat exec-path (getenv "PATH")))
+(setenv "LD_LIBRARY_PATH"
         (path-concat
-         (getenv "ld_library_path")
+         (getenv "LD_LIBRARY_PATH")
          "./" "/usr/local/lib"))
-(setenv "java_home" "/usr/lib/jvm/java-8-openjdk-amd64/")
-(setenv "classpath"
+(setenv "JAVA_HOME" "/usr/lib/jvm/java-8-openjdk-amd64/")
+(setenv "CLASSPATH"
         (path-concat
-         (getenv "classpath")))
-(setenv "xdg_config_dirs" (expand-file-name "~/.config"))
-(setenv "xdg_data_dirs" "/usr/local/share/:/usr/share/")
-(setenv "gopath" (expand-file-name "~/go"))
+         (getenv "CLASSPATH")))
+(setenv "XDG_CONFIG_DIRS" (expand-file-name "~/.config"))
+(setenv "XDG_DATA_DIRS" "/usr/local/share/:/usr/share/")
+(setenv "GOPATH" (expand-file-name "~/Go"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #compat
@@ -55,17 +55,17 @@
 ;;; #日本語
 (eval-after-load 'kkc
   '(progn
-     (define-key kkc-keymap (kbd "c-g") #'kkc-cancel)
-     (define-key kkc-keymap (kbd "c-h") #'kkc-cancel)))
+     (define-key kkc-keymap (kbd "C-g") #'kkc-cancel)
+     (define-key kkc-keymap (kbd "C-h") #'kkc-cancel)))
 (eval-after-load 'quail
   '(progn
      (setq-default quail-japanese-use-double-n t)
-     (define-key quail-conversion-keymap (kbd "c-g")
+     (define-key quail-conversion-keymap (kbd "C-g")
        #'(lambda ()
            (interactive)
            (quail-conversion-beginning-of-region)
            (quail-conversion-delete-tail)))
-     (define-key quail-conversion-keymap (kbd "c-h") #'quail-conversion-backward-delete-char)))
+     (define-key quail-conversion-keymap (kbd "C-h") #'quail-conversion-backward-delete-char)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -80,28 +80,28 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #keybind
-(global-set-key (kbd "c-h") #'backward-delete-char)
-(global-set-key (kbd "c-x c-q") #'view-mode)
-(global-set-key (kbd "c-x 4 k") #'kill-buffer-other-window)
-(global-set-key (kbd "<c-return>") #'newline-on-structure)
-(global-set-key (kbd "<c-s-right>") #'next-buffer)
-(global-set-key (kbd "<c-s-left>") #'previous-buffer)
-(global-set-key (kbd "c-m-g") (lambda (str)
+(global-set-key (kbd "C-h") #'backward-delete-char)
+(global-set-key (kbd "C-x C-q") #'view-mode)
+(global-set-key (kbd "C-x 4 k") #'kill-buffer-other-window)
+(global-set-key (kbd "<C-return>") #'newline-on-structure)
+(global-set-key (kbd "<C-S-right>") #'next-buffer)
+(global-set-key (kbd "<C-S-left>") #'previous-buffer)
+(global-set-key (kbd "C-M-g") (lambda (str)
                                 (interactive (lexical-let ((word (word-at-point)))
                                                (setq word (if word
                                                               word
                                                             ""))
-                                               (list (read-string "seach word: " word t))))
+                                               (list (read-string "Seach Word: " word t))))
                                 (browse-url (format "%s%s" eww-search-prefix str))))
-(global-set-key (kbd "c-c s") #'sr-speedbar-toggle)
-(define-key isearch-mode-map (kbd "c-h") #'isearch-delete-char)
+(global-set-key (kbd "C-c s") #'sr-speedbar-toggle)
+(define-key isearch-mode-map (kbd "C-h") #'isearch-delete-char)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #commands
 (defvar newline-on-structure-delimiter-re "\\( \\|\\.\\|->\\)")
 (defun newline-on-structure ()
-  "'default' function for c-ret."
+  "'default' function for C-RET."
   (interactive)
   (let ((pos (point)) (word) (beg) (end))
     (save-excursion
@@ -119,7 +119,7 @@
     (end-of-line)))
 
 (defadvice forward-page (after ad-forward-page activate)
-  "top of the page is to be top of window."
+  "Top of the page is to be top of window."
   (recenter-top-bottom 0))
 
 (defun count-pages ()
@@ -166,7 +166,7 @@
 (setq ring-bell-function 'ignore)
 ;; yes or noを全てy or nに
 (fset 'yes-or-no-p #'y-or-n-p)
-;; c-x c-f のデフォルトをポイントに応じて変更する
+;; C-x C-f のデフォルトをポイントに応じて変更する
 (ffap-bindings)
 ;; windowサイズが100桁以上なら左右に分割、それ以外なら上下に分割。
 (setq split-height-threshold nil)
@@ -197,7 +197,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #dired
 ;; diredのファイルサイズ単位をhuman-readbleに
-(setq dired-listing-switches (purecopy "-ahl"))
+(setq dired-listing-switches (purecopy "-Ahl"))
 ;; 左右にdiredを開いたときにcp, mvをdwimに
 (setq-default dired-dwim-target t)
 
@@ -222,7 +222,7 @@
 (add-hook 'after-init-hook '(lambda ()
                               (global-company-mode)
                               (delete 'company-preview-if-just-one-frontend company-frontends)
-                              (define-key company-active-map (kbd "c-h") 'backward-delete-char)))
+                              (define-key company-active-map (kbd "C-h") 'backward-delete-char)))
 (setq-default company-idle-delay 0.02)
 (setq-default company-minimum-prefix-length 3)
 
@@ -238,8 +238,8 @@
                       ))
      (setq-default erc-server "192.168.1.4:6667")
      (setq-default erc-nick "keen")
-     (setq-default erc-hide-list '("join"  "part" "quit"))
-     (setq-default erc-timestamp-format "%y-%m-%d %h:%m")))
+     (setq-default erc-hide-list '("JOIN"  "PART" "QUIT"))
+     (setq-default erc-timestamp-format "%Y-%m-%d %H:%M")))
 (autoload #'tiarra-conf-mode "tiarra-conf")
 (add-to-list 'auto-mode-alist '("tiarra.conf" . tiarra-conf-mode))
 
@@ -258,27 +258,27 @@
 (setq-default twittering-use-master-password t)
 (setq-default twittering-icon-mode t)
 (setq-default twittering-edit-skeleton 'inherit-mentions)
-;;詳細はtwittering-mode.elでc-s %t
-(setq-default twittering-status-format "%fold{%i%s[%s]%p%@\n%t\n%rfrom %f%l}")
-(setq-default twittering-retweet-format '(nil _ " qt %s: %t"))
+;;詳細はtwittering-mode.elでC-s %T
+(setq-default twittering-status-format "%FOLD{%i%S[%s]%p%@\n%T\n%Rfrom %f%L}")
+(setq-default twittering-retweet-format '(nil _ " QT %s: %t"))
 (eval-after-load 'twittering-mode
   '(progn
-     (define-key twittering-mode-map (kbd "c-c f") #'twittering-follow)
-     (define-key twittering-mode-map (kbd "f")     #'twittering-favorite)))
+     (define-key twittering-mode-map (kbd "C-c F") #'twittering-follow)
+     (define-key twittering-mode-map (kbd "F")     #'twittering-favorite)))
 (setq-default twittering-use-native-retweet t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #speedbar
 (eval-after-load 'speedbar
   '(progn
-    (global-set-key (kbd "<c-s-up>")
+    (global-set-key (kbd "<C-S-up>")
                    (lambda ()
                      (interactive)
                      (speedbar-get-focus)
                      (speedbar-prev 1)
                      (speedbar-item-info)
                      (speedbar-edit-line)))
-   (global-set-key (kbd "<c-s-down>")
+   (global-set-key (kbd "<C-S-down>")
                    (lambda ()
                      (interactive)
                      (speedbar-get-focus)
@@ -294,7 +294,7 @@
 ;;      (defun yas-advise-indent-function (function-symbol)
 ;;        (eval `(defadvice ,function-symbol (around yas-try-expand-first activate)
 ;;                 ,(format
-;;                   "try to expand a snippet before point, then call `%s' as usual"
+;;                   "Try to expand a snippet before point, then call `%s' as usual"
 ;;                   function-symbol)
 ;;                 (unless (and (called-interactively-p 'interactive)
 ;;                              (yas-expand))
@@ -305,22 +305,22 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; #org-mode
-(setq-default org-mobile-directory "~/dropbox/アプリ/mobileorg")
+(setq-default org-mobile-directory "~/Dropbox/アプリ/MobileOrg")
 (setq-default org-mobile-inbox-for-pull org-mobile-directory)
-(setq-default org-directory "~/dropbox/memo/")
+(setq-default org-directory "~/Dropbox/memo/")
 
 ;;capture
 (setq-default org-default-notes-file (concat org-directory "agenda.org"))
 (setq-default org-agenda-files (list org-default-notes-file))
 (setq-default org-capture-templates
-              '(("t" "todo" entry
-                 (file+headline nil "inbox")
-                 "** todo %?\n   %i\n   %a\n   %t")
-                ("c" "capture" entry
-                 (file+headline nil "capture")
+              '(("t" "Todo" entry
+                 (file+headline nil "Inbox")
+                 "** TODO %?\n   %i\n   %a\n   %t")
+                ("c" "Capture" entry
+                 (file+headline nil "Capture")
                  "** %?\n   %i\n   %a\n   %t")
-                ("a" "agenda" entry
-                 (file+headline nil "agendas")
+                ("a" "Agenda" entry
+                 (file+headline nil "Agendas")
                  "** %?\n   %i\n   %t")))
 (eval-after-load 'org
   '(progn
@@ -347,7 +347,7 @@
                      ("basicstyle" "\\small")
                      ("numbers" "left")
                      ("numberstyle" "\\tiny")))
-     (setq-default org-latex-date-format "%y-%m-%d")
+     (setq-default org-latex-date-format "%Y-%m-%d")
      (setq-default org-latex-listings 'listings)
      (setq-default org-latex-default-class "jsarticle")
      (unless (boundp 'org-export-latex-classes)
@@ -368,21 +368,21 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; #newsticker #rss
-(setq-default newsticker-url-list '(("rust" "http://blog.rust-lang.org/feed.xml")
+;;; #newsticker #RSS
+(setq-default newsticker-url-list '(("Rust" "http://blog.rust-lang.org/feed.xml")
                                     ("reddit" "http://www.reddit.com/.rss?feed=a33076ca1206de00a91f1e190a437abede27a042&user=blackenedgold")
-                                    ("朝日-it/sci" "http://rss.asahi.com/rss/asahi/science.rdf")
+                                    ("朝日-IT/Sci" "http://rss.asahi.com/rss/asahi/science.rdf")
                                     ("技術評論社" "http://rss.rssad.jp/rss/gihyo/feed/rss2?rss")
-                                    ("planet lisp" "http://planet.lisp.org/rss20.xml")
-                                    ("hacker news" "https://news.ycombinator.com/rss")))
+                                    ("Planet Lisp" "http://planet.lisp.org/rss20.xml")
+                                    ("Hacker News" "https://news.ycombinator.com/rss")))
 (setq-default newsticker-url-list-defaults
-              '(("lwn (linux weekly news)" "http://lwn.net/headlines/rss")))
+              '(("LWN (Linux Weekly News)" "http://lwn.net/headlines/rss")))
 (setq-default newsticker-retrieval-interval 0)
 (setq newsticker-html-renderer #'shr-render-region)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; #web #mail
+;; #Web #Mail
 (setq-default eww-search-prefix "https://www.google.co.jp/search?q=")
 (autoload #'eww-list-bookmarks "eww" nil t)
 ;;;メール設定
@@ -395,12 +395,12 @@
 
 ;;; #wanderlust #wl
 ;;主な物は~/.wlと~/.foldersにある。
-(autoload 'wl "wl" "wanderlust" t)
-(autoload 'wl-draft "wl" "write draft with wanderlust." t)
+(autoload 'wl "wl" "Wanderlust" t)
+(autoload 'wl-draft "wl" "Write draft with Wanderlust." t)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; #html
+;; #HTML
 ;;; #web-mode
 (add-to-list 'auto-mode-alist '("\\.htm[l]" . web-mode))
 (add-hook 'web-mode-hook #'(lambda ()
@@ -412,7 +412,7 @@
 (add-hook 'web-mode-hook #'emmet-mode)
 (add-hook 'css-mode-hook #'emmet-mode)
 (eval-after-load 'emmet-mode
-  '(progn (define-key emmet-mode-keymap (kbd "c-j") #'newline-and-indent)
+  '(progn (define-key emmet-mode-keymap (kbd "C-j") #'newline-and-indent)
           (setq-default emmet-indentation 2)
           (setq-default emmet-preview-default nil)))
 
@@ -421,7 +421,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #xml
-;; for java development
+;; for Java development
 ;; options
 (setq-default nxml-slash-auto-complete-flag t)
 (setq-default nxml-sexp-element-flag t)
@@ -448,34 +448,34 @@
 (global-flycheck-mode)
 (dolist (mode '(emacs-lisp emacs-lisp-checkdoc))
   (delete mode flycheck-checkers))
-(global-set-key (kbd "c-c d") #'flymake-display-err-menu-for-current-line)
+(global-set-key (kbd "C-c d") #'flymake-display-err-menu-for-current-line)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; #shell
+;;; #Shell
 (autoload #'ansi-color-for-comint-mode-on "ansi-color"
-  "set `ansi-color-for-comint-mode' to t." t)
+  "Set `ansi-color-for-comint-mode' to t." t)
 (add-hook 'shell-mode-hook #'ansi-color-for-comint-mode-on)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; #eshell
+;;; #Eshell
 (setq-default eshell-banner-message "")
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; #lisp
+;; #Lisp
 ;(load (expand-file-name "~/.cim/init.esh") nil t)
 ;;括弧の対応を取る
 (use-package paredit :ensure t)
 (eval-after-load 'paredit
-  '(define-key paredit-mode-map (kbd "c-h") #'paredit-backward-delete))
+  '(define-key paredit-mode-map (kbd "C-h") #'paredit-backward-delete))
 (dolist (hook '(emacs-lisp-mode-hook
                 ielm-mode-hook
                 lisp-mode-hook
                 inferior-lisp-mode-hook
                 slime-repl-mode-hook
-                repl-mode-hook
+                REPL-mode-hook
                 clojure-mode-hook
                 scheme-mode-hook
                 inferior-scheme-mode-hook))
@@ -483,8 +483,8 @@
   (add-hook hook #'eldoc-mode)
   (add-hook hook #'prettify-symbols-mode))
 
-;;; #common lisp #slime
-;; m-- m-x slime で起動する処理系を選択できる
+;;; #Common Lisp #slime
+;; M-- M-x slime で起動する処理系を選択できる
 (setq-default slime-lisp-implementations
               '((sbcl ("~/.cim/bin/sbcl"))
                 (clisp ("~/.cim/bin/clisp"))
@@ -495,7 +495,7 @@
 (use-package slime-company :ensure t)
 (slime-setup '(slime-company slime-fancy
                ))
-;;; #clojure
+;;; #Clojure
 
 ;; (add-hook 'clojure-mode-hook (lambda ()
 ;;                                (durendal-enable-auto-compile)
@@ -503,12 +503,12 @@
 ;(add-hook 'sldb-mode-hook #'durendal-dim-sldb-font-lock)
 ;(add-hook 'slime-compilation-finished-hook #'durendal-hide-successful-compile)
 
-;;; #scheme #gauche
+;;; #Scheme #Gauche
 (setq-default scheme-program-name "gosh -i")
-(autoload #'scheme-mode "cmuscheme" "major mode for scheme." t)
-(autoload #'run-scheme "cmuscheme" "run an inferior scheme process." t)
+(autoload #'scheme-mode "cmuscheme" "Major mode for Scheme." t)
+(autoload #'run-scheme "cmuscheme" "Run an inferior Scheme process." t)
 
-;;; #emacslisp
+;;; #EmacsLisp
 ;;(defun eldoc-documentation-function-default ())
 (dolist (hook '(emacs-lisp-mode-hook lisp-interaction-mode-hook ielm-mode-hook))
   (add-hook hook #'(lambda ()
@@ -531,11 +531,11 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; #php
-;; debug a simple php script.
-;; change the session key my-php-54 to any session key text you like
+;; #PHP
+;; Debug a simple PHP script.
+;; Change the session key my-php-54 to any session key text you like
 (defun my-php-debug ()
-  "run current php script for debugging with geben."
+  "Run current PHP script for debugging with geben."
   (interactive)
   (call-interactively #'geben)
   (shell-command
@@ -551,31 +551,31 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; #java
+;; #Java
 
 (add-hook 'java-mode-hook (lambda ()
                             (setq-default c-basic-offset 4)))
 
-(autoload 'javadoc-help         "javadoc-help" "open up the javadoc-help menu."   t)
-(autoload 'javadoc-set-predefined-urls  "javadoc-help" "set pre-defined urls."    t)
+(autoload 'javadoc-help         "javadoc-help" "Open up the Javadoc-help menu."   t)
+(autoload 'javadoc-set-predefined-urls  "javadoc-help" "Set pre-defined urls."    t)
 (setq-default *jdh-predefined-urls* '("/usr/lib/jvm/default-java/docs/api"))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; #ocaml #caml #ml
+;;; #OCaml #Caml #ML
 (dolist (cons (car (read-from-string (shell-command-to-string "opam config env --sexp"))))
   (setenv (car cons) (cadr cons)))
 
-;; update the emacs path
-(setq exec-path (split-string (getenv "path") path-separator))
+;; Update the emacs path
+(setq exec-path (split-string (getenv "PATH") path-separator))
 
-;; update the emacs load path
-(add-to-list 'load-path (concat (getenv "ocaml_toplevel_path") "/../../share/emacs/site-lisp"))
-(add-to-list 'load-path (concat (getenv "ocaml_toplevel_path") "/../../build/ocaml/emacs"))
+;; Update the emacs load path
+(add-to-list 'load-path (concat (getenv "OCAML_TOPLEVEL_PATH") "/../../share/emacs/site-lisp"))
+(add-to-list 'load-path (concat (getenv "OCAML_TOPLEVEL_PATH") "/../../build/ocaml/emacs"))
 (autoload #'enable-company-ocp-index "ocp-index" "" t)
-;; automatically load utop.el
-(autoload #'utop "utop" "toplevel for ocaml" t)
-(autoload #'utop-setup-ocaml-buffer "utop" "toplevel for ocaml" t)
+;; Automatically load utop.el
+(autoload #'utop "utop" "Toplevel for OCaml" t)
+(autoload #'utop-setup-ocaml-buffer "utop" "Toplevel for OCaml" t)
 (add-hook #'tuareg-mode-hook 'utop-setup-ocaml-buffer)
 (setq-default utop-edit-command nil)
 
@@ -583,7 +583,7 @@
 (defun ocp-index-show-type-at-point ()
   (lexical-let* ((sym (ocp-index-symbol-at-point))
                  (out (shell-command-to-string
-                       (format "ocp-index type %s --full-open %s. -i."
+                       (format "ocp-index type %s --full-open %s. -I."
                                sym
                                (upcase-initials
                                 (file-name-nondirectory
@@ -594,29 +594,29 @@
 
 (add-hook 'tuareg-mode-hook 'enable-company-ocp-index)
 (add-hook 'caml-mode-hook 'enable-company-ocp-index)
-(autoload 'ocamlspot-query "ocamlspot" "ocamlspot")
+(autoload 'ocamlspot-query "ocamlspot" "OCamlSpot")
 (add-hook 'tuareg-mode-hook #'(lambda ()
                                 (require 'ocp-index)
-                                (define-key tuareg-mode-map (kbd "c-j") #'reindent-then-newline-and-indent)
-                                (setq-default tuareg-library-path (concat (getenv "ocaml_toplevel_path") "/../"))
+                                (define-key tuareg-mode-map (kbd "C-j") #'reindent-then-newline-and-indent)
+                                (setq-default tuareg-library-path (concat (getenv "OCAML_TOPLEVEL_PATH") "/../"))
                                 (eldoc-mode)
                                 (set (make-local-variable 'eldoc-documentation-function)
                                      #'ocp-index-show-type-at-point)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; #coq
-(load (expand-file-name "~/.emacs.d/lisp/proofgeneral/generic/proof-site") nil t)
+;;; #Coq
+(load (expand-file-name "~/.emacs.d/lisp/ProofGeneral/generic/proof-site") nil t)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; #isabelle
+;;; #Isabelle
 ;;(setq-default isa-isabelle-command (expand-file-name "~/bin/isar_wrap"))
 (setq-default proof-general-debug nil)
 (require 'warnings)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; #haskell
+;;; #Haskell
 (add-hook 'haskell-mode-hook #'flymake-haskell-multi-load)
 
 (autoload #'ghc-init "ghc" nil t)
@@ -628,7 +628,7 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; #c
+;;; #C
 (add-hook 'c-mode-hook (lambda ()
                          (add-to-list (make-local-variable 'company-backends) '(company-c-headers :with company-yasnippet))
                          (add-to-list (make-local-variable 'company-backends) 'company-clang)
@@ -638,7 +638,7 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; #cmake
+;; #CMake
 (add-hook 'cmake-mode-hook (lambda ()
                              (require 'company-cmake)
                              (add-to-list (make-local-variable 'company-backends) 'company-cmake)))
@@ -697,7 +697,7 @@
 	 (local-file  (file-relative-name
                        temp-file
                        (file-name-directory buffer-file-name))))
-    (list (expand-file-name "~/.emacs.d/bin/sml-check.sh") (list "-ftypecheck-only" buffer-file-name "-i" dir))))
+    (list (expand-file-name "~/.emacs.d/bin/sml-check.sh") (list "-ftypecheck-only" buffer-file-name "-I" dir))))
 ;; (defun flymake-sml-lint-init ()
 ;;   (flymake-simple-make-init-impl
 ;;    'flymake-create-temp-inplace nil nil
@@ -705,7 +705,7 @@
 ;;    'flymake-get-sml-lint-cmdline))
 
 ;; (defun flymake-get-sml-lint-cmdline (source base-dir)
-;;   `("~/sml/sml-lint/lint" (,source)))
+;;   `("~/Sml/SML-Lint/lint" (,source)))
 
 
 
@@ -715,12 +715,12 @@
 (eval-after-load 'flymake
   '(progn
     (add-to-list 'flymake-allowed-file-name-masks '(".+\\.sml$" flymake-smlsharp-init flymake-master-cleanup))
-    (add-to-list 'flymake-err-line-patterns '("^\\([^: ]*\\):\\([0-9]+\\)\\.\\([0-9]+\\)-[0-9]+\\.[0-9]+ \\(\\(error\\|warning\\):.*\\)"
+    (add-to-list 'flymake-err-line-patterns '("^\\([^: ]*\\):\\([0-9]+\\)\\.\\([0-9]+\\)-[0-9]+\\.[0-9]+ \\(\\(Error\\|Warning\\):.*\\)"
                                               1 2 3 4))))
 
-(add-to-list 'compilation-error-regexp-alist-alist '(sml "^\\([^: ]*\\):\\([0-9]+\\)\\.\\([0-9]+\\)-\\([0-9]+\\)\\.\\([0-9]+\\) \\(error:.*\\)"
+(add-to-list 'compilation-error-regexp-alist-alist '(sml "^\\([^: ]*\\):\\([0-9]+\\)\\.\\([0-9]+\\)-\\([0-9]+\\)\\.\\([0-9]+\\) \\(Error:.*\\)"
                                                          (1 "%s.sml") (2 . 4) (3 . 5) 2))
-(add-to-list 'compilation-error-regexp-alist-alist '(sml "^\\([^: ]*\\):\\([0-9]+\\)\\.\\([0-9]+\\)-\\([0-9]+\\)\\.\\([0-9]+\\) \\(warning:.*\\)"
+(add-to-list 'compilation-error-regexp-alist-alist '(sml "^\\([^: ]*\\):\\([0-9]+\\)\\.\\([0-9]+\\)-\\([0-9]+\\)\\.\\([0-9]+\\) \\(Warning:.*\\)"
                                                          (1 "%s.sml") (2 . 4) (3 . 5) 2))
 (flymake-reformat-err-line-patterns-from-compile-el compilation-error-regexp-alist-alist)
 (add-hook 'sml-mode-hook (lambda () (flymake-mode)))
@@ -741,10 +741,10 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; #go
+;;; #Go
 (add-hook 'go-mode-hook (lambda ()
-                          (load "~/go/src/github.com/nsf/gocode/emacs-company/company-go.el" nil t)
-                          (load "~/go/src/github.com/nsf/gocode/emacs/go-autocomplete.el" nil t)
+                          (load "~/Go/src/github.com/nsf/gocode/emacs-company/company-go.el" nil t)
+                          (load "~/Go/src/github.com/nsf/gocode/emacs/go-autocomplete.el" nil t)
                           (require 'auto-complete-config)
                           (ac-config-default)
                           (setq-default company-go-show-annotation t)
@@ -753,15 +753,9 @@
                           (eldoc-mode 1)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; #json
+;;; #JSON
 (eval-after-load 'flycheck
   '(setq flycheck-json-python-json-executable "python3"))
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; #Typescript
-
-(setq typescript-indent-level 2)
 
 
 
