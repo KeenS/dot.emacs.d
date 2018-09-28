@@ -657,7 +657,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #rust
 (with-eval-after-load 'lsp-mode
-  (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls"))
   (require 'lsp-rust))
 (require 'lsp-ui)
 (add-hook 'lsp-mode-hook 'lsp-ui-mode)
