@@ -563,12 +563,13 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #OCaml #Caml #ML
-(dolist (cons (car (read-from-string (shell-command-to-string "opam config env --sexp"))))
-  (setenv (car cons) (cadr cons)))
+(if (executable-find "opam")
+    (progn
+      (dolist (cons (car (read-from-string (shell-command-to-string "opam config env --sexp"))))
+        (setenv (car cons) (cadr cons)))
 
-;; Update the emacs path
-(setq exec-path (split-string (getenv "PATH") path-separator))
-
+      ;; Update the emacs path
+      (setq exec-path (split-string (getenv "PATH") path-separator))))
 ;; Update the emacs load path
 (add-to-list 'load-path (concat (getenv "OCAML_TOPLEVEL_PATH") "/../../share/emacs/site-lisp"))
 (add-to-list 'load-path (concat (getenv "OCAML_TOPLEVEL_PATH") "/../../build/ocaml/emacs"))
