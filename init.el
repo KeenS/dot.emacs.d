@@ -484,12 +484,7 @@
   (add-hook hook #'prettify-symbols-mode))
 
 ;;; #Common Lisp #slime
-;; M-- M-x slime で起動する処理系を選択できる
-(setq-default slime-lisp-implementations
-              '((sbcl ("~/.cim/bin/sbcl"))
-                (clisp ("~/.cim/bin/clisp"))
-                (ccl ("~/.cim/bin/ccl"))
-                (ecl ("~/.cim/bin/ecl"))))
+(setq inferior-lisp-program "ros -Q run")
 
 (use-package slime :ensure t)
 (use-package slime-company :ensure t)
