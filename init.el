@@ -644,13 +644,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #lsp
 
-;; (require 'lsp-mode)
-;; (with-eval-after-load 'lsp-mode
-;;   (require 'lsp-rust))
-;; (require 'lsp-ui)
-;; (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+(require 'lsp-mode)
+(require 'lsp-clients)
 
-(use-package eglot :ensure t)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -659,8 +655,9 @@
 (eval-after-load "rust-mode"
   '(setq-default rust-format-on-save t))
 (add-hook 'rust-mode-hook (lambda () (cargo-minor-mode)))
+(add-hook 'rust-mode-hook (lambda () (lsp-mode)))
 (add-hook 'rust-mode-hook (lambda () (if (my-project-try-cargo-toml ())
-                                     (eglot-ensure)
+                                     (lsp)
                                    (racer-mode))))
 (add-hook 'rust-mode-hook #'flycheck-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)
