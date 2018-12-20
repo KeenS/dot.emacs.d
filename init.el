@@ -475,8 +475,7 @@
   (add-hook hook #'prettify-symbols-mode))
 
 ;;; #Common Lisp #slime
-(setq inferior-lisp-program "ros -Q run")
-
+(load (expand-file-name "~/.roswell/helper.el"))
 (use-package slime :ensure t)
 (use-package slime-company :ensure t)
 (slime-setup '(slime-company slime-fancy
