@@ -763,7 +763,7 @@
 (use-package wakatime-mode :ensure t)
 (global-wakatime-mode)
 (setq-default wakatime-cli-path "/usr/local/bin/wakatime")
-
+(load (expand-file-name "~/.wakatime.el"))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
