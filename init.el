@@ -326,15 +326,6 @@
   '(progn
      (require 'ox-latex)
      (require 'org-capture)
-     (org-babel-do-load-languages
-      'org-babel-load-languages
-      '((ruby . t)
-        (emacs-lisp . t)
-        (lisp . t)
-        (clojure . t)
-        (java . t)
-        (sh . t)
-        (scheme . t)))
 
      (setq-default org-latex-custom-lang-environments
                    '((emacslisp "emacs-lispcode")
