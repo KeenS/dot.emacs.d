@@ -642,20 +642,37 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; #rust
-(with-eval-after-load 'lsp-mode
-  (require 'lsp-rust))
-(require 'lsp-ui)
-(add-hook 'lsp-mode-hook 'lsp-ui-mode)
+;;; #lsp
 
-(require 'lsp-mode)
+;; (require 'lsp-mode)
+;; (with-eval-after-load 'lsp-mode
+;;   (require 'lsp-rust))
+;; (require 'lsp-ui)
+;; (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+
+(use-package eglot :ensure t)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; #rust
+
 (eval-after-load "rust-mode"
   '(setq-default rust-format-on-save t))
 (add-hook 'rust-mode-hook (lambda () (cargo-minor-mode)))
-(add-hook 'rust-mode-hook #'lsp-rust-enable)
+(add-hook 'rust-mode-hook (lambda () (if (my-project-try-cargo-toml ())
+                                     (eglot-ensure)
+                                   (racer-mode))))
 (add-hook 'rust-mode-hook #'flycheck-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)
 
+(defun my-project-try-cargo-toml (_)
+  (let (dir)
+    (ignore-errors
+      (let* ((output (shell-command-to-string "cargo metadata --no-deps --format-version 1"))
+	     (js (json-read-from-string output)))
+	(setq dir (cdr (assq 'workspace_root js)))))
+    (and dir (cons 'transient  dir))))
+(add-hook 'project-find-functions 'my-project-try-cargo-toml nil nil)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -764,4 +781,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(sql-indent yascroll yaml-mode web-mode wakatime-mode utop use-package unicode-fonts twittering-mode tuareg toml-mode thrift terraform-mode sml-mode slime-company ruby-electric robe racer qml-mode px popup-complete paredit nginx-mode nasm-mode lsp-ui lsp-rust lex idris-mode go-mode git-gutter-fringe gist ghci-completion fold-this flymake-yaml flymake-shell flymake-ruby flymake-haskell-multi flycheck-tcl flycheck-rust flycheck-ocaml flycheck-haskell flycheck-ghcmod flycheck-ats2 erlang ensime emmet-mode elm-mode eldoc-eval dockerfile-mode docker diminish deferred csv-mode css-eldoc company-ghc company-coq company-c-headers cmake-mode cargo c-eldoc auto-highlight-symbol auto-complete auctex alect-themes adoc-mode)))
+   '(eglot clang-format rust-auto-use sql-indent yascroll yaml-mode web-mode wakatime-mode utop use-package unicode-fonts twittering-mode tuareg toml-mode thrift terraform-mode sml-mode slime-company ruby-electric robe racer qml-mode px popup-complete paredit nginx-mode nasm-mode lsp-ui lsp-rust lex idris-mode go-mode git-gutter-fringe gist ghci-completion fold-this flymake-yaml flymake-shell flymake-ruby flymake-haskell-multi flycheck-tcl flycheck-rust flycheck-ocaml flycheck-haskell flycheck-ghcmod flycheck-ats2 erlang ensime emmet-mode elm-mode eldoc-eval dockerfile-mode docker diminish deferred csv-mode css-eldoc company-ghc company-coq company-c-headers cmake-mode cargo c-eldoc auto-highlight-symbol auto-complete auctex alect-themes adoc-mode)))
