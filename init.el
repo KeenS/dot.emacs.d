@@ -759,6 +759,12 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; #Terraform
+
+(add-hook 'terraform-mode-hook (lambda () (terraform-format-on-save-mode)))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #wakatime
 (use-package wakatime-mode :ensure t)
 (global-wakatime-mode)
