@@ -645,20 +645,20 @@
 
 (require 'lsp-mode)
 (require 'lsp-clients)
-
+;; (require 'eglot)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #rust
 
 (eval-after-load "rust-mode"
-  '(setq-default rust-format-on-save t))
+  '(progn
+     (setq-default rust-format-on-save t)
+     (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)))
 (add-hook 'rust-mode-hook (lambda () (cargo-minor-mode)))
-(add-hook 'rust-mode-hook (lambda () (lsp-mode)))
 (add-hook 'rust-mode-hook (lambda () (if (my-project-try-cargo-toml ())
                                      (lsp)
                                    (racer-mode))))
-(add-hook 'rust-mode-hook #'flycheck-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)
 
 (defun my-project-try-cargo-toml (_)
@@ -670,6 +670,12 @@
     (and dir (cons 'transient  dir))))
 (add-hook 'project-find-functions 'my-project-try-cargo-toml nil nil)
 
+
+(lsp-register-client
+ (make-lsp-client :new-connection (lsp-stdio-connection '("rustup" "run" "stable" "rls"))
+                  :major-modes '(rust-mode rustic-mode)
+                  :server-id 'rls
+:notification-handlers (lsp-ht ("window/progress" 'lsp-clients--rust-window-progress))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #sml
