@@ -475,7 +475,9 @@
   (add-hook hook #'prettify-symbols-mode))
 
 ;;; #Common Lisp #slime
-(load (expand-file-name "~/.roswell/helper.el"))
+(let ((helper (expand-file-name "~/.roswell/helper.el")))
+  (if (file-exists-p helper)
+      (load helper)))
 (use-package slime :ensure t)
 (use-package slime-company :ensure t)
 (slime-setup '(slime-company slime-fancy
