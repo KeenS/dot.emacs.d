@@ -193,6 +193,9 @@
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 5) ((control))))
 (setq mouse-wheel-progressive-speed nil)
 (setq pixel-resolution-fine-flag t)
+;; speedbar
+(eval-after-load "sr-speedbar"
+  '(setq sr-speedbar-skip-other-window-p t))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #dired
