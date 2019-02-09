@@ -648,7 +648,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #lsp
 
-(require 'lsp-mode)
+(use-package lsp-mode
+  :config
+  (define-key lsp-mode-map (kbd "C-c h") #'lsp-describe-thing-at-point))
 (require 'lsp-clients)
 ;; (require 'eglot)
 
@@ -665,6 +667,9 @@
                                      (lsp)
                                    (racer-mode))))
 (add-hook 'racer-mode-hook #'eldoc-mode)
+(eval-after-load "racer-mode"
+  '(progn
+     (define-key racer-mode-map (kbd "C-c h") #'racer-describe)))
 
 (defun my-project-try-cargo-toml (_)
   (let (dir)
@@ -675,12 +680,6 @@
     (and dir (cons 'transient  dir))))
 (add-hook 'project-find-functions 'my-project-try-cargo-toml nil nil)
 
-
-(lsp-register-client
- (make-lsp-client :new-connection (lsp-stdio-connection '("rustup" "run" "stable" "rls"))
-                  :major-modes '(rust-mode rustic-mode)
-                  :server-id 'rls
-:notification-handlers (lsp-ht ("window/progress" 'lsp-clients--rust-window-progress))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #sml
@@ -794,4 +793,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(eglot clang-format rust-auto-use sql-indent yascroll yaml-mode web-mode wakatime-mode utop use-package unicode-fonts twittering-mode tuareg toml-mode thrift terraform-mode sml-mode slime-company ruby-electric robe racer qml-mode px popup-complete paredit nginx-mode nasm-mode lsp-ui lsp-rust lex idris-mode go-mode git-gutter-fringe gist ghci-completion fold-this flymake-yaml flymake-shell flymake-ruby flymake-haskell-multi flycheck-tcl flycheck-rust flycheck-ocaml flycheck-haskell flycheck-ghcmod flycheck-ats2 erlang ensime emmet-mode elm-mode eldoc-eval dockerfile-mode docker diminish deferred csv-mode css-eldoc company-ghc company-coq company-c-headers cmake-mode cargo c-eldoc auto-highlight-symbol auto-complete auctex alect-themes adoc-mode)))
+   '(sr-speedbar eglot clang-format rust-auto-use sql-indent yascroll yaml-mode web-mode wakatime-mode utop use-package unicode-fonts twittering-mode tuareg toml-mode thrift terraform-mode sml-mode slime-company ruby-electric robe racer qml-mode px popup-complete paredit nginx-mode nasm-mode lsp-ui lsp-rust lex idris-mode go-mode git-gutter-fringe gist ghci-completion fold-this flymake-yaml flymake-shell flymake-ruby flymake-haskell-multi flycheck-tcl flycheck-rust flycheck-ocaml flycheck-haskell flycheck-ghcmod flycheck-ats2 erlang ensime emmet-mode elm-mode eldoc-eval dockerfile-mode docker diminish deferred csv-mode css-eldoc company-ghc company-coq company-c-headers cmake-mode cargo c-eldoc auto-highlight-symbol auto-complete auctex alect-themes adoc-mode)))
