@@ -76,6 +76,7 @@
 (when (not package-archive-contents)
   (package-refresh-contents)
   (package-install 'use-package))
+(setq package-quickstart t)
 (require 'use-package)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
