@@ -615,7 +615,6 @@
 (dolist (hook '(haskell-mode-hook literate-haskell-mode-hook))
   (add-hook hook (lambda ()
                    (add-to-list (make-local-variable 'company-backends) '(company-ghc :with company-yasnippet)))))
-(add-hook 'haskell-mode-hook #'ghc-init)
 (add-hook 'haskell-mode-hook #'haskell-indentation-mode)
 
 
