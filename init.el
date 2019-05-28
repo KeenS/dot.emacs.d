@@ -652,6 +652,9 @@
   :ensure t
   :config
   (define-key lsp-mode-map (kbd "C-c h") #'lsp-describe-thing-at-point))
+(use-package lsp-ui
+  :custom
+  (lsp-ui-doc-position 'at-point))
 (require 'lsp-clients)
 ;; (require 'eglot)
 
