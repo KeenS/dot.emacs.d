@@ -197,6 +197,8 @@
 ;; speedbar
 (eval-after-load "sr-speedbar"
   '(setq sr-speedbar-skip-other-window-p t))
+;; スクロールしても画面内のカーソルの位置を変えない
+(setq scroll-preserve-screen-position :always)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #dired
