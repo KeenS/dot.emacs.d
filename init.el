@@ -649,6 +649,7 @@
 ;;; #lsp
 
 (use-package lsp-mode
+  :ensure t
   :config
   (define-key lsp-mode-map (kbd "C-c h") #'lsp-describe-thing-at-point))
 (require 'lsp-clients)
