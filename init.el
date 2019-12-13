@@ -139,6 +139,8 @@
 (menu-bar-mode -1)
 ;; ツールバーを消す
 (tool-bar-mode -1)
+;; タブバーを入れる
+(tab-ba-mode 1)
 ;; スクロールバーを消す
 (scroll-bar-mode -1)
 (horizontal-scroll-bar-mode -1)
