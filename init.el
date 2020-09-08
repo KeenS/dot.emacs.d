@@ -231,8 +231,6 @@
                               (global-company-mode)
                               (delete 'company-preview-if-just-one-frontend company-frontends)
                               (define-key company-active-map (kbd "C-h") 'backward-delete-char)))
-(setq-default company-idle-delay 0.02)
-(setq-default company-minimum-prefix-length 3)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
