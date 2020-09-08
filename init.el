@@ -140,7 +140,7 @@
 ;; ツールバーを消す
 (tool-bar-mode -1)
 ;; タブバーを入れる
-(tab-ba-mode 1)
+(tab-bar-mode -1)
 ;; スクロールバーを消す
 (scroll-bar-mode -1)
 (horizontal-scroll-bar-mode -1)
@@ -157,7 +157,7 @@
 ;; ファイルが外部から変更されたら自動でrevert
 (global-auto-revert-mode)
 ;; バックアップファイルとオートセーブファイルを作らない
-(setq backup-inhibited t)
+(setq make-backup-files nil)
 (setq delete-auto-save-files t)
 ;; 対応する括弧を自動で挿入
 (electric-pair-mode 1)
