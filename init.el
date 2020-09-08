@@ -796,10 +796,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(npm-mode tss sr-speedbar eglot clang-format rust-auto-use sql-indent yascroll yaml-mode web-mode wakatime-mode utop use-package unicode-fonts twittering-mode tuareg toml-mode thrift terraform-mode sml-mode slime-company ruby-electric robe racer qml-mode px popup-complete paredit nginx-mode nasm-mode lsp-ui lsp-rust lex idris-mode go-mode git-gutter-fringe gist ghci-completion fold-this flymake-yaml flymake-shell flymake-ruby flymake-haskell-multi flycheck-tcl flycheck-rust flycheck-ocaml flycheck-haskell flycheck-ghcmod flycheck-ats2 erlang ensime emmet-mode elm-mode eldoc-eval dockerfile-mode docker diminish deferred csv-mode css-eldoc company-ghc company-coq company-c-headers cmake-mode cargo c-eldoc auto-highlight-symbol auto-complete auctex alect-themes adoc-mode)))
+   '(php-mode global-tags lua-mode npm-mode tss sr-speedbar eglot clang-format rust-auto-use sql-indent yascroll yaml-mode web-mode wakatime-mode utop use-package unicode-fonts twittering-mode tuareg toml-mode thrift terraform-mode sml-mode slime-company ruby-electric robe racer qml-mode px popup-complete paredit nginx-mode nasm-mode lsp-ui lsp-rust lex idris-mode go-mode git-gutter-fringe gist ghci-completion fold-this flymake-yaml flymake-shell flymake-ruby flymake-haskell-multi flycheck-tcl flycheck-rust flycheck-ocaml flycheck-haskell flycheck-ghcmod flycheck-ats2 erlang ensime emmet-mode elm-mode eldoc-eval dockerfile-mode docker diminish deferred csv-mode css-eldoc company-ghc company-coq company-c-headers cmake-mode cargo c-eldoc auto-highlight-symbol auto-complete auctex alect-themes adoc-mode)))
