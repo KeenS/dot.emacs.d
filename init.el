@@ -655,9 +655,10 @@
   :config
   (define-key lsp-mode-map (kbd "C-c h") #'lsp-describe-thing-at-point))
 (use-package lsp-ui
-  :custom
-  (lsp-ui-doc-position 'at-point))
-(require 'lsp-clients)
+  ; :custom
+  ; (lsp-ui-doc-position 'at-point)
+  )
+
 ;; (require 'eglot)
 
 
@@ -666,12 +667,14 @@
 
 (eval-after-load "rust-mode"
   '(progn
-     (setq-default rust-format-on-save t)
-     (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)))
+     (setq-default rust-format-on-save t)))
 (add-hook 'rust-mode-hook (lambda () (cargo-minor-mode)))
 (add-hook 'rust-mode-hook (lambda () (if (my-project-try-cargo-toml ())
                                      (lsp)
                                    (racer-mode))))
+(use-package lsp-rust
+  :custom
+  (lsp-rust-server 'rust-analyzer))
 (add-hook 'racer-mode-hook #'eldoc-mode)
 (eval-after-load "racer-mode"
   '(progn
