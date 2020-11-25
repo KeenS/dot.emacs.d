@@ -20,45 +20,43 @@
 			     (:commit . "5cbdbf0d2015540c59ed8ee0fcf4788effdf75b6"))
 			    nil))
  (yascroll #s(package-desc yascroll
-			   (20200701 336)
+			   (20201018 1346)
 			   "Yet Another Scroll Bar Mode"
 			   ((emacs
-			     (26 1))
-			    (cl-lib
-			     (0 3)))
-			   nil nil "/home/shun/.emacs.d/elpa/yascroll-20200701.336"
+			     (26 1)))
+			   nil nil "/home/shun/.emacs.d/elpa/yascroll-20201018.1346"
 			   ((:url . "https://github.com/emacsorphanage/yascroll")
-			    (:maintainer "Tomohiro Matsuyama" . "m2ym.pub@gmail.com")
+			    (:maintainer "Shen, Jen-Chieh" . "jcs090218@gmail.com")
 			    (:authors
 			     ("Tomohiro Matsuyama" . "m2ym.pub@gmail.com"))
 			    (:keywords "convenience")
-			    (:commit . "9e828920d1931da66a473a66019922b9c3b729f5"))
+			    (:commit . "cd66d81c5d4ba39da3c385d12d22f7103ecd67c5"))
 			   nil))
  (yaml-mode #s(package-desc yaml-mode
-			    (20200725 1836)
+			    (20201109 1026)
 			    "Major mode for editing YAML files"
 			    ((emacs
 			      (24 1)))
-			    nil nil "/home/shun/.emacs.d/elpa/yaml-mode-20200725.1836"
+			    nil nil "/home/shun/.emacs.d/elpa/yaml-mode-20201109.1026"
 			    ((:maintainer "Vasilij Schneidermann" . "mail@vasilij.de")
 			     (:authors
 			      ("Yoshiki Kurihara" . "clouder@gmail.com")
 			      ("Marshall T. Vandegrift" . "llasram@gmail.com"))
 			     (:keywords "data" "yaml")
-			     (:commit . "68fecb5f0dec712a10c8655df6881392a4613617"))
+			     (:commit . "fc5e1c58f94472944c4aa838f00f6adcac6fa992"))
 			    nil))
  (web-mode #s(package-desc web-mode
-			   (20200825 730)
+			   (20201107 1152)
 			   "major mode for editing web templates"
 			   ((emacs
 			     (23 1)))
-			   nil nil "/home/shun/.emacs.d/elpa/web-mode-20200825.730"
-			   ((:url . "http://web-mode.org")
+			   nil nil "/home/shun/.emacs.d/elpa/web-mode-20201107.1152"
+			   ((:url . "https://web-mode.org")
 			    (:maintainer "François-Xavier Bois")
 			    (:authors
 			     ("François-Xavier Bois <fxbois AT Google Mail Service>"))
 			    (:keywords "languages")
-			    (:commit . "c55244faf631327344623c8b526d3793aca48c24"))
+			    (:commit . "890e837f7ea49f54c02b107377036431cbe7adb6"))
 			   nil))
  (wakatime-mode #s(package-desc wakatime-mode
 				(20200730 240)
@@ -83,19 +81,19 @@
 			(:commit . "9da0951274af3fcadfd7b40fc582ab00539c5884"))
 		       nil))
  (use-package #s(package-desc use-package
-			      (20200721 2156)
+			      (20201110 2133)
 			      "A configuration macro for simplifying your .emacs"
 			      ((emacs
 				(24 3))
 			       (bind-key
 				(2 4)))
-			      nil nil "/home/shun/.emacs.d/elpa/use-package-20200721.2156"
+			      nil nil "/home/shun/.emacs.d/elpa/use-package-20201110.2133"
 			      ((:url . "https://github.com/jwiegley/use-package")
 			       (:maintainer "John Wiegley" . "johnw@newartisans.com")
 			       (:authors
 				("John Wiegley" . "johnw@newartisans.com"))
 			       (:keywords "dotemacs" "startup" "speed" "config" "package")
-			       (:commit . "7d925367ef0857d513d62eab4cb57b7436b9ffe9"))
+			       (:commit . "caa92f1d64fc25480551757d854b4b49981dfa6b"))
 			      nil))
  (unicode-fonts #s(package-desc unicode-fonts
 				(20200803 1335)
@@ -135,14 +133,14 @@
 			     (:keywords "i18n" "extensions"))
 			    nil))
  (typescript-mode #s(package-desc typescript-mode
-				  (20200817 817)
+				  (20201002 1109)
 				  "Major mode for editing typescript"
 				  ((emacs
 				    (24 3)))
-				  nil nil "/home/shun/.emacs.d/elpa/typescript-mode-20200817.817"
+				  nil nil "/home/shun/.emacs.d/elpa/typescript-mode-20201002.1109"
 				  ((:url . "http://github.com/ananthakumaran/typescript.el")
 				   (:keywords "typescript" "languages")
-				   (:commit . "42a60e5c881082db2ec2c541a5c154308c4863e6"))
+				   (:commit . "e6f68ab2dd998af0b50ae89a781e1c04539d23d6"))
 				  nil))
  (twittering-mode #s(package-desc twittering-mode
 				  (20181121 1402)
@@ -177,36 +175,18 @@
 			   ("Stefan Monnier" . "monnier@iro.umontreal.ca"))
 			  (:keywords "ocaml" "languages"))
 			 nil))
- (tss #s(package-desc tss
-		      (20150913 1408)
-		      "provide a interface for auto-complete.el/flymake.el on typescript-mode."
-		      ((auto-complete
-			(1 4 0))
-		       (json-mode
-			(1 1 0))
-		       (log4e
-			(0 2 0))
-		       (yaxception
-			(0 1)))
-		      nil nil "/home/shun/.emacs.d/elpa/tss-20150913.1408"
-		      ((:url . "https://github.com/aki2o/emacs-tss")
-		       (:maintainer "Hiroaki Otsu" . "ootsuhiroaki@gmail.com")
-		       (:authors
-			("Hiroaki Otsu" . "ootsuhiroaki@gmail.com"))
-		       (:keywords "typescript" "completion"))
-		      nil))
  (transient #s(package-desc transient
-			    (20200819 1133)
+			    (20201114 1825)
 			    "Transient commands"
 			    ((emacs
 			      (25 1)))
-			    nil nil "/home/shun/.emacs.d/elpa/transient-20200819.1133"
+			    nil nil "/home/shun/.emacs.d/elpa/transient-20201114.1825"
 			    ((:url . "https://github.com/magit/transient")
 			     (:maintainer "Jonas Bernoulli" . "jonas@bernoul.li")
 			     (:authors
 			      ("Jonas Bernoulli" . "jonas@bernoul.li"))
 			     (:keywords "bindings")
-			     (:commit . "f5d81ef0ed24be935f3c0192b746a1738d903d37"))
+			     (:commit . "8b22b52b838a26df915c0aedd5804ec9fc0fccff"))
 			    nil))
  (toml-mode #s(package-desc toml-mode
 			    (20161107 1800)
@@ -233,18 +213,20 @@
 			  (:commit . "4a2d26177475a642e6338b5eb569573dbb97ea74"))
 			 nil))
  (terraform-mode #s(package-desc terraform-mode
-				 (20170112 517)
+				 (20201114 4)
 				 "Major mode for terraform configuration file"
 				 ((emacs
 				   (24 3))
 				  (hcl-mode
-				   (0 3)))
-				 nil nil "/home/shun/.emacs.d/elpa/terraform-mode-20170112.517"
+				   (0 3))
+				  (dash
+				   (2 17 0)))
+				 nil nil "/home/shun/.emacs.d/elpa/terraform-mode-20201114.4"
 				 ((:url . "https://github.com/syohex/emacs-terraform-mode")
 				  (:maintainer "Syohei YOSHIDA" . "syohex@gmail.com")
 				  (:authors
 				   ("Syohei YOSHIDA" . "syohex@gmail.com"))
-				  (:commit . "6973d1acaba2835dfdf174f5a5e27de6366002e1"))
+				  (:commit . "d75bd3398244fc96501fffbd754023d2dad503de"))
 				 nil))
  (tablist #s(package-desc tablist
 			  (20200427 2205)
@@ -343,34 +325,25 @@
 			  (:maintainer "Vitalie Spinu")
 			  (:authors
 			   ("Vitalie Spinu"))
-			  (:keywords "process"))
-			 nil)
-	 #s(package-desc sesman
-			 (20190908 1138)
-			 "Generic Session Manager"
-			 ((emacs
-			   (25)))
-			 nil nil "/home/shun/.emacs.d/elpa/sesman-20190908.1138"
-			 ((:url . "https://github.com/vspinu/sesman")
-			  (:maintainer "Vitalie Spinu")
-			  (:authors
-			   ("Vitalie Spinu"))
-			  (:keywords "process"))
+			  (:keywords "process")
+			  (:commit . "edee869c209c016e5f0c5cbb8abb9f3ccd2d1e05"))
 			 nil))
  (scala-mode #s(package-desc scala-mode
-			     (20200524 1304)
-			     "Major mode for editing Scala" nil nil nil "/home/shun/.emacs.d/elpa/scala-mode-20200524.1304"
+			     (20201106 2057)
+			     "Major mode for editing Scala" nil nil nil "/home/shun/.emacs.d/elpa/scala-mode-20201106.2057"
 			     ((:url . "https://github.com/hvesalai/emacs-scala-mode")
-			      (:keywords "languages"))
+			      (:keywords "languages")
+			      (:commit . "9d3b56e4877284a815b599a37d2b749d4f972226"))
 			     nil))
  (sbt-mode #s(package-desc sbt-mode
-			   (20200521 632)
+			   (20201021 1937)
 			   "Interactive support for sbt projects"
 			   ((emacs
 			     (24 4)))
-			   nil nil "/home/shun/.emacs.d/elpa/sbt-mode-20200521.632"
+			   nil nil "/home/shun/.emacs.d/elpa/sbt-mode-20201021.1937"
 			   ((:url . "https://github.com/hvesalai/emacs-sbt-mode")
-			    (:keywords "languages"))
+			    (:keywords "languages")
+			    (:commit . "7b121fce50430a44bd743583c87d7645bf157be2"))
 			   nil))
  (s #s(package-desc s
 		    (20180406 808)
@@ -403,19 +376,19 @@
 				 (:commit . "f2323cd9b5df3b34aa9810ba8109502824925d23"))
 				nil))
  (robe #s(package-desc robe
-		       (20200628 1225)
+		       (20201119 316)
 		       "Code navigation, documentation lookup and completion for Ruby"
 		       ((inf-ruby
 			 (2 5 1))
 			(emacs
 			 (24 4)))
-		       nil nil "/home/shun/.emacs.d/elpa/robe-20200628.1225"
+		       nil nil "/home/shun/.emacs.d/elpa/robe-20201119.316"
 		       ((:url . "https://github.com/dgutov/robe")
 			(:maintainer "Dmitry Gutov")
 			(:authors
 			 ("Dmitry Gutov"))
 			(:keywords "ruby" "convenience" "rails")
-			(:commit . "082da38797d247f9c64568ad712a345e041d5c84"))
+			(:commit . "f04dcc7f8d4c14ad4761bd534bf58a49a5f2957f"))
 		       nil))
  (reformatter #s(package-desc reformatter
 			      (20200814 435)
@@ -476,12 +449,6 @@
 			 (:keywords "abbrev" "convenience" "matching" "rust" "tools")
 			 (:commit . "ea6a09c16f8ec646195f942c12fe3ed7d65cc971"))
 			nil))
- (queue #s(package-desc queue
-			(0 2)
-			"Queue data structure" nil nil nil "/home/shun/.emacs.d/elpa/queue-0.2"
-			((:keywords "extensions" "data structures" "queue")
-			 (:url . "http://www.dr-qubit.org/emacs.php"))
-			t))
  (qml-mode #s(package-desc qml-mode
 			   (20161016 31)
 			   "Major mode for editing QT Declarative (QML) code." nil nil nil "/home/shun/.emacs.d/elpa/qml-mode-20161016.31"
@@ -563,17 +530,17 @@
 			    (:commit . "76ba7415480687d05a4353b27fea2ae02b8d9d61"))
 			   nil))
  (php-mode #s(package-desc php-mode
-			   (20200812 1129)
+			   (20201120 1807)
 			   "Major mode for editing PHP code"
 			   ((emacs
 			     (24 3)))
-			   nil nil "/home/shun/.emacs.d/elpa/php-mode-20200812.1129"
+			   nil nil "/home/shun/.emacs.d/elpa/php-mode-20201120.1807"
 			   ((:url . "https://github.com/emacs-php/php-mode")
 			    (:maintainer "USAMI Kenta" . "tadsan@zonu.me")
 			    (:authors
 			     ("Eric James Michael Ritz"))
 			    (:keywords "languages" "php")
-			    (:commit . "f4c7c6995dadcdc6da5fefadfd362f8418b2eec1"))
+			    (:commit . "7e5722c8854d7465c93765653e6ec0897fb7cc7b"))
 			   nil))
  (persistent-soft #s(package-desc persistent-soft
 				  (20150223 1853)
@@ -690,33 +657,18 @@
 				(:commit . "98a807ed82473eb41c6a201ed7ef816d6bcd67b0"))
 			       nil))
  (markdown-mode #s(package-desc markdown-mode
-				(20200826 42)
+				(20201115 635)
 				"Major mode for Markdown-formatted text"
 				((emacs
 				  (25 1)))
-				nil nil "/home/shun/.emacs.d/elpa/markdown-mode-20200826.42"
+				nil nil "/home/shun/.emacs.d/elpa/markdown-mode-20201115.635"
 				((:url . "https://jblevins.org/projects/markdown-mode/")
 				 (:maintainer "Jason R. Blevins" . "jblevins@xbeta.org")
 				 (:authors
 				  ("Jason R. Blevins" . "jblevins@xbeta.org"))
 				 (:keywords "markdown" "github flavored markdown" "itex")
-				 (:commit . "b7b4eb3e391455545f12d6fe52011127dc0c2541"))
+				 (:commit . "dcad5572a30fce51b97963d3c869cce227c223a1"))
 				nil))
- (magit-popup #s(package-desc magit-popup
-			      (20200719 1015)
-			      "Define prefix-infix-suffix command combos"
-			      ((emacs
-				(24 4))
-			       (dash
-				(2 13 0)))
-			      nil nil "/home/shun/.emacs.d/elpa/magit-popup-20200719.1015"
-			      ((:url . "https://github.com/magit/magit-popup")
-			       (:maintainer "Jonas Bernoulli" . "jonas@bernoul.li")
-			       (:authors
-				("Jonas Bernoulli" . "jonas@bernoul.li"))
-			       (:keywords "bindings")
-			       (:commit . "d8585fa39f88956963d877b921322530257ba9f5"))
-			      nil))
  (macrostep #s(package-desc macrostep
 			    (20161120 2106)
 			    "interactive macro expander"
@@ -738,11 +690,11 @@
 		      (:commit . "87873d788891029d9e44fa5458321d6a05849b94"))
 		     nil))
  (lua-mode #s(package-desc lua-mode
-			   (20200508 1316)
+			   (20201110 1250)
 			   "a major-mode for editing Lua scripts"
 			   ((emacs
 			     (24 3)))
-			   nil nil "/home/shun/.emacs.d/elpa/lua-mode-20200508.1316"
+			   nil nil "/home/shun/.emacs.d/elpa/lua-mode-20201110.1250"
 			   ((:url . "http://immerrr.github.com/lua-mode")
 			    (:maintainer "2011-2013 immerrr" . "immerrr+lua@gmail.com")
 			    (:authors
@@ -756,10 +708,11 @@
 			     ("with tons of assistance from")
 			     ("Paul Du Bois" . "pld-lua@gelatinous.com")
 			     ("Aaron Smith" . "aaron-lua@gelatinous.com"))
-			    (:keywords "languages" "processes" "tools"))
+			    (:keywords "languages" "processes" "tools")
+			    (:commit . "d2ff3045b9694293a302fa60d7bd5d97f2673156"))
 			   nil))
  (lsp-ui #s(package-desc lsp-ui
-			 (20200826 625)
+			 (20201024 2307)
 			 "UI modules for lsp-mode"
 			 ((emacs
 			   (26 1))
@@ -771,16 +724,16 @@
 			   (6 0))
 			  (markdown-mode
 			   (2 3)))
-			 nil nil "/home/shun/.emacs.d/elpa/lsp-ui-20200826.625"
+			 nil nil "/home/shun/.emacs.d/elpa/lsp-ui-20201024.2307"
 			 ((:url . "https://github.com/emacs-lsp/lsp-ui")
 			  (:maintainer "Sebastien Chapuis <sebastien@chapu.is>, Fangrui Song" . "i@maskray.me")
 			  (:authors
 			   ("Sebastien Chapuis <sebastien@chapu.is>, Fangrui Song" . "i@maskray.me"))
 			  (:keywords "languages" "tools")
-			  (:commit . "c3d816dacafd7a1393f9ac6499218a46b07d9514"))
+			  (:commit . "b1693d610c4d2c44305eba2719e8d4097fdcdcb8"))
 			 nil))
  (lsp-mode #s(package-desc lsp-mode
-			   (20200826 525)
+			   (20201121 731)
 			   "LSP mode"
 			   ((emacs
 			     (26 1))
@@ -798,13 +751,13 @@
 			     (2 3))
 			    (lv
 			     (0)))
-			   nil nil "/home/shun/.emacs.d/elpa/lsp-mode-20200826.525"
+			   nil nil "/home/shun/.emacs.d/elpa/lsp-mode-20201121.731"
 			   ((:url . "https://github.com/emacs-lsp/lsp-mode")
 			    (:maintainer "Vibhav Pant, Fangrui Song, Ivan Yonchovski")
 			    (:authors
 			     ("Vibhav Pant, Fangrui Song, Ivan Yonchovski"))
 			    (:keywords "languages")
-			    (:commit . "9e692903e70cc3dc662da732e20ce0ec9a987fe9"))
+			    (:commit . "92919ff1f464ada520b41d2fb537c0b237e23254"))
 			   nil))
  (logito #s(package-desc logito
 			 (20120225 2055)
@@ -841,29 +794,17 @@
  (lex #s(package-desc lex
 		      (1 1)
 		      "Lexical analyser construction" nil nil nil "/home/shun/.emacs.d/elpa/lex-1.1" nil t))
- (jsonrpc #s(package-desc jsonrpc
-			  (1 0 12)
-			  "JSON-RPC library"
-			  ((emacs
-			    (25 2)))
-			  nil nil "/home/shun/.emacs.d/elpa/jsonrpc-1.0.12"
-			  ((:maintainer "João Távora" . "joaotavora@gmail.com")
-			   (:authors
-			    ("João Távora" . "joaotavora@gmail.com"))
-			   (:keywords "processes" "languages" "extensions")
-			   (:url . "http://elpa.gnu.org/packages/jsonrpc.html"))
-			  t))
  (json-snatcher #s(package-desc json-snatcher
-				(20150512 347)
+				(20200916 1717)
 				"Grabs the path to JSON values in a JSON file"
 				((emacs
 				  (24)))
-				nil nil "/home/shun/.emacs.d/elpa/json-snatcher-20150512.347"
+				nil nil "/home/shun/.emacs.d/elpa/json-snatcher-20200916.1717"
 				((:url . "http://github.com/sterlingg/json-snatcher")
 				 (:maintainer "Sterling Graham" . "sterlingrgraham@gmail.com")
 				 (:authors
 				  ("Sterling Graham" . "sterlingrgraham@gmail.com"))
-				 (:commit . "c4cecc0a5051bd364373aa499c47a1bb7a5ac51c"))
+				 (:commit . "b28d1c0670636da6db508d03872d96ffddbc10f2"))
 				nil))
  (json-reformat #s(package-desc json-reformat
 				(20160212 853)
@@ -875,23 +816,9 @@
 				 (:keywords "json")
 				 (:commit . "8eb6668ed447988aea06467ba8f42e1f2178246f"))
 				nil))
- (json-mode #s(package-desc json-mode
-			    (20190123 422)
-			    "Major mode for editing JSON files."
-			    ((json-reformat
-			      (0 0 5))
-			     (json-snatcher
-			      (1 0 0)))
-			    nil nil "/home/shun/.emacs.d/elpa/json-mode-20190123.422"
-			    ((:url . "https://github.com/joshwnj/json-mode")
-			     (:maintainer "Josh Johnston")
-			     (:authors
-			      ("Josh Johnston"))
-			     (:commit . "0e819e519ae17a2686e0881c4ca51fa873fa9b83"))
-			    nil))
  (inf-ruby #s(package-desc inf-ruby
-			   (20200730 1456)
-			   "Run a Ruby process in a buffer" nil nil nil "/home/shun/.emacs.d/elpa/inf-ruby-20200730.1456"
+			   (20200826 1458)
+			   "Run a Ruby process in a buffer" nil nil nil "/home/shun/.emacs.d/elpa/inf-ruby-20200826.1458"
 			   ((:url . "http://github.com/nonsequitur/inf-ruby")
 			    (:maintainer "Yukihiro Matsumoto")
 			    (:authors
@@ -901,7 +828,7 @@
 			     ("Dmitry Gutov" . "dgutov@yandex.ru")
 			     ("Kyle Hargraves" . "pd@krh.me"))
 			    (:keywords "languages" "ruby")
-			    (:commit . "9f0f79ff459c7c417e8931ca020db121e24b45b5"))
+			    (:commit . "b0124578db09b64902c8ca981b02e74bec92ef36"))
 			   nil))
  (idris-mode #s(package-desc idris-mode
 			     (20200522 808)
@@ -917,16 +844,16 @@
 			      (:keywords "languages"))
 			     nil))
  (ht #s(package-desc ht
-		     (20200217 2331)
+		     (20201119 518)
 		     "The missing hash table library for Emacs"
 		     ((dash
 		       (2 12 0)))
-		     nil nil "/home/shun/.emacs.d/elpa/ht-20200217.2331"
+		     nil nil "/home/shun/.emacs.d/elpa/ht-20201119.518"
 		     ((:maintainer "Wilfred Hughes" . "me@wilfred.me.uk")
 		      (:authors
 		       ("Wilfred Hughes" . "me@wilfred.me.uk"))
 		      (:keywords "hash table" "hash map" "hash")
-		      (:commit . "fff8c43f0e03d5b98deb9f988522b839ce2ca253"))
+		      (:commit . "2850301d19176b8d3bb6cc8d95af6ab7e529bd56"))
 		     nil))
  (hcl-mode #s(package-desc hcl-mode
 			   (20200315 2129)
@@ -941,53 +868,40 @@
 			    (:commit . "c3d1158ad1a64f06aa8986ab1cdea6b7fbdd4bf7"))
 			   nil))
  (haskell-mode #s(package-desc haskell-mode
-			       (20200825 629)
+			       (20201120 755)
 			       "A Haskell editing mode"
 			       ((emacs
 				 (25 1)))
-			       nil nil "/home/shun/.emacs.d/elpa/haskell-mode-20200825.629"
+			       nil nil "/home/shun/.emacs.d/elpa/haskell-mode-20201120.755"
 			       ((:url . "https://github.com/haskell/haskell-mode")
 				(:keywords "haskell" "cabal" "ghc" "repl")
-				(:commit . "e688ed4e265aeea61f38835359e55f7df1ffdd65"))
+				(:commit . "0d39c847fddddc5b76fe3c706e34ab45439760bc"))
 			       nil))
  (go-mode #s(package-desc go-mode
-			  (20200822 1936)
-			  "Major mode for the Go programming language" nil nil nil "/home/shun/.emacs.d/elpa/go-mode-20200822.1936"
+			  (20201114 2231)
+			  "Major mode for the Go programming language" nil nil nil "/home/shun/.emacs.d/elpa/go-mode-20201114.2231"
 			  ((:url . "https://github.com/dominikh/go-mode.el")
 			   (:maintainer "The go-mode Authors")
 			   (:authors
 			    ("The go-mode Authors"))
 			   (:keywords "languages" "go")
-			   (:commit . "d17d21060b16a77f9ee28ff453e674225acbf1b1"))
+			   (:commit . "5186c83e5691932d208fafedf9a1a5ade369eb24"))
 			  nil))
  (global-tags #s(package-desc global-tags
-			      (20200520 1816)
+			      (20200928 1929)
 			      "Elisp API and editor integration for GNU global"
 			      ((emacs
-				(26 1)))
-			      nil nil "/home/shun/.emacs.d/elpa/global-tags-20200520.1816"
+				(26 1))
+			       (async
+				(1 9 4)))
+			      nil nil "/home/shun/.emacs.d/elpa/global-tags-20200928.1929"
 			      ((:url . "https://launchpad.net/global-tags.el")
 			       (:maintainer "Felipe Lema" . "felipelema@mortemale.org")
 			       (:authors
 				("Felipe Lema" . "felipelema@mortemale.org"))
 			       (:keywords "convenience" "matching" "tools")
-			       (:commit . "f3c93828ab08895bf7eac8a2d3bfd949303a6d1f"))
+			       (:commit . "111f134c9623723a9a4ba372caaa14288cf935d7"))
 			      nil))
- (gitlab-ci-mode #s(package-desc gitlab-ci-mode
-				 (20191022 2017)
-				 "Mode for editing GitLab CI files"
-				 ((emacs
-				   (25 1))
-				  (yaml-mode
-				   (0 0 12)))
-				 nil nil "/home/shun/.emacs.d/elpa/gitlab-ci-mode-20191022.2017"
-				 ((:url . "https://gitlab.com/joewreschnig/gitlab-ci-mode/")
-				  (:maintainer "Joe Wreschnig")
-				  (:authors
-				   ("Joe Wreschnig"))
-				  (:keywords "tools" "vc")
-				  (:commit . "c861dc5fa17d380d5c3aca99dc3bbec5eee623bc"))
-				 nil))
  (git-gutter-fringe #s(package-desc git-gutter-fringe
 				    (20200323 2249)
 				    "Fringe version of git-gutter.el"
@@ -1007,16 +921,16 @@
 				     (:commit . "da19a474137876b29b5658ee7e9ae366f2b65c1d"))
 				    nil))
  (git-gutter #s(package-desc git-gutter
-			     (20200326 1814)
+			     (20201029 647)
 			     "Port of Sublime Text plugin GitGutter"
 			     ((emacs
 			       (24 3)))
-			     nil nil "/home/shun/.emacs.d/elpa/git-gutter-20200326.1814"
+			     nil nil "/home/shun/.emacs.d/elpa/git-gutter-20201029.647"
 			     ((:url . "https://github.com/emacsorphanage/git-gutter")
 			      (:maintainer "Neil Okamoto" . "neil.okamoto+melpa@gmail.com")
 			      (:authors
 			       ("Syohei YOSHIDA" . "syohex@gmail.com"))
-			      (:commit . "2c3242116a42dbbe30fc0844d1ec3c41074cdaba"))
+			      (:commit . "db0e794fa97e4c902bbdf51b234cb68c993c71ae"))
 			     nil))
  (gist #s(package-desc gist
 		       (20171128 406)
@@ -1202,7 +1116,7 @@
 				  (:commit . "8707a7bf545a8639a6a5c600a98d9a2ea1487dc9"))
 				 nil))
  (flycheck-haskell #s(package-desc flycheck-haskell
-				   (20200218 753)
+				   (20200927 1603)
 				   "Flycheck: Automatic Haskell configuration"
 				   ((emacs
 				     (24 3))
@@ -1216,12 +1130,13 @@
 				     (1 11))
 				    (let-alist
 					(1 0 1)))
-				   nil nil "/home/shun/.emacs.d/elpa/flycheck-haskell-20200218.753"
+				   nil nil "/home/shun/.emacs.d/elpa/flycheck-haskell-20200927.1603"
 				   ((:url . "https://github.com/flycheck/flycheck-haskell")
 				    (:maintainer "Sebastian Wiesner" . "swiesner@lunaryorn.com")
 				    (:authors
 				     ("Sebastian Wiesner" . "swiesner@lunaryorn.com"))
-				    (:keywords "tools" "convenience"))
+				    (:keywords "tools" "convenience")
+				    (:commit . "f04842252babd37c0ac60e069272a3477b538332"))
 				   nil))
  (flycheck-ats2 #s(package-desc flycheck-ats2
 				(20170225 1636)
@@ -1239,7 +1154,7 @@
 				 (:commit . "9f77add8408462af35bdddf87e37a661880255e3"))
 				nil))
  (flycheck #s(package-desc flycheck
-			   (20200820 1403)
+			   (20201105 423)
 			   "On-the-fly syntax checking"
 			   ((dash
 			     (2 12 1))
@@ -1251,13 +1166,13 @@
 			     (1 11))
 			    (emacs
 			     (24 3)))
-			   nil nil "/home/shun/.emacs.d/elpa/flycheck-20200820.1403"
+			   nil nil "/home/shun/.emacs.d/elpa/flycheck-20201105.423"
 			   ((:url . "http://www.flycheck.org")
 			    (:maintainer "Clément Pit-Claudel" . "clement.pitclaudel@live.com")
 			    (:authors
 			     ("Sebastian Wiesner" . "swiesner@lunaryorn.com"))
 			    (:keywords "convenience" "languages" "tools")
-			    (:commit . "806f2a8c21231a0dddd0a48d27fa4021729ee365"))
+			    (:commit . "79c9245ee0bd1722d41c865fef69aa2b1ac08fde"))
 			   nil))
  (f #s(package-desc f
 		    (20191110 1357)
@@ -1275,11 +1190,13 @@
 		     (:commit . "1814209e2ff43cf2e6d38c4cd476218915f550fb"))
 		    nil))
  (erlang #s(package-desc erlang
-			 (20200519 530)
+			 (20201112 1915)
 			 "Erlang major mode"
 			 ((emacs
 			   (24 1)))
-			 nil nil "/home/shun/.emacs.d/elpa/erlang-20200519.530" nil nil))
+			 nil nil "/home/shun/.emacs.d/elpa/erlang-20201112.1915"
+			 ((:commit . "12032c35b6810473c9b9d3fdcf48b016894cf975"))
+			 nil))
  (epl #s(package-desc epl
 		      (20180205 2049)
 		      "Emacs Package Library"
@@ -1345,12 +1262,12 @@
 			    (:commit . "3f10c611fa15eb0b3de0190a87030bc2d78bfa2c"))
 			   nil))
  (eldoc-eval #s(package-desc eldoc-eval
-			     (20190423 1858)
-			     "Enable eldoc support when minibuffer is in use." nil nil nil "/home/shun/.emacs.d/elpa/eldoc-eval-20190423.1858"
+			     (20200902 1339)
+			     "Enable eldoc support when minibuffer is in use." nil nil nil "/home/shun/.emacs.d/elpa/eldoc-eval-20200902.1339"
 			     ((:maintainer "Thierry Volpiatto" . "thierry.volpiatto@gmail.com")
 			      (:authors
 			       ("Thierry Volpiatto" . "thierry.volpiatto@gmail.com"))
-			      (:commit . "a67fe3637378dcb6c5f9e140acc8131f0d2346b3"))
+			      (:commit . "5ecafc2b3d3e712c96dcdbcff0cbe43f1b6fed3d"))
 			     nil))
  (dockerfile-mode #s(package-desc dockerfile-mode
 				  (20200106 2126)
@@ -1377,31 +1294,6 @@
 				 ("Mario Rodas" . "marsam@users.noreply.github.com"))
 				(:keywords "docker" "convenience"))
 			       nil))
- (docker #s(package-desc docker
-			 (20200610 715)
-			 "Emacs interface to Docker"
-			 ((dash
-			   (2 14 1))
-			  (docker-tramp
-			   (0 1))
-			  (emacs
-			   (24 5))
-			  (json-mode
-			   (1 7 0))
-			  (s
-			   (1 12 0))
-			  (tablist
-			   (0 70))
-			  (transient
-			   (0 2 0)))
-			 nil nil "/home/shun/.emacs.d/elpa/docker-20200610.715"
-			 ((:url . "https://github.com/Silex/docker.el")
-			  (:maintainer "Philippe Vaucher" . "philippe.vaucher@gmail.com")
-			  (:authors
-			   ("Philippe Vaucher" . "philippe.vaucher@gmail.com"))
-			  (:keywords "filename" "convenience")
-			  (:commit . "3773112eea3fc99704b5ca50c1e9a3db2cb8e4f3"))
-			 nil))
  (diminish #s(package-desc diminish
 			   (20191127 1326)
 			   "Diminished modes are minor modes with no modeline display"
@@ -1520,38 +1412,28 @@
 				     (:commit . "5e676ab0c2f287c868b1e3931afd4c78895910cd"))
 				    nil))
  (company #s(package-desc company
-			  (20200825 2127)
+			  (20201120 1115)
 			  "Modular text completion framework"
 			  ((emacs
 			    (24 3)))
-			  nil nil "/home/shun/.emacs.d/elpa/company-20200825.2127"
+			  nil nil "/home/shun/.emacs.d/elpa/company-20201120.1115"
 			  ((:url . "http://company-mode.github.io/")
 			   (:maintainer "Dmitry Gutov" . "dgutov@yandex.ru")
 			   (:authors
 			    ("Nikolaj Schumacher"))
 			   (:keywords "abbrev" "convenience" "matching")
-			   (:commit . "d6df27f1652ae56178ce64b9c1022ec90c850e1a"))
+			   (:commit . "97cfbc3967c195fb4ccb171735b9b1dea97e681a"))
 			  nil))
  (cmake-mode #s(package-desc cmake-mode
-			     (20190710 1319)
+			     (20201119 1544)
 			     "major-mode for editing CMake sources"
 			     ((emacs
 			       (24 1)))
-			     nil nil "/home/shun/.emacs.d/elpa/cmake-mode-20190710.1319"
-			     ((:commit . "1b8fdad269711da81a4f93526247e14057d7c0c7"))
+			     nil nil "/home/shun/.emacs.d/elpa/cmake-mode-20201119.1544"
+			     ((:commit . "4c67c0d28f3c136a3967d572f0d5594b0ab2fe08"))
 			     nil))
- (clojure-mode #s(package-desc clojure-mode
-			       (20200813 639)
-			       "Major mode for Clojure code"
-			       ((emacs
-				 (25 1)))
-			       nil nil "/home/shun/.emacs.d/elpa/clojure-mode-20200813.639"
-			       ((:url . "http://github.com/clojure-emacs/clojure-mode")
-				(:keywords "languages" "clojure" "clojurescript" "lisp")
-				(:commit . "84ed16c5ddb6561620886485e20669d0c81f88a1"))
-			       nil))
  (cargo #s(package-desc cargo
-			(20200825 1811)
+			(20200826 1537)
 			"Emacs Minor Mode for Cargo, Rust's Package Manager."
 			((emacs
 			  (24 3))
@@ -1559,12 +1441,12 @@
 			  (0 2 0))
 			 (markdown-mode
 			  (2 4)))
-			nil nil "/home/shun/.emacs.d/elpa/cargo-20200825.1811"
+			nil nil "/home/shun/.emacs.d/elpa/cargo-20200826.1537"
 			((:maintainer "Kevin W. van Rooijen" . "kevin.van.rooijen@attichacker.com")
 			 (:authors
 			  ("Kevin W. van Rooijen" . "kevin.van.rooijen@attichacker.com"))
 			 (:keywords "tools")
-			 (:commit . "f777da4463045076fb532bf8f28323f75c9f7d5e"))
+			 (:commit . "91ccfef6e36ff9e96352a03c4a057b5ee181438d"))
 			nil))
  (caml #s(package-desc caml
 		       (20190413 1205)
@@ -1577,13 +1459,13 @@
 			(:keywords "ocaml"))
 		       nil))
  (c-eldoc #s(package-desc c-eldoc
-			  (20181109 439)
-			  "helpful description of the arguments to C functions" nil nil nil "/home/shun/.emacs.d/elpa/c-eldoc-20181109.439"
+			  (20201004 2347)
+			  "helpful description of the arguments to C functions" nil nil nil "/home/shun/.emacs.d/elpa/c-eldoc-20201004.2347"
 			  ((:url . "http://github.com/nflath/c-eldoc")
 			   (:maintainer "Nathaniel Flath" . "flat0103@gmail.com")
 			   (:authors
 			    ("Nathaniel Flath" . "flat0103@gmail.com"))
-			   (:commit . "e35c0e40f71c25804919f6c01fd27e95c2e2adb7"))
+			   (:commit . "f4ede1f37f6de583376669735326367d84a0a917"))
 			  nil))
  (bind-key #s(package-desc bind-key
 			   (20200805 1727)
@@ -1596,33 +1478,33 @@
 			    (:commit . "4fb1f9a68f1e7e7d614652afc017a6652fd029f1"))
 			   nil))
  (auto-highlight-symbol #s(package-desc auto-highlight-symbol
-					(20130313 943)
-					"Automatic highlighting current symbol minor mode" nil nil nil "/home/shun/.emacs.d/elpa/auto-highlight-symbol-20130313.943"
-					((:url . "http://github.com/gennad/auto-highlight-symbol/raw/master/auto-highlight-symbol.el")
-					 (:maintainer "Mitsuo Saito" . "arch320@NOSPAM.gmail.com")
+					(20201018 1340)
+					"Automatic highlighting current symbol minor mode" nil nil nil "/home/shun/.emacs.d/elpa/auto-highlight-symbol-20201018.1340"
+					((:url . "http://github.com/jcs-elpa/auto-highlight-symbol")
+					 (:maintainer "Shen, Jen-Chieh" . "jcs090218@gmail.com")
 					 (:authors
 					  ("Mitsuo Saito" . "arch320@NOSPAM.gmail.com"))
 					 (:keywords "highlight" "face" "match" "convenience")
-					 (:commit . "26573de912d760e04321b350897aea70958cee8b"))
+					 (:commit . "0982390f19fee3c05856b9e4e40056dce4c4020d"))
 					nil))
  (auto-complete #s(package-desc auto-complete
-				(20200823 1758)
+				(20201011 1341)
 				"Auto Completion for GNU Emacs"
 				((popup
 				  (0 5 0))
 				 (cl-lib
 				  (0 5)))
-				nil nil "/home/shun/.emacs.d/elpa/auto-complete-20200823.1758"
-				((:commit . "80725ae176f88e461044cb0a307cb0b0e94b67ad"))
+				nil nil "/home/shun/.emacs.d/elpa/auto-complete-20201011.1341"
+				((:commit . "51a2ea092d280ec4956dc4a104467f8b83b5e0de"))
 				nil))
  (auctex #s(package-desc auctex
-			 (12 2 4)
+			 (12 3 1)
 			 "Integrated environment for *TeX*"
 			 ((emacs
 			   (24 1))
 			  (cl-lib
 			   (0 5)))
-			 nil nil "/home/shun/.emacs.d/elpa/auctex-12.2.4"
+			 nil nil "/home/shun/.emacs.d/elpa/auctex-12.3.1"
 			 ((:url . "http://www.gnu.org/software/auctex/")
 			  (:maintainer nil . "auctex-devel@gnu.org")
 			  (:keywords "tex" "latex" "texinfo" "context" "doctex" "preview-latex"))
