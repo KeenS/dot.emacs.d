@@ -763,11 +763,6 @@
                           (setq-default company-go-insert-arguments nil)
                           (add-to-list 'company-backend 'company-go)
                           (eldoc-mode 1)))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; #JSON
-(eval-after-load 'flycheck
-  '(setq flycheck-json-python-json-executable "python3"))
 
 
 
@@ -803,4 +798,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(php-mode global-tags lua-mode npm-mode tss sr-speedbar eglot clang-format rust-auto-use sql-indent yascroll yaml-mode web-mode wakatime-mode utop use-package unicode-fonts twittering-mode tuareg toml-mode thrift terraform-mode sml-mode slime-company ruby-electric robe racer qml-mode px popup-complete paredit nginx-mode nasm-mode lsp-ui lsp-rust lex idris-mode go-mode git-gutter-fringe gist ghci-completion fold-this flymake-yaml flymake-shell flymake-ruby flymake-haskell-multi flycheck-tcl flycheck-rust flycheck-ocaml flycheck-haskell flycheck-ghcmod flycheck-ats2 erlang ensime emmet-mode elm-mode eldoc-eval dockerfile-mode docker diminish deferred csv-mode css-eldoc company-ghc company-coq company-c-headers cmake-mode cargo c-eldoc auto-highlight-symbol auto-complete auctex alect-themes adoc-mode)))
+   '(typescript-mode php-mode global-tags lua-mode npm-mode sr-speedbar eglot clang-format rust-auto-use sql-indent yascroll yaml-mode web-mode wakatime-mode utop use-package unicode-fonts twittering-mode tuareg toml-mode thrift terraform-mode sml-mode slime-company ruby-electric robe racer qml-mode px popup-complete paredit nginx-mode nasm-mode lsp-ui lsp-rust lex idris-mode go-mode git-gutter-fringe gist ghci-completion fold-this flymake-yaml flymake-shell flymake-ruby flymake-haskell-multi flycheck-tcl flycheck-rust flycheck-ocaml flycheck-haskell flycheck-ghcmod flycheck-ats2 erlang ensime emmet-mode elm-mode eldoc-eval dockerfile-mode diminish deferred csv-mode css-eldoc company-ghc company-coq company-c-headers cmake-mode cargo c-eldoc auto-highlight-symbol auto-complete auctex alect-themes adoc-mode)))
