@@ -25,3 +25,5 @@ ensime
 url
 .org-id-locations
 .lsp-session*
+network-security.data
+package-quickstart.el
