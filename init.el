@@ -648,42 +648,26 @@
 
 (use-package lsp-mode
   :ensure t
-  :config
-  (define-key lsp-mode-map (kbd "C-c h") #'lsp-describe-thing-at-point))
+  :hook (rust-mode . lsp)
+  :bind ("C-c h" . lsp-describe-thing-at-point)
+  :custom
+  (lsp-rust-server 'rust-analyzer))
 (use-package lsp-ui
-  ; :custom
-  ; (lsp-ui-doc-position 'at-point)
-  )
+  :ensure t)
 
-;; (require 'eglot)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #rust
 
-(eval-after-load "rust-mode"
-  '(progn
-     (setq-default rust-format-on-save t)))
-(add-hook 'rust-mode-hook (lambda () (cargo-minor-mode)))
-(add-hook 'rust-mode-hook (lambda () (if (my-project-try-cargo-toml ())
-                                     (lsp)
-                                   (racer-mode))))
-(use-package lsp-rust
-  :custom
-  (lsp-rust-server 'rust-analyzer))
-(add-hook 'racer-mode-hook #'eldoc-mode)
-(eval-after-load "racer-mode"
-  '(progn
-     (define-key racer-mode-map (kbd "C-c h") #'racer-describe)))
+(use-package cargo
+  :ensure t
+  :hook (rust-mode . cargo-minor-mode))
 
-(defun my-project-try-cargo-toml (_)
-  (let (dir)
-    (ignore-errors
-      (let* ((output (shell-command-to-string "cargo metadata --no-deps --format-version 1"))
-	     (js (json-read-from-string output)))
-	(setq dir (cdr (assq 'workspace_root js)))))
-    (and dir (cons 'transient  dir))))
-(add-hook 'project-find-functions 'my-project-try-cargo-toml nil nil)
+(use-package rust-mode
+  :ensure t
+  :custom
+  rust-format-on-save t)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
