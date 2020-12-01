@@ -72,10 +72,6 @@
 ;;; #package
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(add-hook 'after-init-hook #'package-initialize)
-(when (not package-archive-contents)
-  (package-refresh-contents)
-  (package-install 'use-package))
 (setq package-quickstart t)
 (require 'use-package)
 
