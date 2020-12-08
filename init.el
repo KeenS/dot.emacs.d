@@ -675,11 +675,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #sml
 
+(autoload #'company-mlton-init "company-mlton" nil t)
+
 (add-to-list 'auto-mode-alist '("\\.ppg$" . sml-mode))
 (add-to-list 'auto-mode-alist '("\\.smi$" . sml-mode))
 (add-hook 'sml-mode-hook (lambda ()
                            (prettify-symbols-mode t)
+                           (company-mlton-init)
                            ))
+
 
 
 (require 'flymake)
