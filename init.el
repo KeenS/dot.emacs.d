@@ -227,6 +227,9 @@
                               (delete 'company-preview-if-just-one-frontend company-frontends)
                               (define-key company-active-map (kbd "C-h") 'backward-delete-char)))
 
+(use-package company-quickhelp
+  :ensure t
+  :config (company-quickhelp-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #irc #erc
