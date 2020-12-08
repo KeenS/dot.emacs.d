@@ -13,3 +13,6 @@
 [submodule "lisp/cssfmt.el"]
 	path = lisp/stylefmt.el
 	url = git@github.com:KeenS/cssfmt.el.git
+[submodule "lisp/company-mlton"]
+	path = lisp/company-mlton
+	url = https://github.com/MatthewFluet/company-mlton.git

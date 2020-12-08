@@ -24,7 +24,6 @@
                      "~/.lein/bin/"
                      "~/.shelly/bin/"
                      "~/.cabal/bin/"
-                     "~/.cargo/bin/"
                      "~/.opam/system/bin/"
                      "~/Go/bin/"))
        exec-path))
