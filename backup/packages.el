@@ -176,17 +176,17 @@
 			  (:keywords "ocaml" "languages"))
 			 nil))
  (transient #s(package-desc transient
-			    (20201114 1825)
+			    (20201205 1610)
 			    "Transient commands"
 			    ((emacs
 			      (25 1)))
-			    nil nil "/home/shun/.emacs.d/elpa/transient-20201114.1825"
+			    nil nil "/home/shun/.emacs.d/elpa/transient-20201205.1610"
 			    ((:url . "https://github.com/magit/transient")
 			     (:maintainer "Jonas Bernoulli" . "jonas@bernoul.li")
 			     (:authors
 			      ("Jonas Bernoulli" . "jonas@bernoul.li"))
 			     (:keywords "bindings")
-			     (:commit . "8b22b52b838a26df915c0aedd5804ec9fc0fccff"))
+			     (:commit . "0d79ccfaf899f6192151d1191fbc234795489923"))
 			    nil))
  (toml-mode #s(package-desc toml-mode
 			    (20161107 1800)
@@ -355,17 +355,17 @@
 		     (:commit . "03410e6a7a2b11e47e1fea3b7d9899c7df26435e"))
 		    nil))
  (rust-mode #s(package-desc rust-mode
-			    (20200709 723)
+			    (20201204 1527)
 			    "A major emacs mode for editing Rust source code"
 			    ((emacs
 			      (25 1)))
-			    nil nil "/home/shun/.emacs.d/elpa/rust-mode-20200709.723"
+			    nil nil "/home/shun/.emacs.d/elpa/rust-mode-20201204.1527"
 			    ((:url . "https://github.com/rust-lang/rust-mode")
 			     (:maintainer "Mozilla")
 			     (:authors
 			      ("Mozilla"))
 			     (:keywords "languages")
-			     (:commit . "ca7d99c6fd90fc1e636aa9d4020a2f077786a0c3"))
+			     (:commit . "c5c7ed31a2e1106ab4835b135618a34570796dc7"))
 			    nil))
  (ruby-electric #s(package-desc ruby-electric
 				(20200328 1528)
@@ -403,52 +403,6 @@
 			       (:keywords "convenience" "tools")
 			       (:commit . "45c0add95025f53ca644a6c8b9afa05b2da3c474"))
 			      nil))
- (racer #s(package-desc racer
-			(20191001 2344)
-			"code completion, goto-definition and docs browsing for Rust via racer"
-			((emacs
-			  (25 1))
-			 (rust-mode
-			  (0 2 0))
-			 (dash
-			  (2 13 0))
-			 (s
-			  (1 10 0))
-			 (f
-			  (0 18 2))
-			 (pos-tip
-			  (0 4 6)))
-			nil nil "/home/shun/.emacs.d/elpa/racer-20191001.2344"
-			((:url . "https://github.com/racer-rust/emacs-racer")
-			 (:maintainer "Phil Dawes")
-			 (:authors
-			  ("Phil Dawes"))
-			 (:keywords "abbrev" "convenience" "matching" "rust" "tools")
-			 (:commit . "a0bdf778f01e8c4b8a92591447257422ac0b455b"))
-			nil)
-	#s(package-desc racer
-			(20190610 800)
-			"code completion, goto-definition and docs browsing for Rust via racer"
-			((emacs
-			  (24 3))
-			 (rust-mode
-			  (0 2 0))
-			 (dash
-			  (2 13 0))
-			 (s
-			  (1 10 0))
-			 (f
-			  (0 18 2))
-			 (pos-tip
-			  (0 4 6)))
-			nil nil "/home/shun/.emacs.d/elpa/racer-20190610.800"
-			((:url . "https://github.com/racer-rust/emacs-racer")
-			 (:maintainer "Phil Dawes")
-			 (:authors
-			  ("Phil Dawes"))
-			 (:keywords "abbrev" "convenience" "matching" "rust" "tools")
-			 (:commit . "ea6a09c16f8ec646195f942c12fe3ed7d65cc971"))
-			nil))
  (qml-mode #s(package-desc qml-mode
 			   (20161016 31)
 			   "Major mode for editing QT Declarative (QML) code." nil nil nil "/home/shun/.emacs.d/elpa/qml-mode-20161016.31"
@@ -733,7 +687,7 @@
 			  (:commit . "b1693d610c4d2c44305eba2719e8d4097fdcdcb8"))
 			 nil))
  (lsp-mode #s(package-desc lsp-mode
-			   (20201121 731)
+			   (20201206 1844)
 			   "LSP mode"
 			   ((emacs
 			     (26 1))
@@ -751,13 +705,13 @@
 			     (2 3))
 			    (lv
 			     (0)))
-			   nil nil "/home/shun/.emacs.d/elpa/lsp-mode-20201121.731"
+			   nil nil "/home/shun/.emacs.d/elpa/lsp-mode-20201206.1844"
 			   ((:url . "https://github.com/emacs-lsp/lsp-mode")
 			    (:maintainer "Vibhav Pant, Fangrui Song, Ivan Yonchovski")
 			    (:authors
 			     ("Vibhav Pant, Fangrui Song, Ivan Yonchovski"))
 			    (:keywords "languages")
-			    (:commit . "92919ff1f464ada520b41d2fb537c0b237e23254"))
+			    (:commit . "f89e7f2a09bd8a1ae368e856ec5f3d5fed4b57ee"))
 			   nil))
  (logito #s(package-desc logito
 			 (20120225 2055)
@@ -878,29 +832,29 @@
 				(:commit . "0d39c847fddddc5b76fe3c706e34ab45439760bc"))
 			       nil))
  (go-mode #s(package-desc go-mode
-			  (20201114 2231)
-			  "Major mode for the Go programming language" nil nil nil "/home/shun/.emacs.d/elpa/go-mode-20201114.2231"
+			  (20201204 1652)
+			  "Major mode for the Go programming language" nil nil nil "/home/shun/.emacs.d/elpa/go-mode-20201204.1652"
 			  ((:url . "https://github.com/dominikh/go-mode.el")
 			   (:maintainer "The go-mode Authors")
 			   (:authors
 			    ("The go-mode Authors"))
 			   (:keywords "languages" "go")
-			   (:commit . "5186c83e5691932d208fafedf9a1a5ade369eb24"))
+			   (:commit . "fdf46fe0e110a8e0dddb5aac4ab20a93ee9c5d88"))
 			  nil))
  (global-tags #s(package-desc global-tags
-			      (20200928 1929)
+			      (20201204 1812)
 			      "Elisp API and editor integration for GNU global"
 			      ((emacs
 				(26 1))
 			       (async
 				(1 9 4)))
-			      nil nil "/home/shun/.emacs.d/elpa/global-tags-20200928.1929"
+			      nil nil "/home/shun/.emacs.d/elpa/global-tags-20201204.1812"
 			      ((:url . "https://launchpad.net/global-tags.el")
 			       (:maintainer "Felipe Lema" . "felipelema@mortemale.org")
 			       (:authors
 				("Felipe Lema" . "felipelema@mortemale.org"))
 			       (:keywords "convenience" "matching" "tools")
-			       (:commit . "111f134c9623723a9a4ba372caaa14288cf935d7"))
+			       (:commit . "5e7738524789d5b95498e3b88621a3877eef5c50"))
 			      nil))
  (git-gutter-fringe #s(package-desc git-gutter-fringe
 				    (20200323 2249)
@@ -921,16 +875,16 @@
 				     (:commit . "da19a474137876b29b5658ee7e9ae366f2b65c1d"))
 				    nil))
  (git-gutter #s(package-desc git-gutter
-			     (20201029 647)
+			     (20201203 500)
 			     "Port of Sublime Text plugin GitGutter"
 			     ((emacs
 			       (24 3)))
-			     nil nil "/home/shun/.emacs.d/elpa/git-gutter-20201029.647"
+			     nil nil "/home/shun/.emacs.d/elpa/git-gutter-20201203.500"
 			     ((:url . "https://github.com/emacsorphanage/git-gutter")
 			      (:maintainer "Neil Okamoto" . "neil.okamoto+melpa@gmail.com")
 			      (:authors
 			       ("Syohei YOSHIDA" . "syohex@gmail.com"))
-			      (:commit . "db0e794fa97e4c902bbdf51b234cb68c993c71ae"))
+			      (:commit . "56308dc1a1196583791cb24aa86b2669d343b9f3"))
 			     nil))
  (gist #s(package-desc gist
 		       (20171128 406)
@@ -1270,15 +1224,13 @@
 			      (:commit . "5ecafc2b3d3e712c96dcdbcff0cbe43f1b6fed3d"))
 			     nil))
  (dockerfile-mode #s(package-desc dockerfile-mode
-				  (20200106 2126)
+				  (20201208 1348)
 				  "Major mode for editing Docker's Dockerfiles"
 				  ((emacs
-				    (24))
-				   (s
-				    (1 12)))
-				  nil nil "/home/shun/.emacs.d/elpa/dockerfile-mode-20200106.2126"
+				    (24)))
+				  nil nil "/home/shun/.emacs.d/elpa/dockerfile-mode-20201208.1348"
 				  ((:url . "https://github.com/spotify/dockerfile-mode")
-				   (:commit . "d31f7685ebc5832d957e25070a930aa42984327d"))
+				   (:commit . "6a56c1cc1713b501040b08fdbf0c4159a4fe95f9"))
 				  nil))
  (docker-tramp #s(package-desc docker-tramp
 			       (20170207 325)
@@ -1341,13 +1293,13 @@
 			(:commit . "b92ab5a39b987e4fe69317b9d9fda452300baf20"))
 		       nil))
  (csv-mode #s(package-desc csv-mode
-			   (1 12)
+			   (1 13)
 			   "Major mode for editing comma/char separated values"
 			   ((emacs
 			     (24 1))
 			    (cl-lib
 			     (0 5)))
-			   nil nil "/home/shun/.emacs.d/elpa/csv-mode-1.12"
+			   nil nil "/home/shun/.emacs.d/elpa/csv-mode-1.13"
 			   ((:maintainer nil . "emacs-devel@gnu.org")
 			    (:authors
 			     ("\"Francis J. Wright\"" . "F.J.Wright@qmul.ac.uk"))
@@ -1361,6 +1313,23 @@
 			     (:authors
 			      ("Zeno Zeng" . "zenoes@qq.com")))
 			    nil))
+ (company-quickhelp #s(package-desc company-quickhelp
+				    (20200714 1611)
+				    "Popup documentation for completion candidates"
+				    ((emacs
+				      (24 3))
+				     (company
+				      (0 8 9))
+				     (pos-tip
+				      (0 4 6)))
+				    nil nil "/home/shun/.emacs.d/elpa/company-quickhelp-20200714.1611"
+				    ((:url . "https://www.github.com/expez/company-quickhelp")
+				     (:maintainer "Lars Andersen" . "expez@expez.com")
+				     (:authors
+				      ("Lars Andersen" . "expez@expez.com"))
+				     (:keywords "company" "popup" "documentation" "quickhelp")
+				     (:commit . "5a86731de461142db3b7ca26b4681756edb4b773"))
+				    nil))
  (company-math #s(package-desc company-math
 			       (20200131 2337)
 			       "Completion backends for unicode math symbols and latex tags"
