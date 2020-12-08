@@ -69,10 +69,11 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #package
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(setq package-quickstart t)
-(require 'use-package)
+(eval-after-load 'package
+  '(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/")))
+
+(eval-when-compile '(use-package))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; #keybind
