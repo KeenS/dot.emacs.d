@@ -650,10 +650,10 @@
 
 (use-package lsp-mode
   :ensure t
+  :init (yas-global-mode)
   :hook (rust-mode . lsp)
-  :bind ("C-c h" . lsp-describe-thing-at-point)
-  :custom
-  (lsp-rust-server 'rust-analyzer))
+  :bind ("C-c h" . lsp-describe-thing-at-point))
+
 (use-package lsp-ui
   :ensure t)
 
