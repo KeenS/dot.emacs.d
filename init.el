@@ -378,7 +378,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; #Web #Mail
-(setq-default eww-search-prefix "https://www.google.co.jp/search?q=")
+(setq-default eww-search-prefix "https://www.duckduckgo.com/search?q=")
 (autoload #'eww-list-bookmarks "eww" nil t)
 ;;;メール設定
 (setq user-mail-address "3han5chou7@gmail.com")
