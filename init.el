@@ -789,6 +789,17 @@
 (setq-default wakatime-cli-path "/usr/local/bin/wakatime")
 (load (expand-file-name "~/.wakatime.el"))
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; #wgsl
+(require 'wgsl-mode)
+(add-to-list 'lsp-language-id-configuration '(wgsl-mode . "wgsl"))
+(lsp-register-client
+ (make-lsp-client :new-connection (lsp-stdio-connection "wgsl_analyzer")
+                  :activation-fn (lsp-activate-on "wgsl")
+                  :server-id 'wgsl-analyzer))
+
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
