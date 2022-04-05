@@ -140,6 +140,11 @@
 ;; スクロールバーを消す
 (scroll-bar-mode -1)
 (horizontal-scroll-bar-mode -1)
+(setq mouse-wheel-scroll-amount
+      '(5
+        ((shift) . hscroll)
+        ((meta) . nil)
+        ((control) . text-scale)))
 ;; 主張しないスクロールバーを使う
 (use-package yascroll :ensure t)
 (global-yascroll-bar-mode +1)
