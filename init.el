@@ -164,7 +164,7 @@
 ;; ビーブ音を鳴らさない
 (setq ring-bell-function 'ignore)
 ;; yes or noを全てy or nに
-(fset 'yes-or-no-p #'y-or-n-p)
+(setq use-short-answers 't)
 ;; C-x C-f のデフォルトをポイントに応じて変更する
 (ffap-bindings)
 ;; windowサイズが100桁以上なら左右に分割、それ以外なら上下に分割。
