@@ -27,3 +27,4 @@ url
 .lsp-session*
 network-security.data
 package-quickstart.el
+.cache
