@@ -762,7 +762,6 @@
 (add-hook 'go-mode-hook (lambda ()
                           (load "~/Go/src/github.com/nsf/gocode/emacs-company/company-go.el" nil t)
                           (load "~/Go/src/github.com/nsf/gocode/emacs/go-autocomplete.el" nil t)
-                          (require 'auto-complete-config)
                           (ac-config-default)
                           (setq-default company-go-show-annotation t)
                           (setq-default company-go-insert-arguments nil)
