@@ -650,19 +650,6 @@
 (put 'capitalize-region 'disabled nil)
 
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; #lsp
-
-(use-package lsp-mode
-  :ensure t
-  :init (yas-global-mode)
-  :hook (rust-mode . lsp)
-  :bind ("C-c h" . lsp-describe-thing-at-point))
-
-(use-package lsp-ui
-  :ensure t)
-
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -676,6 +663,32 @@
   :ensure t
   :custom
   rust-format-on-save t)
+
+(defun cargo-project-p (_)
+  (let (dir)
+    (ignore-errors
+      (let* ((output (shell-command-to-string "cargo metadata --no-deps --format-version 1"))
+	     (js (json-read-from-string output)))
+	(setq dir (cdr (assq 'workspace_root js)))))
+    (and dir (cons 'transient  dir))))
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; #lsp
+
+(use-package lsp-mode
+  :ensure t
+  :init (yas-global-mode)
+  :hook (rust-mode . (lambda () (if (cargo-project-p ()) (lsp))))
+  :bind ("C-c h" . lsp-describe-thing-at-point))
+
+(use-package lsp-ui
+  :ensure t)
+
+(use-package lsp-treemacs
+  :ensure t
+  :hook (lsp-mode . (lambda () (lsp-treemacs-sync-mode 1))))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
